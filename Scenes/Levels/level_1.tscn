@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=6 format=3 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="1_4dpyx"]
+[ext_resource type="Texture2D" uid="uid://deqhg3pr4ow3l" path="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/EsgotoCano2.png" id="1_iixi8"]
 [ext_resource type="Texture2D" uid="uid://ck4j4j0duml8j" path="res://Artwork/Sprites/chao.png" id="2_3mqfk"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="3_3mqfk"]
 
@@ -8,6 +9,10 @@
 size = Vector2(354, 20)
 
 [node name="Level1" type="Node2D"]
+
+[node name="EsgotoCano2" type="Sprite2D" parent="."]
+position = Vector2(288, 131)
+texture = ExtResource("1_iixi8")
 
 [node name="Player" parent="." instance=ExtResource("1_4dpyx")]
 position = Vector2(34, 51)
