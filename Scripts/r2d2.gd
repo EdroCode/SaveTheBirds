@@ -88,7 +88,7 @@ func state_patrol(delta):
 		dir = -dir
 		$Rotate.scale.x = -dir
 		velocity.x = dir * SPEED
-		
+		#ola
 	
 	move_and_slide()
 

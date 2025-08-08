@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnj133hdk5a2b"
-path="res://.godot/imported/PlataformaEsgotoFim.png-d43f7cc8a917cc597c6c0b6786b61473.ctex"
+uid="uid://dsodk6a4msmu7"
+path="res://.godot/imported/EsgotoCano.png-0b69b4a3fb7687b01888ed1390d44261.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Sprites/Tilesets Esgoto/PlataformaEsgotoFim.png"
-dest_files=["res://.godot/imported/PlataformaEsgotoFim.png-d43f7cc8a917cc597c6c0b6786b61473.ctex"]
+source_file="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/EsgotoCano.png"
+dest_files=["res://.godot/imported/EsgotoCano.png-0b69b4a3fb7687b01888ed1390d44261.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c51l4pomvjwjb"
-path="res://.godot/imported/PlataformaEsgotoInicio.png-2f471766047162aefc22db0820463c0b.ctex"
+uid="uid://c7kw38cki2fnn"
+path="res://.godot/imported/EsgotoÁguaSuja.png-ed93faf760506e79785d3b3dd8114f61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Sprites/Tilesets Esgoto/PlataformaEsgotoInicio.png"
-dest_files=["res://.godot/imported/PlataformaEsgotoInicio.png-2f471766047162aefc22db0820463c0b.ctex"]
+source_file="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/EsgotoÁguaSuja.png"
+dest_files=["res://.godot/imported/EsgotoÁguaSuja.png-ed93faf760506e79785d3b3dd8114f61.ctex"]
 
 [params]
 

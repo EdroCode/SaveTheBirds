@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddbhwvwh4524v"
-path="res://.godot/imported/PlataformaEsgotoMeio.png-7cabb7b9979064e4cc832e60732a9f6a.ctex"
+uid="uid://wgc0v4ueyt5a"
+path="res://.godot/imported/Bueiro03.png-d842cd094fcf0c53bd3f12cd03a22f52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Sprites/Tilesets Esgoto/PlataformaEsgotoMeio.png"
-dest_files=["res://.godot/imported/PlataformaEsgotoMeio.png-7cabb7b9979064e4cc832e60732a9f6a.ctex"]
+source_file="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/Bueiro03.png"
+dest_files=["res://.godot/imported/Bueiro03.png-d842cd094fcf0c53bd3f12cd03a22f52.ctex"]
 
 [params]
 

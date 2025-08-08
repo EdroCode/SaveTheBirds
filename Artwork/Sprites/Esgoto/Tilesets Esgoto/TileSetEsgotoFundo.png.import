@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6noyl0dsg4k1"
-path="res://.godot/imported/TileSetEsgoto.png-af0a0ee60ef3d387e4fa7aedbdc13078.ctex"
+uid="uid://cjuqaofejlf56"
+path="res://.godot/imported/TileSetEsgotoFundo.png-68b4b9faa3075dd3af47bcf029ef32a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Sprites/Tilesets Esgoto/TileSetEsgoto.png"
-dest_files=["res://.godot/imported/TileSetEsgoto.png-af0a0ee60ef3d387e4fa7aedbdc13078.ctex"]
+source_file="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/TileSetEsgotoFundo.png"
+dest_files=["res://.godot/imported/TileSetEsgotoFundo.png-68b4b9faa3075dd3af47bcf029ef32a7.ctex"]
 
 [params]
 

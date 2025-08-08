@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c56prhgm5ytfx"
-path="res://.godot/imported/TileSetEsgoto2.png-627e1da66274718524d38c7fafe44668.ctex"
+uid="uid://c4sixr8p1k07x"
+path="res://.godot/imported/TileSetEsgotoPiso.png-9c851ccc10924cb3a57589b09e29b5d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Sprites/Tilesets Esgoto/TileSetEsgoto2.png"
-dest_files=["res://.godot/imported/TileSetEsgoto2.png-627e1da66274718524d38c7fafe44668.ctex"]
+source_file="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/TileSetEsgotoPiso.png"
+dest_files=["res://.godot/imported/TileSetEsgotoPiso.png-9c851ccc10924cb3a57589b09e29b5d2.ctex"]
 
 [params]
 
