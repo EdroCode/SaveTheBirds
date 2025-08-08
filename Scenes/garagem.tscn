@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=30 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Background.png" id="1_3vh4f"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_1ni7d"]
@@ -24,7 +24,6 @@
 [ext_resource type="Texture2D" uid="uid://fd5lknxqr32c" path="res://Artwork/Sprites/stained_glass.png" id="19_edsf3"]
 [ext_resource type="Texture2D" uid="uid://b7gwwpo4isepw" path="res://Artwork/Sprites/Post It.png" id="22_edsf3"]
 [ext_resource type="Texture2D" uid="uid://ck4j4j0duml8j" path="res://Artwork/Sprites/chao.png" id="22_x42if"]
-[ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="24_quk5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vh4f"]
 size = Vector2(352.588, 20)
@@ -388,9 +387,7 @@ texture = ExtResource("22_edsf3")
 
 [node name="Player" parent="." instance=ExtResource("2_1ni7d")]
 position = Vector2(34, 141)
-
-[node name="R2D2" parent="." instance=ExtResource("24_quk5v")]
-position = Vector2(180, 122)
+has_gun = false
 
 [node name="Foreground" type="Node2D" parent="."]
 position = Vector2(0, 3)

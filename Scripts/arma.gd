@@ -61,6 +61,10 @@ func light_toggle():
 	on = !on
 	if on:
 		$LuzLanterna.energy = 1.95
+		for i in $LightArea.get_overlapping_bodies():
+			if i.is_in_group("Off"):
+				i.initialize_off()
+		
 	else:
 		$LuzLanterna.energy = 0
 	

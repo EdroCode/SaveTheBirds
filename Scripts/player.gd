@@ -17,10 +17,13 @@ var anim_nxt = "Idle"
 
 @onready var anim = $AnimationPlayer
 
+var health : int
+@export var max_health : int
+
 
 
 func _ready():
-	
+	health = max_health
 	state_cur = -1
 	state_prv = -1
 	state_nxt = STATES.IDLE
@@ -58,9 +61,9 @@ func _physics_process(delta):
 		STATES.GROUND:
 			pass
 		STATES.HIT:
-			pass
+			state_hit(delta)
 		STATES.DEATH:
-			pass
+			state_death(delta)
 	
 	if Input.is_action_just_pressed("Shot"):
 		if has_gun:
@@ -138,8 +141,42 @@ func state_jump(delta):
 		if dir != 0:
 			velocity.x = dir * SPEED
 			$Rotate.scale.x = dir
+		
 	
 	move_and_slide()
+
+
+
+func initialize_hit():
+	state_nxt = STATES.HIT
+	anim_nxt = "Hit"
+
+func state_hit(delta):
+	
+	gravity(delta)
+	pass
+
+func initialize_death():
+	state_nxt = STATES.HIT
+	anim_nxt = "Hit"
+
+func state_death(delta):
+	
+	gravity(delta)
+	pass
+
+
+
+func damage(dmg):
+	
+	health -= dmg
+	
+	if health > 0:
+		pass
+	else:
+		initialize_death()
+
+
 
 
 func gravity(delta):

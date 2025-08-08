@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnar6xpqohl2l"]
+
+[ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Bomba.png" id="1_omt1a"]
+[ext_resource type="Script" uid="uid://dynypccod0vp2" path="res://Scripts/bomb.gd" id="1_rymil"]
+[ext_resource type="PackedScene" uid="uid://knvpyl41hsyp" path="res://Scenes/Effects/fire.tscn" id="3_028vr"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="4_sr3aa"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymil"]
+radius = 7.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sr3aa"]
+radius = 35.0143
+
+[node name="Bomb" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_rymil")
+GRAVITY = 10
+
+[node name="Fire" parent="." instance=ExtResource("3_028vr")]
+position = Vector2(0, -4)
+scale = Vector2(0.399458, 0.399458)
+
+[node name="Bomba" type="Sprite2D" parent="."]
+texture = ExtResource("1_omt1a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rymil")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0, 0, 1)
+texture = ExtResource("4_sr3aa")
+
+[node name="ExplosionArea" type="Area2D" parent="."]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionArea"]
+shape = SubResource("CircleShape2D_sr3aa")
+debug_color = Color(0.685475, 0.475859, 0.431777, 0.42)

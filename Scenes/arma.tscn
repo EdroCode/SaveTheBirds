@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwjkch5a2e311"]
+[gd_scene load_steps=6 format=3 uid="uid://cwjkch5a2e311"]
 
 [ext_resource type="Texture2D" uid="uid://c8gyisgk5qc0t" path="res://Artwork/Sprites/Arma.png" id="1_7bvn3"]
 [ext_resource type="Script" uid="uid://cdgk045f0c8a8" path="res://Scripts/arma.gd" id="1_bjc62"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="3_bjc62"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckcjq"]
 load_path = "res://.godot/imported/light2.png-31fb0c5e09aebb92135c425536e8e066.ctex"
@@ -11,7 +12,7 @@ size = Vector2(55, 10)
 
 [node name="Arma" type="Node2D"]
 script = ExtResource("1_bjc62")
-bullets = 15
+bullets = 30
 cooldown = 0.3
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -21,7 +22,7 @@ offset = Vector2(46, 0)
 
 [node name="LuzLanterna" type="PointLight2D" parent="."]
 position = Vector2(10, 0)
-scale = Vector2(0.375, 0.375)
+scale = Vector2(0.375, 0.265625)
 color = Color(4.33177e-07, 0.349524, 0.0908935, 1)
 energy = 1.95
 shadow_enabled = true
@@ -40,5 +41,14 @@ wait_time = 0.3
 position = Vector2(50.5, 0)
 shape = SubResource("RectangleShape2D_ckcjq")
 debug_color = Color(1.68458e-06, 0.639882, 0.358198, 0.42)
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+modulate = Color(1, 1, 1, 0.52549)
+position = Vector2(27, -2.38419e-07)
+scale = Vector2(0.204836, 0.204836)
+color = Color(0, 0.750395, 0.265207, 1)
+energy = 0.95
+shadow_enabled = true
+texture = ExtResource("3_bjc62")
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
