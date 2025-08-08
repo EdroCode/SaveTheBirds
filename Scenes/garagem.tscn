@@ -1,0 +1,416 @@
+[gd_scene load_steps=31 format=3 uid="uid://j3mettcdlums"]
+
+[ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Background.png" id="1_3vh4f"]
+[ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_1ni7d"]
+[ext_resource type="Texture2D" uid="uid://efy415lbso" path="res://Artwork/Sprites/Televisão01.png" id="3_jtppm"]
+[ext_resource type="Texture2D" uid="uid://dkiagnhxchc8q" path="res://Artwork/Sprites/poster2.png" id="3_rvibm"]
+[ext_resource type="Texture2D" uid="uid://ds5nu80beyfam" path="res://Artwork/Sprites/Janela01.png" id="4_ry54d"]
+[ext_resource type="Texture2D" uid="uid://chiln8oej81xq" path="res://Artwork/Sprites/Caixa01.png" id="5_nm4gp"]
+[ext_resource type="Texture2D" uid="uid://c1j0qg1w21pma" path="res://Artwork/Sprites/paper2.png" id="6_78dlx"]
+[ext_resource type="Texture2D" uid="uid://dmryabhgc1k3y" path="res://Artwork/Sprites/poster1.png" id="6_soevq"]
+[ext_resource type="Texture2D" uid="uid://bec2sul0xxj7t" path="res://Artwork/Sprites/Mesa.png" id="6_xo3m8"]
+[ext_resource type="Texture2D" uid="uid://cqf08vhc7f3vl" path="res://Artwork/Sprites/Papel.png" id="7_fs1wm"]
+[ext_resource type="Texture2D" uid="uid://cxpv5mh1rnyca" path="res://Artwork/Sprites/PlataformaInicio.png" id="8_hk783"]
+[ext_resource type="Texture2D" uid="uid://ccfx3ffm17ld2" path="res://Artwork/Sprites/PlataformaMeio.png" id="9_ay2gj"]
+[ext_resource type="Texture2D" uid="uid://rn52tkujap2y" path="res://Artwork/Sprites/Escada.png" id="9_hk783"]
+[ext_resource type="Texture2D" uid="uid://inwn61m64spb" path="res://Artwork/Sprites/PlataformaFim.png" id="10_78dlx"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="11_ay2gj"]
+[ext_resource type="Texture2D" uid="uid://cxywrvw36axl7" path="res://Artwork/Sprites/Lampada.png" id="11_soevq"]
+[ext_resource type="Texture2D" uid="uid://4mgea0w2ukxb" path="res://Artwork/Sprites/paperposter.png" id="11_vsvts"]
+[ext_resource type="Texture2D" uid="uid://dv4fv14m0p0ti" path="res://Artwork/Sprites/Arma01.png" id="12_rvibm"]
+[ext_resource type="Texture2D" uid="uid://b025bry6v6hv1" path="res://Artwork/Sprites/Cartaz.png" id="13_d2k3b"]
+[ext_resource type="Texture2D" uid="uid://b8uis8upgwp5r" path="res://Artwork/Sprites/Quadro.png" id="13_tajn6"]
+[ext_resource type="Texture2D" uid="uid://bl85m1o4qtjhm" path="res://Artwork/light2.png" id="18_d2k3b"]
+[ext_resource type="Texture2D" uid="uid://fd5lknxqr32c" path="res://Artwork/Sprites/stained_glass.png" id="19_edsf3"]
+[ext_resource type="Texture2D" uid="uid://b7gwwpo4isepw" path="res://Artwork/Sprites/Post It.png" id="22_edsf3"]
+[ext_resource type="Texture2D" uid="uid://ck4j4j0duml8j" path="res://Artwork/Sprites/chao.png" id="22_x42if"]
+[ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="24_quk5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vh4f"]
+size = Vector2(352.588, 20)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ay2gj"]
+polygon = PackedVector2Array(-176, 90.0392, 176.471, 91.1373, 176.471, 110.902, -177.098, 110.902)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_78dlx"]
+polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 152, -5, 152, 8, 24, 8, 8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_soevq"]
+polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 124, -5, 124, 8, 24, 8, 8, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rvibm"]
+polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 109, -5, 109, 8, 24, 8, 8, 8)
+
+[node name="Garagem" type="Node2D"]
+
+[node name="Collider" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collider"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider/StaticBody2D"]
+polygon = PackedVector2Array(12, 119, 12, 14, 181, 14, 181, 2, 267, 2, 267, 14, 309, 14, 309, 170, 321, 170, 321, 0, 181, -1, 178, -1, 178, 2, 0, 2, 0, 119)
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160.286, 87)
+scale = Vector2(0.910714, 0.910714)
+texture = ExtResource("1_3vh4f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D"]
+position = Vector2(0.176453, 101.02)
+shape = SubResource("RectangleShape2D_3vh4f")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Background/StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_ay2gj")
+
+[node name="Elementos" type="Node2D" parent="."]
+
+[node name="Poster" type="Sprite2D" parent="Elementos"]
+position = Vector2(107, 70)
+rotation = -0.1043
+texture = ExtResource("6_soevq")
+
+[node name="Poster2" type="Sprite2D" parent="Elementos"]
+position = Vector2(31, 124)
+rotation = 0.00995821
+scale = Vector2(0.719696, 0.719696)
+texture = ExtResource("3_rvibm")
+
+[node name="Televisão01" type="Sprite2D" parent="Elementos"]
+position = Vector2(64, 59)
+texture = ExtResource("3_jtppm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Televisão01"]
+color = Color(0.0745098, 0.376471, 0.207843, 1)
+energy = 1.8
+texture = ExtResource("11_ay2gj")
+texture_scale = 1.45
+
+[node name="Janela01" type="Sprite2D" parent="Elementos"]
+position = Vector2(64, 124.5)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("4_ry54d")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Janela01"]
+position = Vector2(2.02904e-06, 13.9947)
+rotation = 1.5708
+scale = Vector2(0.551091, 1.40724)
+energy = 0.4
+texture = ExtResource("18_d2k3b")
+
+[node name="Mesa" type="Sprite2D" parent="Elementos"]
+position = Vector2(114, 162)
+texture = ExtResource("6_xo3m8")
+
+[node name="Papel" type="Sprite2D" parent="Elementos"]
+position = Vector2(94, 132)
+texture = ExtResource("6_78dlx")
+
+[node name="Papel3" type="Sprite2D" parent="Elementos"]
+position = Vector2(44, 52)
+texture = ExtResource("6_78dlx")
+
+[node name="Papel4" type="Sprite2D" parent="Elementos"]
+position = Vector2(108, 128)
+texture = ExtResource("7_fs1wm")
+
+[node name="Papel5" type="Sprite2D" parent="Elementos"]
+position = Vector2(105, 137)
+texture = ExtResource("6_78dlx")
+
+[node name="Papel6" type="Sprite2D" parent="Elementos"]
+position = Vector2(120, 124)
+texture = ExtResource("7_fs1wm")
+
+[node name="Papel7" type="Sprite2D" parent="Elementos"]
+position = Vector2(124, 133)
+texture = ExtResource("6_78dlx")
+
+[node name="Papel8" type="Sprite2D" parent="Elementos"]
+position = Vector2(83, 107)
+texture = ExtResource("7_fs1wm")
+
+[node name="Papel9" type="Sprite2D" parent="Elementos"]
+position = Vector2(37, 96)
+texture = ExtResource("7_fs1wm")
+
+[node name="Papel11" type="Sprite2D" parent="Elementos"]
+position = Vector2(126, 88)
+rotation = 0.16276
+texture = ExtResource("6_78dlx")
+
+[node name="Papel12" type="Sprite2D" parent="Elementos"]
+position = Vector2(94, 92)
+rotation = 0.16276
+texture = ExtResource("22_edsf3")
+
+[node name="Papel16" type="Sprite2D" parent="Elementos"]
+position = Vector2(272, 92)
+rotation = -0.0606106
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_vsvts")
+
+[node name="Papel15" type="Sprite2D" parent="Elementos"]
+position = Vector2(272.96, 90.8348)
+rotation = 0.0516259
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_vsvts")
+
+[node name="Papel13" type="Sprite2D" parent="Elementos"]
+position = Vector2(276, 89)
+rotation = 0.125538
+scale = Vector2(1.01494, 1.01494)
+texture = ExtResource("13_d2k3b")
+
+[node name="Papel2" type="Sprite2D" parent="Elementos"]
+position = Vector2(112, 142)
+texture = ExtResource("6_78dlx")
+
+[node name="Escada" type="Sprite2D" parent="Elementos"]
+position = Vector2(142, 107)
+scale = Vector2(0.9375, 0.9375)
+texture = ExtResource("9_hk783")
+
+[node name="PointLight2D" type="LightOccluder2D" parent="Elementos"]
+position = Vector2(135, 56)
+occluder = SubResource("OccluderPolygon2D_78dlx")
+sdf_collision = false
+
+[node name="PlataformaInicio" type="Sprite2D" parent="Elementos"]
+position = Vector2(143, 48)
+texture = ExtResource("8_hk783")
+
+[node name="PlataformaMeio" type="Sprite2D" parent="Elementos"]
+position = Vector2(175, 48)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaMeio2" type="Sprite2D" parent="Elementos"]
+position = Vector2(207, 48)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaMeio3" type="Sprite2D" parent="Elementos"]
+position = Vector2(239, 48)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaFim" type="Sprite2D" parent="Elementos"]
+position = Vector2(271, 48)
+texture = ExtResource("10_78dlx")
+
+[node name="Caixa04" type="Sprite2D" parent="Elementos"]
+position = Vector2(150, 43)
+texture = ExtResource("5_nm4gp")
+
+[node name="Caixa05" type="Sprite2D" parent="Elementos"]
+position = Vector2(169, 43)
+texture = ExtResource("5_nm4gp")
+
+[node name="Caixa06" type="Sprite2D" parent="Elementos"]
+position = Vector2(156, 27)
+texture = ExtResource("5_nm4gp")
+
+[node name="Caixa07" type="Sprite2D" parent="Elementos"]
+position = Vector2(299, 162)
+texture = ExtResource("5_nm4gp")
+
+[node name="Janela02" type="Sprite2D" parent="Elementos"]
+position = Vector2(172.5, 125.25)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("4_ry54d")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Janela02"]
+position = Vector2(2.02904e-06, 13.9947)
+rotation = 1.5708
+scale = Vector2(0.551091, 1.40724)
+energy = 0.3
+texture = ExtResource("18_d2k3b")
+
+[node name="Janela03" type="Sprite2D" parent="Elementos"]
+position = Vector2(172.5, 96.4)
+scale = Vector2(0.90625, 0.90625)
+texture = ExtResource("19_edsf3")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(-8.94815, 46.7918)
+rotation = 1.5708
+scale = Vector2(0.648998, 0.267162)
+color = Color(3.41728e-06, 0.754348, 0.117246, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(8.93019, 44.7064)
+rotation = 1.5708
+scale = Vector2(0.61821, 0.236128)
+color = Color(3.41728e-06, 0.754348, 0.117246, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(-0.55173, 45.619)
+rotation = 1.5708
+scale = Vector2(0.617923, 0.243145)
+color = Color(0, 0, 0.847059, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(0.551718, 41.375)
+rotation = 1.5708
+scale = Vector2(0.706783, 0.243145)
+color = Color(1.29953e-06, 0.279203, 0.371604, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(-4.69441, 41.8711)
+rotation = 1.5708
+scale = Vector2(0.628327, 0.293978)
+color = Color(0.761869, 0, 0.156905, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Elementos/Janela03"]
+position = Vector2(4.40881, 42.0894)
+rotation = 1.5708
+scale = Vector2(0.631738, 0.275721)
+color = Color(0.795893, 0, 0.165731, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
+[node name="Lampada" type="Sprite2D" parent="Elementos"]
+position = Vector2(112, 115)
+texture = ExtResource("11_soevq")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Lampada"]
+position = Vector2(-2, 6)
+color = Color(0.779901, 0.357834, 0, 1)
+energy = 0.48
+texture = ExtResource("11_ay2gj")
+
+[node name="Arma01" type="Sprite2D" parent="Elementos"]
+position = Vector2(228, 73)
+texture = ExtResource("12_rvibm")
+
+[node name="PointLight2D" type="PointLight2D" parent="Elementos/Arma01"]
+position = Vector2(-20, -31)
+scale = Vector2(0.520429, 0.520429)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Elementos/Arma01"]
+position = Vector2(14, -30)
+scale = Vector2(0.520429, 0.520429)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Elementos/Arma01"]
+position = Vector2(11, -31)
+scale = Vector2(0.462755, 0.462755)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Elementos/Arma01"]
+position = Vector2(-15, -31)
+scale = Vector2(0.462755, 0.462755)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D2" type="LightOccluder2D" parent="Elementos"]
+position = Vector2(167, 162)
+occluder = SubResource("OccluderPolygon2D_soevq")
+sdf_collision = false
+
+[node name="PointLight2D3" type="LightOccluder2D" parent="Elementos"]
+position = Vector2(182, 149)
+occluder = SubResource("OccluderPolygon2D_rvibm")
+sdf_collision = false
+
+[node name="Quadro" type="Sprite2D" parent="Elementos"]
+position = Vector2(275, 128)
+texture = ExtResource("13_tajn6")
+
+[node name="PlataformaInicio2" type="Sprite2D" parent="Elementos"]
+position = Vector2(175, 154)
+texture = ExtResource("8_hk783")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elementos/PlataformaInicio2" groups=["Subir"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Elementos/PlataformaInicio2/StaticBody2D" groups=["Subir"]]
+polygon = PackedVector2Array(-16, 16, -16, 3, -1, 3, -1, -2, -1, -10, 116, -10, 116, 16)
+
+[node name="PlataformaMeio4" type="Sprite2D" parent="Elementos"]
+position = Vector2(207, 154)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaMeio5" type="Sprite2D" parent="Elementos"]
+position = Vector2(239, 154)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaMeio6" type="Sprite2D" parent="Elementos"]
+position = Vector2(268, 154)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaFim2" type="Sprite2D" parent="Elementos"]
+position = Vector2(275, 154)
+texture = ExtResource("10_78dlx")
+
+[node name="PlataformaFim3" type="Sprite2D" parent="Elementos"]
+position = Vector2(275, 141)
+texture = ExtResource("10_78dlx")
+
+[node name="PlataformaInicio3" type="Sprite2D" parent="Elementos"]
+position = Vector2(190, 141)
+texture = ExtResource("8_hk783")
+
+[node name="PlataformaMeio7" type="Sprite2D" parent="Elementos"]
+position = Vector2(222, 141)
+texture = ExtResource("9_ay2gj")
+
+[node name="PlataformaMeio8" type="Sprite2D" parent="Elementos"]
+position = Vector2(251, 141)
+texture = ExtResource("9_ay2gj")
+
+[node name="Papel14" type="Sprite2D" parent="Elementos"]
+position = Vector2(288, 140)
+rotation = 0.282906
+texture = ExtResource("22_edsf3")
+
+[node name="Player" parent="." instance=ExtResource("2_1ni7d")]
+position = Vector2(34, 141)
+
+[node name="R2D2" parent="." instance=ExtResource("24_quk5v")]
+position = Vector2(180, 122)
+
+[node name="Foreground" type="Node2D" parent="."]
+position = Vector2(0, 3)
+
+[node name="Caixa01" type="Sprite2D" parent="Foreground"]
+position = Vector2(50, 162)
+texture = ExtResource("5_nm4gp")
+
+[node name="Caixa02" type="Sprite2D" parent="Foreground"]
+position = Vector2(66, 162)
+texture = ExtResource("5_nm4gp")
+
+[node name="Caixa03" type="Sprite2D" parent="Foreground"]
+position = Vector2(66, 146)
+texture = ExtResource("5_nm4gp")
+
+[node name="Chao" type="Sprite2D" parent="Foreground"]
+position = Vector2(160.25, 177)
+scale = Vector2(0.911, 0.911)
+texture = ExtResource("22_x42if")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.837913, 0.712325, 0.647121, 1)
