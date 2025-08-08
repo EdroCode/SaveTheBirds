@@ -5,6 +5,7 @@ enum STATES {IDLE, RUN, ATTACK, JUMP, FALL, GROUND, HIT, DEATH}
 @export var SPEED : int
 @export var GRAVITY : float
 @export var JUMP_POWER : float
+@export var DASH_SPEED : int
 
 var state_cur : int
 var state_nxt : int
@@ -20,6 +21,7 @@ var anim_nxt = "Idle"
 var health : int
 @export var max_health : int
 
+var dead = false
 
 
 func _ready():
@@ -35,6 +37,8 @@ func _ready():
 		$Arma.visible = false
 
 func _physics_process(delta):
+	
+	#print(state_cur)
 	
 	if state_nxt != state_cur:
 		
@@ -52,14 +56,8 @@ func _physics_process(delta):
 			state_idle(delta)
 		STATES.RUN:
 			state_run(delta)
-		STATES.ATTACK:
-			pass
 		STATES.JUMP:
 			state_jump(delta)
-		STATES.FALL:
-			pass
-		STATES.GROUND:
-			pass
 		STATES.HIT:
 			state_hit(delta)
 		STATES.DEATH:
@@ -117,6 +115,9 @@ func state_run(delta):
 			if col.is_in_group("Subir"):
 				position -= Vector2(0,15)
 	
+	if Input.is_action_just_pressed("Dash"):
+		dash(dir)
+	
 	move_and_slide()
 
 
@@ -142,6 +143,8 @@ func state_jump(delta):
 			velocity.x = dir * SPEED
 			$Rotate.scale.x = dir
 		
+		if Input.is_action_just_pressed("Dash"):
+			dash(dir)
 	
 	move_and_slide()
 
@@ -153,33 +156,44 @@ func initialize_hit():
 
 func state_hit(delta):
 	
-	gravity(delta)
+	pass
 	pass
 
 func initialize_death():
-	state_nxt = STATES.HIT
-	anim_nxt = "Hit"
+	state_nxt = STATES.DEATH
+	anim_nxt = "Dead"
+	has_gun = false
+	dead = true
+	$Arma.queue_free()
+	velocity *= 0
+
 
 func state_death(delta):
-	
+	#print('IM DEAD')
 	gravity(delta)
-	pass
+	move_and_slide()
+	
 
-
+func dash(dir):
+	print("Dash")
+	velocity.x += dir * DASH_SPEED
 
 func damage(dmg):
 	
 	health -= dmg
-	
-	if health > 0:
-		pass
-	else:
-		initialize_death()
-
-
+	if !dead:
+		if health > 0:
+			initialize_hit()
+		else:
+			initialize_death()
 
 
 func gravity(delta):
 	
 	if !is_on_floor():
 		velocity.y += GRAVITY * delta
+
+
+func play_walk_sound():
+	
+	pass

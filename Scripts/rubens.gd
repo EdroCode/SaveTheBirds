@@ -44,7 +44,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	print(anim_cur)
+	#print(anim_cur)
 	#
 	player_pos = get_tree().get_first_node_in_group("Player").global_position
 	

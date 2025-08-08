@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=20 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Texture2D" uid="uid://deqhg3pr4ow3l" path="res://Artwork/Sprites/Esgoto/Tilesets Esgoto/EsgotoCano2.png" id="2_81gse"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://di0e5q3f54h61" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto2.png" id="4_81gse"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="4_g0l7y"]
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scenes/Levels/camera_2d.gd" id="5_81gse"]
+[ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="5_lw2wh"]
 [ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="9_g0l7y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iixi8"]
@@ -323,8 +324,11 @@ position = Vector2(36, 140)
 position = Vector2(124, -50)
 script = ExtResource("5_81gse")
 
+[node name="R2D2" parent="." instance=ExtResource("5_lw2wh")]
+position = Vector2(535, 144)
+
 [node name="Rubens" parent="." instance=ExtResource("9_g0l7y")]
-position = Vector2(136, 39)
+position = Vector2(536, 55)
 
 [node name="Wall" type="TileMapLayer" parent="." groups=["Wall"]]
 tile_map_data = PackedByteArray("AAAPAAoAAAAAAAQAAAAFAAoAAAAAAAQAAAAEAAoAAAAAAAQAAAADAAoAAAAAAAQAAAACAAoAAAAAAAQAAAABAAoAAAAAAAQAAAAAAAoAAAAAAAQAAAAAAAsAAAAAAAQAAAABAAsAAAAAAAQAAAACAAsAAAAAAAQAAAADAAsAAAAAAAQAAAAEAAsAAAAAAAQAAAAFAAsAAAAAAAQAAAAGAAsAAAAAAAQAAAAHAAsAAAAAAAQAAAAIAAsAAAAAAAQAAAAJAAsAAAAAAAQAAAAKAAsAAAAAAAQAAAALAAsAAAAAAAQAAAAMAAsAAAAAAAQAAAANAAsAAAAAAAQAAAAOAAsAAAAAAAQAAAAPAAsAAAAAAAQAAAAQAAsAAAAAAAQAAAARAAsAAAAAAAQAAAASAAsAAAAAAAQAAAATAAsAAAAAAAQAAAATAAoAAAAAAAQAAAASAAoAAAAAAAQAAAARAAoAAAAAAAQAAAAQAAoAAAAAAAQAAAAUAAoAAAAAAAQAAAAVAAoAAAAAAAQAAAAWAAoAAAAAAAQAAAAXAAoAAAAAAAQAAAAYAAoAAAAAAAQAAAAZAAoAAAAAAAQAAAAaAAoAAAAAAAQAAAAbAAoAAAAAAAQAAAAUAAsAAAAAAAQAAAAVAAsAAAAAAAQAAAAWAAsAAAAAAAQAAAAXAAsAAAAAAAQAAAAYAAsAAAAAAAQAAAAZAAsAAAAAAAQAAAAaAAsAAAAAAAQAAAAbAAsAAAAAAAQAAAAcAAsAAAAAAAQAAAAdAAsAAAAAAAQAAAAeAAsAAAAAAAQAAAAcAAoAAAAAAAQAAAAdAAoAAAAAAAQAAAAeAAoAAAAAAAQAAAAfAAoAAAAAAAQAAAAfAAsAAAAAAAQAAAAgAAsAAAAAAAQAAAAhAAsAAAAAAAQAAAAiAAsAAAAAAAQAAAAjAAsAAAAAAAQAAAAgAAoAAAAAAAQAAAAhAAoAAAAAAAQAAAAiAAoAAAAAAAQAAAAjAAoAAAAAAAQAAAAkAAoAAAAAAAQAAAAkAAsAAAAAAAQAAAAlAAsAAAAAAAQAAAAlAAoAAAAAAAQAAAAmAAsAAAAAAAQAAAAmAAoAAAAAAAQAAAA=")
