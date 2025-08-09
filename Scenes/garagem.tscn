@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=36 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_1ni7d"]
 [ext_resource type="Texture2D" uid="uid://efy415lbso" path="res://Artwork/Sprites/Televisão01.png" id="3_jtppm"]
+[ext_resource type="Texture2D" uid="uid://ciafn7g0i5hux" path="res://Artwork/Sprites/BackgroundGaragem.png" id="3_nsgm8"]
 [ext_resource type="Texture2D" uid="uid://dkiagnhxchc8q" path="res://Artwork/Sprites/poster2.png" id="3_rvibm"]
 [ext_resource type="Texture2D" uid="uid://ds5nu80beyfam" path="res://Artwork/Sprites/Janela01.png" id="4_ry54d"]
 [ext_resource type="Texture2D" uid="uid://chiln8oej81xq" path="res://Artwork/Sprites/Caixa01.png" id="5_nm4gp"]
@@ -78,7 +79,7 @@ occluder = SubResource("OccluderPolygon2D_ay2gj")
 [node name="Background2" type="Sprite2D" parent="."]
 position = Vector2(-160, 87)
 scale = Vector2(-0.911, 0.911)
-texture = ExtResource("1_3vh4f")
+texture = ExtResource("3_nsgm8")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Background2"]
 
@@ -492,4 +493,17 @@ color = Color(0.837913, 0.712325, 0.647121, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.690196)
+
 [node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("29_rp3sp")]
+visible = false
+offset_left = 36.0
+offset_top = 28.0
+offset_right = -36.0
+offset_bottom = -28.0

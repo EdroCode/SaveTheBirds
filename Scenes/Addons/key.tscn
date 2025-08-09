@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://dspod0poumw2k" path="res://Artwork/Sprites/SimpleKeys/SimpleKeys/Jumbo/Light/Spritesheets/E.png" id="1_2w2wp"]
 [ext_resource type="Script" uid="uid://cp2ir355n2om0" path="res://Scripts/Addons/key.gd" id="1_ui2tm"]
 
+[sub_resource type="Animation" id="Animation_jcr0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("E:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_ui2tm"]
 resource_name = "new_animation"
 length = 2.0
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 2, 1, 2, 0]
-}
-
-[sub_resource type="Animation" id="Animation_jcr0r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("E:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jcr0r"]

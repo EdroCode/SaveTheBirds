@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/screen.png" id="2_3h03w"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_kvwds"]
 [ext_resource type="PackedScene" uid="uid://b3r0l76s4wyub" path="res://Scenes/Addons/bird.tscn" id="2_yxhr3"]
-[ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scenes/Levels/camera_2d.gd" id="3_f8nfs"]
+[ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="3_f8nfs"]
 [ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="3_t3p6x"]
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="4_fyp8a"]
 
@@ -176,3 +176,6 @@ texture = ExtResource("2_3h03w")
 [node name="Screen5" type="Sprite2D" parent="."]
 position = Vector2(160, -268)
 texture = ExtResource("2_3h03w")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.325441, 0.325441, 0.325441, 1)
