@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATES {IDLE, PATROL, OFF}
+enum STATES {IDLE, PATROL, OFF, ATTACK}
 
 @onready var explosion_particles = preload("res://Scenes/Effects/explosion.tscn")
 
@@ -55,6 +55,8 @@ func _physics_process(delta):
 			state_patrol(delta)
 		STATES.OFF:
 			state_off(delta)
+		STATES.ATTACK:
+			state_attack(delta)
 	
 
 func initialize_idle():
@@ -102,17 +104,36 @@ func state_patrol(delta):
 	move_and_slide()
 
 func initialize_off():
-	$OffTimer.start()
-	$IdleTimer.stop()
-	$PatrolTimer.stop()
-	velocity *= 0
-	state_nxt = STATES.OFF
-	anim_nxt = "Off"
+	if state_cur != 3:
+		$AngryTimer.stop()
+		$OffTimer.start()
+		$IdleTimer.stop()
+		$PatrolTimer.stop()
+		velocity *= 0
+		state_nxt = STATES.OFF
+		anim_nxt = "Off"
 
 func state_off(delta):
 	
 	gravity(delta)
 	move_and_slide()
+
+
+func initialize_attack():
+	$IdleTimer.stop()
+	$AngryTimer.start()
+	$PatrolTimer.stop()
+	velocity *= 0
+	state_nxt = STATES.ATTACK
+	anim_nxt = "Attack"
+
+func state_attack(delta):
+	
+	gravity(delta)
+	move_and_slide()
+
+
+
 
 
 func gravity(delta):
@@ -132,4 +153,21 @@ func _on_idle_timer_timeout() -> void:
 
 func _on_off_timer_timeout() -> void:
 	$OffTimer.stop()
+	initialize_idle()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	
+	if state_cur != 2:
+		if body.is_in_group("Player"):
+			var ab = global_position - body.global_position
+			ab.y = 0
+			if ab.length() != 0:
+				body.position -= ab.normalized() * 55
+			initialize_attack()
+			body.damage(5)
+
+
+func _on_ángry_timer_timeout() -> void:
+	$AngryTimer.stop()
 	initialize_idle()

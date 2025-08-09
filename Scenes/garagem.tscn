@@ -1,6 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=31 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Background.png" id="1_3vh4f"]
+[ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scenes/Levels/garagem.gd" id="1_g5usv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_1ni7d"]
 [ext_resource type="Texture2D" uid="uid://efy415lbso" path="res://Artwork/Sprites/Televisão01.png" id="3_jtppm"]
 [ext_resource type="Texture2D" uid="uid://dkiagnhxchc8q" path="res://Artwork/Sprites/poster2.png" id="3_rvibm"]
@@ -41,6 +42,7 @@ polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 124, -5, 124, 8, 24, 8, 8, 8)
 polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 109, -5, 109, 8, 24, 8, 8, 8)
 
 [node name="Garagem" type="Node2D"]
+script = ExtResource("1_g5usv")
 
 [node name="Collider" type="Node2D" parent="."]
 
@@ -294,7 +296,7 @@ energy = 0.48
 texture = ExtResource("11_ay2gj")
 
 [node name="Arma01" type="Sprite2D" parent="Elementos"]
-position = Vector2(228, 73)
+position = Vector2(227, 73)
 texture = ExtResource("12_rvibm")
 
 [node name="PointLight2D" type="PointLight2D" parent="Elementos/Arma01"]
@@ -409,5 +411,33 @@ position = Vector2(160.25, 177)
 scale = Vector2(0.911, 0.911)
 texture = ExtResource("22_x42if")
 
+[node name="Birds" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Birds"]
+position = Vector2(134, 44)
+
+[node name="Marker2D2" type="Marker2D" parent="Birds"]
+position = Vector2(278, 45)
+
+[node name="Marker2D3" type="Marker2D" parent="Birds"]
+position = Vector2(94, 148)
+
+[node name="Marker2D4" type="Marker2D" parent="Birds"]
+position = Vector2(64, 132)
+
+[node name="Marker2D5" type="Marker2D" parent="Birds"]
+position = Vector2(182, 135)
+
+[node name="Marker2D6" type="Marker2D" parent="Birds"]
+position = Vector2(272, 136)
+
+[node name="Marker2D7" type="Marker2D" parent="Birds"]
+position = Vector2(298, 146)
+
+[node name="Marker2D8" type="Marker2D" parent="Birds"]
+position = Vector2(89, 33)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.837913, 0.712325, 0.647121, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -1,44 +1,204 @@
-[gd_scene load_steps=13 format=3 uid="uid://fsj6t2l3w8on"]
+[gd_scene load_steps=45 format=3 uid="uid://fsj6t2l3w8on"]
 
-[ext_resource type="Texture2D" uid="uid://gr432g2rggsg" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/0.png" id="1_116ii"]
-[ext_resource type="Texture2D" uid="uid://cbjxstu8jbe1t" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/1.png" id="2_g0dla"]
-[ext_resource type="Texture2D" uid="uid://dbatvmnfujiw4" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/2.png" id="3_dwybm"]
-[ext_resource type="Texture2D" uid="uid://b67ia8nor3ns4" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/3.png" id="4_6gf8v"]
-[ext_resource type="Texture2D" uid="uid://6wmkucimd4yw" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/4.png" id="5_yqh8m"]
-[ext_resource type="Texture2D" uid="uid://c3hjfiynh5ahi" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/5.png" id="6_vs05q"]
-[ext_resource type="Texture2D" uid="uid://b5o3k4lggwmv3" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type5/6.png" id="7_1vjm4"]
+[ext_resource type="Texture2D" uid="uid://dtx212bmoell2" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/0.png" id="1_rkjfy"]
+[ext_resource type="Texture2D" uid="uid://lp8dbutpfbp1" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/00.png" id="2_t1kow"]
+[ext_resource type="Texture2D" uid="uid://ceu04igob8syh" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/1.png" id="3_iwy66"]
+[ext_resource type="Texture2D" uid="uid://nyuqwg2u8f6g" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/2.png" id="4_3tlvo"]
+[ext_resource type="Texture2D" uid="uid://cavr5od88jfmp" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/3.png" id="5_6gpsc"]
+[ext_resource type="Texture2D" uid="uid://dpiahcgrbsgmu" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/4.png" id="6_shnxn"]
+[ext_resource type="Texture2D" uid="uid://dbmd2xgqvlh8y" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/5.png" id="7_46x2l"]
 [ext_resource type="Texture2D" uid="uid://baqakfa82sm62" path="res://Artwork/Sprites/blank.png" id="8_dwybm"]
+[ext_resource type="Texture2D" uid="uid://dywj21sbqcqfi" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type1/6.png" id="8_v6hat"]
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="9_6gf8v"]
+[ext_resource type="Texture2D" uid="uid://koi2aulmf73x" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/1.png" id="10_plohf"]
+[ext_resource type="Texture2D" uid="uid://d2lcmi4he3cdy" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/2.png" id="11_e6nnr"]
+[ext_resource type="Texture2D" uid="uid://c8soeuk4s12xg" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/3.png" id="12_42yco"]
+[ext_resource type="Texture2D" uid="uid://blrbodbjd8mrb" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/4.png" id="13_0yhsi"]
+[ext_resource type="Texture2D" uid="uid://c2ygpty0o3f8q" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/5.png" id="14_ei3qp"]
+[ext_resource type="Texture2D" uid="uid://d06p72gifuo3t" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/6.png" id="15_xi4ab"]
+[ext_resource type="Texture2D" uid="uid://cy0ojsa0ll4pr" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/0.png" id="16_deq8t"]
+[ext_resource type="Texture2D" uid="uid://d1k070yfpr01u" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/1.png" id="17_fxarn"]
+[ext_resource type="Texture2D" uid="uid://cnufxvqj35twx" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/2.png" id="18_kdc73"]
+[ext_resource type="Texture2D" uid="uid://b66fmo7hk55th" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/3.png" id="19_x3llq"]
+[ext_resource type="Texture2D" uid="uid://cxr7pcpfksp0l" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/4.png" id="20_ub534"]
+[ext_resource type="Texture2D" uid="uid://wc4ecw6crnke" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/5.png" id="21_w3we2"]
+[ext_resource type="Texture2D" uid="uid://dcsi8vvxtiwjk" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type4/6.png" id="22_d4eff"]
+[ext_resource type="Texture2D" uid="uid://dcf0d4cxntv5g" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/1.png" id="23_hb70u"]
+[ext_resource type="Texture2D" uid="uid://ddvd7u0y8a5gr" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/2.png" id="24_dkhvr"]
+[ext_resource type="Texture2D" uid="uid://cs0ls0lnkg34g" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/3.png" id="25_8tnwp"]
+[ext_resource type="Texture2D" uid="uid://btln68qp1ckl6" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/4.png" id="26_ojxyh"]
+[ext_resource type="Texture2D" uid="uid://bybr5dfctah52" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/5.png" id="27_7hwqv"]
+[ext_resource type="Texture2D" uid="uid://b4vsg6vpb474a" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/6.png" id="28_g75bs"]
+[ext_resource type="Texture2D" uid="uid://b16486v16idti" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/7.png" id="29_7lpsv"]
+[ext_resource type="Texture2D" uid="uid://dqo4d8wyfh34p" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type6/8.png" id="30_8xb14"]
+[ext_resource type="Texture2D" uid="uid://ih7tiph7ab7y" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/0.png" id="31_42yco"]
+[ext_resource type="Texture2D" uid="uid://c1ol2mb3c4e5o" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/00.png" id="32_0yhsi"]
+[ext_resource type="Texture2D" uid="uid://de1besky7vs5m" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/000.png" id="33_ei3qp"]
+[ext_resource type="Texture2D" uid="uid://13g7e5tpfhyt" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/0000.png" id="34_xi4ab"]
+[ext_resource type="Texture2D" uid="uid://dfgrxnl8qq7u5" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/1.png" id="35_deq8t"]
+[ext_resource type="Texture2D" uid="uid://b3wybcwxtkd5i" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/2.png" id="36_fxarn"]
+[ext_resource type="Texture2D" uid="uid://bcpb2386ofrls" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/3.png" id="37_kdc73"]
+[ext_resource type="Texture2D" uid="uid://b1wsejl3urg46" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/4.png" id="38_x3llq"]
+[ext_resource type="Texture2D" uid="uid://c5npmctftrk32" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/5.png" id="39_ub534"]
+[ext_resource type="Texture2D" uid="uid://bwd4nco05nutv" path="res://Resources/Fantasy world explosion pack 4/Fantasy world explosion pack 4/Use essa explosão/Use essa explosão/6.png" id="40_w3we2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_spkoj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_116ii")
+"texture": ExtResource("1_rkjfy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_g0dla")
+"texture": ExtResource("2_t1kow")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_dwybm")
+"texture": ExtResource("3_iwy66")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_6gf8v")
+"texture": ExtResource("4_3tlvo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_yqh8m")
+"texture": ExtResource("5_6gpsc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_vs05q")
+"texture": ExtResource("6_shnxn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_1vjm4")
+"texture": ExtResource("7_46x2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v6hat")
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_dwybm")
 }],
 "loop": false,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_plohf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e6nnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_42yco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0yhsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ei3qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_xi4ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dwybm")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_deq8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fxarn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kdc73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_x3llq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ub534")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_w3we2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_d4eff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dwybm")
+}],
+"loop": false,
+"name": &"new_animation_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_hb70u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_dkhvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_8tnwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ojxyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_7hwqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_g75bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_7lpsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8xb14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dwybm")
+}],
+"loop": false,
+"name": &"new_animation_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_xi4ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ei3qp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_0yhsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_42yco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_deq8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_fxarn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_kdc73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_x3llq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ub534")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_w3we2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dwybm")
+}],
+"loop": false,
+"name": &"new_animation_3",
 "speed": 5.0
 }]
 
@@ -68,10 +228,12 @@ _data = {
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -13)
+scale = Vector2(0.565518, 0.565518)
 sprite_frames = SubResource("SpriteFrames_spkoj")
-autoplay = "default"
-frame = 7
-frame_progress = 1.0
+animation = &"new_animation_3"
+autoplay = "new_animation_3"
+frame = 5
+frame_progress = 0.718314
 speed_scale = 2.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]

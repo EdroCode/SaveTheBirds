@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATES {IDLE, RUN, ATTACK, JUMP, FALL, GROUND, HIT, DEATH}
+enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH}
 
 @export var SPEED : int
 @export var GRAVITY : float
@@ -22,7 +22,9 @@ var health : int
 @export var max_health : int
 
 var dead = false
+var can_dash = true
 
+signal died
 
 func _ready():
 	health = max_health
@@ -62,6 +64,8 @@ func _physics_process(delta):
 			state_hit(delta)
 		STATES.DEATH:
 			state_death(delta)
+		STATES.DASH:
+			state_dash(delta)
 	
 	if Input.is_action_just_pressed("Shot"):
 		if has_gun:
@@ -116,7 +120,8 @@ func state_run(delta):
 				position -= Vector2(0,15)
 	
 	if Input.is_action_just_pressed("Dash"):
-		dash(dir)
+
+		initialize_dash(dir)
 	
 	move_and_slide()
 
@@ -125,7 +130,9 @@ func initialize_jump():
 	
 	state_nxt = STATES.JUMP
 	anim_nxt = "Jump"
-	
+	var pitch = randf_range(0.712, 1.145)
+	$GruntSound.pitch_scale = pitch
+	$GruntSound.play()
 	velocity.y -= JUMP_POWER
 
 func state_jump(delta):
@@ -144,7 +151,7 @@ func state_jump(delta):
 			$Rotate.scale.x = dir
 		
 		if Input.is_action_just_pressed("Dash"):
-			dash(dir)
+			initialize_dash(dir)
 	
 	move_and_slide()
 
@@ -166,6 +173,7 @@ func initialize_death():
 	dead = true
 	$Arma.queue_free()
 	velocity *= 0
+	emit_signal('died')
 
 
 func state_death(delta):
@@ -174,9 +182,35 @@ func state_death(delta):
 	move_and_slide()
 	
 
-func dash(dir):
-	print("Dash")
-	velocity.x += dir * DASH_SPEED
+func initialize_dash(dir):
+	if can_dash:
+		can_dash = false
+		$DashCooldown.start()
+		anim_nxt = "Dash"
+		
+		print("Dash")
+		var a = randi_range(0,1)
+		var pitch = randf_range(0.912, 1.145)
+		
+		if a == 1:
+			dashSound.stream = dash1
+			dashSound.pitch_scale = pitch
+			dashSound.play()
+		else:
+			dashSound.stream = dash2
+			dashSound.pitch_scale = pitch
+			dashSound.play()
+			
+			
+		velocity.x += dir * DASH_SPEED
+		
+		state_nxt = STATES.DASH
+	
+
+func state_dash(delta):
+	
+	pass
+
 
 func damage(dmg):
 	
@@ -190,10 +224,41 @@ func damage(dmg):
 
 func gravity(delta):
 	
-	if !is_on_floor():
-		velocity.y += GRAVITY * delta
+	
+	velocity.y += GRAVITY * delta
+
+
+@onready var foot1 = preload("res://Resources/SFX/footstep1.wav")
+@onready var foot2 = preload("res://Resources/SFX/footstep2.wav")
+
+@onready var dash1 = preload("res://Resources/SFX/dash1.wav")
+@onready var dash2 = preload("res://Resources/SFX/dash2.wav")
+
+@onready var dashSound = $DashSound
+
+
 
 
 func play_walk_sound():
+	var a = randi_range(0,1)
+	var pitch = randf_range(0.912, 1.145)
 	
-	pass
+	
+	if a == 1:
+		$WalkAudioStreamPlayer2D.stream = foot1
+		$WalkAudioStreamPlayer2D.pitch_scale = pitch
+		$WalkAudioStreamPlayer2D.play()
+	else:
+		$WalkAudioStreamPlayer2D.stream = foot2
+		$WalkAudioStreamPlayer2D.pitch_scale = pitch
+		$WalkAudioStreamPlayer2D.play()
+		
+
+
+func _on_dash_cooldown_timeout() -> void:
+	can_dash = true
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Acid"):
+		initialize_death()

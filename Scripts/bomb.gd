@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var GRAVITY = 100
-@onready var bomb_explosion = preload("res://Scenes/Effects/kaboom.tscn")
+@onready var bomb_explosion = preload("res://Scenes/Effects/kaboomVerde.tscn")
 
 func _process(delta: float) -> void:
 	

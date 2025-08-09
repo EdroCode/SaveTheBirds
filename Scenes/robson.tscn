@@ -1,15 +1,77 @@
-[gd_scene load_steps=12 format=3 uid="uid://ccjmlvps2y1xm"]
+[gd_scene load_steps=17 format=3 uid="uid://ccjmlvps2y1xm"]
 
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="1_3ws8l"]
 [ext_resource type="Script" uid="uid://cykinwwjtppk4" path="res://Scripts/robson.gd" id="1_nm5vw"]
 [ext_resource type="Texture2D" uid="uid://bfcghl0tale2s" path="res://Artwork/Sprites/Inimigo/Robô Plataforma.png" id="2_3ws8l"]
+[ext_resource type="Texture2D" uid="uid://car008sfj1gq3" path="res://Resources/Particles/Spritesheets/Holy Light Aura.png" id="2_35imc"]
 [ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Artwork/light2robot.png" id="3_35imc"]
+
+[sub_resource type="Gradient" id="Gradient_35imc"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j8n7b"]
+gradient = SubResource("Gradient_35imc")
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.5, 0)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2gbc"]
 radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ws8l"]
 size = Vector2(27, 15)
+
+[sub_resource type="Animation" id="Animation_sjy0y"]
+resource_name = "Attack"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotate/Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HolyLightAura:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HolyLightAura:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15, 16]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PointLight2D:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_3ws8l"]
 resource_name = "Idle"
@@ -26,6 +88,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HolyLightAura:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PointLight2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_j8n7b"]
@@ -73,6 +159,30 @@ tracks/3/path = NodePath("Rotate/PointLight2D2:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HolyLightAura:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -131,6 +241,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HolyLightAura:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_nm5vw"]
 length = 0.001
@@ -182,23 +316,80 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HolyLightAura:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HolyLightAura:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nm5vw"]
 _data = {
+&"Attack": SubResource("Animation_sjy0y"),
 &"Idle": SubResource("Animation_3ws8l"),
 &"Off": SubResource("Animation_j8n7b"),
 &"Patrol": SubResource("Animation_35imc"),
 &"RESET": SubResource("Animation_nm5vw")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nm5vw"]
+radius = 13.5
+
 [node name="Robson" type="CharacterBody2D" groups=["Off"]]
 collision_layer = 8
 collision_mask = 17
 script = ExtResource("1_nm5vw")
-SPEED = 30
+SPEED = 10
 GRAVITY = 300.0
 KNOCKBACK = 206.46
 max_health = 25
+
+[node name="HolyLightAura" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(4.87324e-07, 0.342791, 4.33177e-07, 1)
+position = Vector2(0, -21)
+scale = Vector2(0.51714, 0.51714)
+texture = ExtResource("2_35imc")
+hframes = 5
+vframes = 4
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -47)
+scale = Vector2(0.375, 1)
+enabled = false
+color = Color(0, 0.409586, 0.409586, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_j8n7b")
 
 [node name="Rotate" type="Node2D" parent="."]
 
@@ -208,7 +399,7 @@ texture = ExtResource("1_3ws8l")
 
 [node name="Icon" type="Sprite2D" parent="Rotate"]
 texture = ExtResource("2_3ws8l")
-hframes = 3
+hframes = 4
 
 [node name="FloorCheck" type="RayCast2D" parent="Rotate"]
 position = Vector2(-10, 4)
@@ -256,6 +447,19 @@ wait_time = 3.0
 [node name="OffTimer" type="Timer" parent="."]
 wait_time = 6.0
 
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, -15)
+shape = SubResource("CircleShape2D_nm5vw")
+debug_color = Color(0.974199, 0.161125, 9.62615e-07, 0.42)
+
+[node name="AngryTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="OffTimer" to="." method="_on_off_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="AngryTimer" to="." method="_on_ángry_timer_timeout"]

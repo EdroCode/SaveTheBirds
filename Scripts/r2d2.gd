@@ -156,6 +156,7 @@ func state_hit(delta):
 
 func initialize_death():
 	if dead == false:
+		
 		velocity *= 0
 		add_particle()
 		$PatrolTimer.stop()

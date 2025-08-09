@@ -3,6 +3,7 @@ extends CharacterBody2D
 enum STATES {IDLE, PATROL, HOVER, ATTACK, STUN, HIT, DEATH}
 
 @onready var bomb = preload("res://Scenes/Effects/bomb.tscn")
+@onready var explosion_particles = preload("res://Scenes/Effects/explosion.tscn")
 
 
 @export var HOVER_SPEED : int
@@ -142,17 +143,18 @@ func initialize_attack():
 	$AttackTimer.start()
 
 func state_attack(delta):
-	
-	if !attacking:
-		if player_in_range == true:
-			initialize_hover()
-		else:
-			player_in_range = false
-			initialize_idle()
+	if can_attack:
+		if !attacking:
+			if player_in_range == true:
+				initialize_hover()
+			else:
+				player_in_range = false
+				initialize_idle()
 
 func initialize_hit():
 	if !dead:
 		stunned = true
+		can_attack = false
 		state_nxt = STATES.HIT
 		anim_nxt = "Hit"
 		velocity *= 0
@@ -163,16 +165,15 @@ func state_hit(delta):
 			
 			check_player()
 			
-			if player_in_range:
-				initialize_hover()
-			else:
-				initialize_idle()
+			initialize_hover()
+			
 	
 	
 	move_and_slide()
 
 func initialize_death():
 	if dead == false:
+		add_particle()
 		velocity *= 0
 		dead = true
 		state_nxt = STATES.DEATH
@@ -234,6 +235,13 @@ func set_stunned():
 	
 	stunned = !stunned
 	can_attack = true
+
+func add_particle():
+	
+	var p = explosion_particles.instantiate()
+	p.position = $ParticlePos.global_position
+	get_tree().root.add_child(p)
+
 
 
 func _on_idle_t_imer_timeout() -> void:

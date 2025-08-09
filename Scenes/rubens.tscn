@@ -17,7 +17,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa82a"]
-size = Vector2(310, 221)
+size = Vector2(230, 221)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cte7u"]
 radius = 11.0
@@ -439,6 +439,9 @@ wait_time = 5.0
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.5
+
+[node name="ParticlePos" type="Marker2D" parent="."]
+position = Vector2(25, -32)
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="IdleTImer" to="." method="_on_idle_t_imer_timeout"]

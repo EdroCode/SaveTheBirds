@@ -18,5 +18,10 @@ func _process(delta):
 			collider.damage(3)
 		
 		queue_free()
+	
+	$AudioStreamPlayer2D.volume_db -= 0.8
 		
-		
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
