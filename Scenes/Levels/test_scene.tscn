@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ym1cha6q3qj0"]
+[gd_scene load_steps=6 format=3 uid="uid://ym1cha6q3qj0"]
 
 [ext_resource type="Texture2D" uid="uid://cv1khn2ldxmar" path="res://Artwork/Sprites/ui/quadro.png" id="1_sgftv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_2u58p"]
+[ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="3_a1spv"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="3_dv2c3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyt7j"]
@@ -24,6 +25,9 @@ texture = ExtResource("1_sgftv")
 
 [node name="Player" parent="." instance=ExtResource("2_2u58p")]
 position = Vector2(45, 134)
+
+[node name="Robson" parent="." instance=ExtResource("3_a1spv")]
+position = Vector2(20, 141)
 
 [node name="R2D2" parent="." instance=ExtResource("3_dv2c3")]
 position = Vector2(295, 133)

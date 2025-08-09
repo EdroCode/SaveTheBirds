@@ -7,7 +7,7 @@ enum STATES {IDLE, PATROL, OFF, ATTACK}
 
 @export var SPEED : int
 @export var GRAVITY : float
-@export var KNOCKBACK : float
+@export var KNOCKBACK_FORCE : float
 
 var state_cur : int
 var state_nxt : int
@@ -162,10 +162,14 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.is_in_group("Player"):
 			var ab = global_position - body.global_position
 			ab.y = 0
-			if ab.length() != 0:
-				body.position -= ab.normalized() * 55
+			#if ab.length() != 0:
+			#	body.position -= ab.normalized() * 55
 			initialize_attack()
 			body.damage(5)
+			
+			
+			body.apply_knockback(-ab.normalized(),KNOCKBACK_FORCE,0.01)
+	
 
 
 

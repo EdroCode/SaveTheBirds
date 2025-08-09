@@ -8,7 +8,10 @@ enum STATES {IDLE, PATROL, CHASE,STUN, OFF, HIT, DEATH}
 @export var CHASING_SPEED : int
 @export var SPEED : int
 @export var GRAVITY : float
-@export var KNOCKBACK : float
+
+@export var KNOCKBACK_FORCE : float
+var knockback_timer : float = 0.0
+var knockback : Vector2 = Vector2.ZERO
 
 var state_cur : int
 var state_nxt : int
@@ -48,25 +51,35 @@ func _physics_process(delta):
 		anim_cur = anim_nxt
 		anim.play(anim_cur)
 	
-	match state_cur:
+	
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+	else:
 		
-		STATES.IDLE:
-			state_idle(delta)
-		STATES.PATROL:
-			state_patrol(delta)
-		STATES.HIT:
-			state_hit(delta)
-		STATES.CHASE:
-			state_chase(delta)
-		STATES.STUN:
-			state_stun(delta)
-		STATES.OFF:
-			pass
-		STATES.DEATH:
-			state_death(delta)
 	
-	
+		match state_cur:
+			
+			STATES.IDLE:
+				state_idle(delta)
+			STATES.PATROL:
+				state_patrol(delta)
+			STATES.HIT:
+				state_hit(delta)
+			STATES.CHASE:
+				state_chase(delta)
+			STATES.STUN:
+				state_stun(delta)
+			STATES.OFF:
+				pass
+			STATES.DEATH:
+				state_death(delta)
+		
+		
 
+	
 func initialize_idle():
 	$PatrolTimer.stop()
 	$IdleTimer.start()
@@ -205,14 +218,37 @@ func gravity(delta):
 		velocity.y += GRAVITY * delta
 
 
+func apply_knockback(direction : Vector2, force : float, knockback_duration : float) -> void:
+	
+	knockback = direction * force
+	knockback_timer = knockback_duration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 func _on_patrol_timer_timeout() -> void:
 	dir = -dir
-
 
 func _on_idle_timer_timeout() -> void:
 	$IdleTimer.stop()
 	initialize_patrol()
-
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
@@ -221,11 +257,14 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 	
 		body.damage(5)
 		var ab = global_position - body.global_position
-		ab.y = 0
-		if ab.length() != 0:
-			position += ab.normalized() * KNOCKBACK
+		#ab.y = 0
+		#if ab.length() != 0:
+	#		position += ab.normalized() * KNOCKBACK
+		
+		apply_knockback(ab.normalized(),KNOCKBACK_FORCE,0.05)
+		body.apply_knockback(-ab.normalized(),KNOCKBACK_FORCE,0.01)
 		initialize_stun()
-
+		
 
 func _on_detect_player_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

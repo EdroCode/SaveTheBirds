@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=64 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -23,9 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://b3r0l76s4wyub" path="res://Scenes/Addons/bird.tscn" id="11_3r43a"]
 [ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="13_5ro7w"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="13_jlysq"]
-[ext_resource type="Texture2D" uid="uid://ckrltnjwwjjt" path="res://Artwork/Sprites/VIDA_empty.png" id="14_0m8ik"]
-[ext_resource type="Texture2D" uid="uid://dsvjnolkyrifv" path="res://Artwork/Sprites/border.png" id="15_t136y"]
-[ext_resource type="Texture2D" uid="uid://rsigsfew2evx" path="res://Artwork/Sprites/progress.png" id="16_5ro7w"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/screen.png" id="27_61r6c"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="28_yh24b"]
 
@@ -538,6 +535,7 @@ texture = ExtResource("4_81gse")
 [sub_resource type="TileSet" id="TileSet_lw2wh"]
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 17
 sources/0 = SubResource("TileSetAtlasSource_81gse")
 sources/1 = SubResource("TileSetAtlasSource_g0l7y")
 
@@ -970,40 +968,14 @@ autoplay = "new_animation"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="CanvasLayer"]
-light_mask = 2
-layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 181.0
-
-[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
-light_mask = 0
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -37.0
-offset_right = 21.0
-offset_bottom = -21.0
-grow_vertical = 0
-scale = Vector2(2, 2)
-max_value = 30.0
-value = 10.0
-rounded = true
-fill_mode = 3
-texture_under = ExtResource("14_0m8ik")
-texture_over = ExtResource("15_t136y")
-texture_progress = ExtResource("16_5ro7w")
-tint_progress = Color(0.835294, 0, 0, 1)
-
 [node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
 light_mask = 2
 texture_filter = 1
 material = SubResource("ShaderMaterial_jlysq")
 offset_right = 320.0
 offset_bottom = 181.0
+
+[node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("28_yh24b")]
 
 [node name="Screen" type="Sprite2D" parent="."]
 visible = false
@@ -1024,9 +996,5 @@ texture = ExtResource("27_61r6c")
 visible = false
 position = Vector2(799, -88)
 texture = ExtResource("27_61r6c")
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="UI-SettingsPanel" parent="CanvasLayer2" instance=ExtResource("28_yh24b")]
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]

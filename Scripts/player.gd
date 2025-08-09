@@ -6,6 +6,10 @@ enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH, STAIRS, SH
 @export var GRAVITY : float
 @export var JUMP_POWER : float
 @export var DASH_SPEED : int
+@export var dash_cooldown_duration := 3
+
+var knockback_timer : float = 0.0
+var knockback : Vector2 = Vector2.ZERO
 
 var state_cur : int
 var state_nxt : int
@@ -22,7 +26,9 @@ var health : int
 @export var max_health : int
 
 var dead = false
-var can_dash = true
+
+var dash_cooldown_elapsed := 0.0
+var can_dash := true
 
 
 signal died
@@ -32,12 +38,22 @@ func _ready():
 	state_cur = -1
 	state_prv = -1
 	state_nxt = STATES.IDLE
+	
+	$DashCooldown.wait_time = dash_cooldown_duration
 	initialize_idle()
 	
 	if has_gun:
 		$Arma.visible = true
 	else:
 		$Arma.queue_free()
+
+func _process(delta: float) -> void:
+	
+	
+	if not can_dash:
+		dash_cooldown_elapsed += delta
+		var progress = 100 * (1.0 - dash_cooldown_elapsed / dash_cooldown_duration)
+		$CanvasLayer/HUD/DashClock/ProgressBar.value = clamp(progress, 0, 100)
 
 func _physics_process(delta):
 	
@@ -53,20 +69,27 @@ func _physics_process(delta):
 		anim_cur = anim_nxt
 		anim.play(anim_cur)
 	
-	match state_cur:
-		
-		STATES.IDLE:
-			state_idle(delta)
-		STATES.RUN:
-			state_run(delta)
-		STATES.JUMP:
-			state_jump(delta)
-		STATES.HIT:
-			state_hit(delta)
-		STATES.DEATH:
-			state_death(delta)
-		STATES.DASH:
-			state_dash(delta)
+	if knockback_timer > 0.0:
+		velocity = knockback
+		knockback_timer -= delta
+		if knockback_timer <= 0.0:
+			knockback = Vector2.ZERO
+	else:
+		match state_cur:
+			
+			STATES.IDLE:
+				state_idle(delta)
+			STATES.RUN:
+				state_run(delta)
+			STATES.JUMP:
+				state_jump(delta)
+			STATES.HIT:
+				state_hit(delta)
+			STATES.DEATH:
+				state_death(delta)
+			STATES.DASH:
+				state_dash(delta)
+	
 	
 	if Input.is_action_just_pressed("Shot"):
 		if has_gun:
@@ -149,6 +172,8 @@ func state_jump(delta):
 	else:
 		if dir != 0:
 			velocity.x = dir * SPEED
+			#gravity(delta)
+			
 			$Rotate.scale.x = dir
 		
 		if Input.is_action_just_pressed("Dash"):
@@ -163,18 +188,19 @@ func initialize_hit():
 	anim_nxt = "Hit"
 
 func state_hit(delta):
-	
+	move_and_slide()
 	pass
 	pass
 
 func initialize_death():
-	state_nxt = STATES.DEATH
+	health = 0
 	anim_nxt = "Dead"
 	has_gun = false
 	dead = true
 	$Arma.queue_free()
 	velocity *= 0
 	emit_signal('died')
+	state_nxt = STATES.DEATH
 
 
 func state_death(delta):
@@ -188,6 +214,8 @@ func initialize_dash(dir):
 	if can_dash:
 		can_dash = false
 		$DashCooldown.start()
+		$CanvasLayer/HUD/DashClock/ProgressBar.value = 100
+		$CanvasLayer/HUD/DashClock/ProgressBar.visible = true
 		anim_nxt = "Dash"
 		
 		print("Dash")
@@ -229,6 +257,19 @@ func gravity(delta):
 	
 	velocity.y += GRAVITY * delta
 
+func apply_knockback(direction : Vector2, force : float, knockback_duration : float) -> void:
+	
+	knockback = direction * force
+	knockback_timer = knockback_duration
+
+
+
+
+
+
+
+
+
 
 @onready var foot1 = preload("res://Resources/SFX/footstep1.wav")
 @onready var foot2 = preload("res://Resources/SFX/footstep2.wav")
@@ -259,6 +300,10 @@ func play_walk_sound():
 
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
+	dash_cooldown_elapsed = 0.0  
+	$CanvasLayer/HUD/DashClock/ProgressBar.visible = false
+	$CanvasLayer/HUD/DashClock/ProgressBar.value = 0
+
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:

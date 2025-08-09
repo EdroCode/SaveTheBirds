@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3xsi1wlfs275"]
+
+[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Artwork/Sprite-002302.png" id="1_watb7"]
+
+[node name="DashClock" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -288.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+value = 100.0
+rounded = true
+fill_mode = 4
+texture_progress = ExtResource("1_watb7")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://vmt5jqmis17c"]
+[gd_scene load_steps=34 format=4 uid="uid://vmt5jqmis17c"]
 
 [ext_resource type="Script" uid="uid://bcc88t588tq3a" path="res://Scripts/Level/caverna.gd" id="1_0yfgf"]
 [ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/TilesetCaverna.png" id="1_whnuf"]
@@ -9,9 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="3_t3p6x"]
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="4_fyp8a"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="6_n4gdy"]
-[ext_resource type="Texture2D" uid="uid://ckrltnjwwjjt" path="res://Artwork/Sprites/VIDA_empty.png" id="9_m6vaa"]
-[ext_resource type="Texture2D" uid="uid://dsvjnolkyrifv" path="res://Artwork/Sprites/border.png" id="10_3styp"]
-[ext_resource type="Texture2D" uid="uid://rsigsfew2evx" path="res://Artwork/Sprites/progress.png" id="11_n4gdy"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="12_p5vte"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="13_3styp"]
 
@@ -591,34 +588,6 @@ texture = ExtResource("2_3h03w")
 color = Color(0.325441, 0.325441, 0.325441, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="HUD" type="Control" parent="CanvasLayer"]
-light_mask = 2
-layout_mode = 3
-anchors_preset = 0
-offset_right = 320.0
-offset_bottom = 181.0
-
-[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer/HUD"]
-light_mask = 0
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 5.0
-offset_top = -37.0
-offset_right = 21.0
-offset_bottom = -21.0
-grow_vertical = 0
-scale = Vector2(2, 2)
-max_value = 30.0
-value = 10.0
-rounded = true
-fill_mode = 3
-texture_under = ExtResource("9_m6vaa")
-texture_over = ExtResource("10_3styp")
-texture_progress = ExtResource("11_n4gdy")
-tint_progress = Color(0.835294, 0, 0, 1)
 
 [node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
 light_mask = 2

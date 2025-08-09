@@ -371,7 +371,7 @@ collision_mask = 17
 script = ExtResource("1_nm5vw")
 SPEED = 10
 GRAVITY = 300.0
-KNOCKBACK = 206.46
+KNOCKBACK_FORCE = 96.05
 max_health = 25
 
 [node name="HolyLightAura" type="Sprite2D" parent="."]

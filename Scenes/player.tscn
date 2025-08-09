@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://of11km568ifc"]
+[gd_scene load_steps=17 format=3 uid="uid://of11km568ifc"]
 
 [ext_resource type="Script" uid="uid://dyewwteyj7l62" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://p16f8sbm3k84" path="res://Artwork/Sprites/Personagem.png" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://cwjkch5a2e311" path="res://Scenes/arma.tscn" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://c7tbhjqo1xx5a" path="res://Resources/SFX/walk-on-dirt-1-291981.mp3" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://cg8u4deisrfx" path="res://Scenes/Menus/hud.tscn" id="6_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
 size = Vector2(16, 18.5)
@@ -573,7 +574,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
-size = Vector2(16, 22)
+size = Vector2(18, 23)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 16
@@ -635,9 +636,13 @@ wait_time = 3.0
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(2, 0)
+position = Vector2(3, 0.5)
 shape = SubResource("RectangleShape2D_fkybt")
 debug_color = Color(0.97267, 0.16603, 0, 0.42)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("6_x3wgy")]
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
