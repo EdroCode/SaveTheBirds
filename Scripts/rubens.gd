@@ -102,6 +102,15 @@ func state_patrol(delta):
 	velocity.x = dir * SPEED
 	check_player()
 	
+	if $Rotate/WallCheck.is_colliding() == true:
+		var col = $Rotate/WallCheck.get_collider()
+		
+		if col.is_in_group("Wall"):
+			dir = -dir
+			$Rotate.scale.x = -dir
+			velocity.x = dir * SPEED
+		
+	
 	move_and_slide()
 
 func initialize_hover():

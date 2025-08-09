@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=67 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dsvjnolkyrifv" path="res://Artwork/Sprites/border.png" id="15_t136y"]
 [ext_resource type="Texture2D" uid="uid://rsigsfew2evx" path="res://Artwork/Sprites/progress.png" id="16_5ro7w"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/screen.png" id="27_61r6c"]
+[ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="28_yh24b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iixi8"]
 texture = ExtResource("1_3owoa")
@@ -111,11 +112,11 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_iixi8")
 sources/1 = SubResource("TileSetAtlasSource_lw2wh")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_wkhj3"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_61r6c"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g0l7y"]
 width = 4972
-noise = SubResource("FastNoiseLite_wkhj3")
+noise = SubResource("FastNoiseLite_61r6c")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wkhj3"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -300,12 +301,12 @@ sources/0 = SubResource("TileSetAtlasSource_t136y")
 sources/1 = SubResource("TileSetAtlasSource_5ro7w")
 sources/2 = SubResource("TileSetAtlasSource_p6fdq")
 
-[sub_resource type="Gradient" id="Gradient_81gse"]
+[sub_resource type="Gradient" id="Gradient_61r6c"]
 offsets = PackedFloat32Array(0.285714, 1)
 colors = PackedColorArray(0, 0.973479, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_81gse"]
-gradient = SubResource("Gradient_81gse")
+gradient = SubResource("Gradient_61r6c")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0.114679)
 
@@ -1005,19 +1006,27 @@ offset_right = 320.0
 offset_bottom = 181.0
 
 [node name="Screen" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(161, 91)
 texture = ExtResource("27_61r6c")
 
 [node name="Screen2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(480, 91)
 texture = ExtResource("27_61r6c")
 
 [node name="Screen3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(799, 90)
 texture = ExtResource("27_61r6c")
 
 [node name="Screen4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(799, -88)
 texture = ExtResource("27_61r6c")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="UI-SettingsPanel" parent="CanvasLayer2" instance=ExtResource("28_yh24b")]
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]

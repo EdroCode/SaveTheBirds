@@ -1,0 +1,300 @@
+[gd_scene load_steps=21 format=3 uid="uid://c5wwheh4b1qfj"]
+
+[ext_resource type="Script" uid="uid://dh0byvhh0cpvi" path="res://Scripts/UI/ui_settings_panel.gd" id="1_m301v"]
+[ext_resource type="Texture2D" uid="uid://bd0o22xdm4ldx" path="res://Artwork/Sprites/ui/MenuGato.png" id="2_yttxp"]
+[ext_resource type="Texture2D" uid="uid://docuqpraow5jd" path="res://Artwork/Sprites/ui/image.png" id="3_hfut2"]
+[ext_resource type="Texture2D" uid="uid://d2vbydhagxdke" path="res://Artwork/Sprites/ui/audio.png" id="3_k510f"]
+[ext_resource type="Texture2D" uid="uid://dvn8de4eqwmrh" path="res://Artwork/Sprites/ui/holder.png" id="3_rh3t3"]
+[ext_resource type="Texture2D" uid="uid://bplkxovoqi8o" path="res://Artwork/Sprites/UI_Wood_Fonts/ezgif-split/tile147.png" id="3_xlrr7"]
+[ext_resource type="Texture2D" uid="uid://n7ype27jngsb" path="res://Artwork/Sprites/ui/cat.png" id="4_ay4pj"]
+[ext_resource type="Texture2D" uid="uid://bfctxtwq7r2ew" path="res://Artwork/Sprites/ui/holderSelected.png" id="4_h2t3a"]
+[ext_resource type="Texture2D" uid="uid://ct0hp34picwu" path="res://Artwork/Sprites/UI_Wood_Fonts/ezgif-split/tile145.png" id="5_0s3rv"]
+[ext_resource type="Texture2D" uid="uid://c2ctufk1tcuii" path="res://Artwork/Sprites/ui/bird.png" id="5_fr753"]
+[ext_resource type="Texture2D" uid="uid://b3de43hlcxlxs" path="res://Artwork/Sprites/ui/bar.png" id="5_k510f"]
+[ext_resource type="Texture2D" uid="uid://3elg2sqpnscg" path="res://Artwork/Sprites/ui/houseOver.png" id="5_kid5v"]
+[ext_resource type="Texture2D" uid="uid://cmuhht2jpuri7" path="res://Artwork/Sprites/ui/Media_Musical_Note_Beam-sheet.png" id="6_h2t3a"]
+[ext_resource type="Texture2D" uid="uid://c6yjtw36um01m" path="res://Artwork/Sprites/ui/tile145Over.png" id="7_2lmw7"]
+[ext_resource type="AudioStream" uid="uid://coxhmtdg3uwn3" path="res://Resources/SFX/page-flip-47177.mp3" id="20_2lmw7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1fiva"]
+texture = ExtResource("5_k510f")
+texture_margin_left = 1.0
+texture_margin_right = 1.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_kid5v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 0.341176)]
+}
+
+[sub_resource type="Animation" id="Animation_uassf"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.54),
+"transitions": PackedFloat32Array(1, 0.0947323),
+"update": 0,
+"values": [Vector2(0, 169), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 0), Color(0.0705882, 0.0705882, 0.0705882, 0.341176)]
+}
+
+[sub_resource type="Animation" id="Animation_yttxp"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 0.0853776),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 169)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0705882, 0.0705882, 0.0705882, 0.341176), Color(0.0705882, 0.0705882, 0.0705882, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kid5v"]
+_data = {
+&"Close": SubResource("Animation_yttxp"),
+&"Open": SubResource("Animation_uassf"),
+&"RESET": SubResource("Animation_kid5v")
+}
+
+[node name="UI-SettingsPanel" type="Control"]
+process_mode = 3
+light_mask = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m301v")
+
+[node name="Menu" type="Control" parent="."]
+light_mask = 2
+anchors_preset = 0
+offset_top = 169.0
+offset_right = 40.0
+offset_bottom = 209.0
+
+[node name="ColorRect" type="ColorRect" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 280.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.0705882, 0.0705882, 0.341176)
+
+[node name="TextureRect10" type="TextureRect" parent="Menu"]
+light_mask = 2
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_yttxp")
+
+[node name="Control" type="Control" parent="Menu"]
+light_mask = 2
+anchors_preset = 0
+offset_left = 37.0
+offset_top = 24.0
+offset_right = 77.0
+offset_bottom = 64.0
+
+[node name="TextureRect11" type="TextureRect" parent="Menu/Control"]
+light_mask = 2
+layout_mode = 0
+offset_left = 19.0
+offset_top = -7.0
+offset_right = 211.0
+offset_bottom = 101.0
+texture = ExtResource("3_hfut2")
+stretch_mode = 4
+
+[node name="TextureRect12" type="TextureRect" parent="Menu/Control"]
+light_mask = 2
+layout_mode = 0
+offset_left = 215.0
+offset_top = 53.0
+offset_right = 407.0
+offset_bottom = 161.0
+rotation = 0.237362
+scale = Vector2(0.251981, 0.251981)
+texture = ExtResource("4_ay4pj")
+stretch_mode = 4
+
+[node name="TextureRect13" type="TextureRect" parent="Menu/Control"]
+light_mask = 2
+layout_mode = 0
+offset_left = 75.0
+offset_top = 86.0
+offset_right = 267.0
+offset_bottom = 194.0
+rotation = 0.237362
+scale = Vector2(0.251981, 0.251981)
+texture = ExtResource("5_fr753")
+stretch_mode = 4
+
+[node name="HouseButton" type="TextureButton" parent="Menu/Control"]
+light_mask = 2
+layout_mode = 0
+offset_left = 7.0
+offset_top = 37.0
+offset_right = 71.0
+offset_bottom = 99.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_xlrr7")
+texture_hover = ExtResource("5_kid5v")
+stretch_mode = 4
+
+[node name="ResetButton" type="TextureButton" parent="Menu/Control"]
+light_mask = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 68.0
+offset_right = 71.0
+offset_bottom = 134.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_0s3rv")
+texture_hover = ExtResource("7_2lmw7")
+stretch_mode = 4
+
+[node name="Volume" type="Control" parent="Menu/Control"]
+light_mask = 2
+anchors_preset = 0
+offset_left = 36.0
+offset_top = 24.0
+offset_right = 76.0
+offset_bottom = 64.0
+
+[node name="Settings" type="TextureButton" parent="Menu/Control/Volume"]
+light_mask = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = 43.0
+offset_bottom = 57.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_k510f")
+stretch_mode = 4
+
+[node name="HSlider" type="HSlider" parent="Menu/Control/Volume"]
+light_mask = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = 20.0
+offset_right = 190.0
+offset_bottom = 36.0
+theme_override_icons/grabber = ExtResource("3_rh3t3")
+theme_override_icons/grabber_highlight = ExtResource("4_h2t3a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_1fiva")
+min_value = 0.001
+max_value = 1.5
+step = 0.001
+value = 0.001
+
+[node name="Music" type="Control" parent="Menu/Control"]
+light_mask = 2
+anchors_preset = 0
+offset_left = 36.0
+offset_top = 55.0
+offset_right = 76.0
+offset_bottom = 95.0
+
+[node name="Settings" type="TextureButton" parent="Menu/Control/Music"]
+light_mask = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 45.0
+offset_bottom = 61.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_h2t3a")
+stretch_mode = 4
+
+[node name="MusicHSlider" type="HSlider" parent="Menu/Control/Music"]
+light_mask = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 190.0
+offset_bottom = 38.0
+theme_override_icons/grabber = ExtResource("3_rh3t3")
+theme_override_icons/grabber_highlight = ExtResource("4_h2t3a")
+theme_override_styles/slider = SubResource("StyleBoxTexture_1fiva")
+min_value = 0.001
+max_value = 1.5
+step = 0.001
+value = 0.001
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+&"": SubResource("AnimationLibrary_kid5v")
+}
+autoplay = "RESET"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("20_2lmw7")
+volume_db = -2.811
+max_polyphony = 5
+
+[connection signal="button_down" from="Menu/Control/HouseButton" to="." method="_on_house_button_button_down"]
+[connection signal="button_down" from="Menu/Control/ResetButton" to="." method="_on_reset_button_button_down"]
+[connection signal="value_changed" from="Menu/Control/Volume/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Menu/Control/Music/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]

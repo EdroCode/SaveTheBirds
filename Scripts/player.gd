@@ -37,7 +37,7 @@ func _ready():
 	if has_gun:
 		$Arma.visible = true
 	else:
-		$Arma.visible = false
+		$Arma.queue_free()
 
 func _physics_process(delta):
 	

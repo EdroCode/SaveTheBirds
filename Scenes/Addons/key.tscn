@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cloypgcx1dqve"]
 
-[ext_resource type="Texture2D" uid="uid://dspod0poumw2k" path="res://Artwork/Sprites/SimpleKeys/SimpleKeys/Jumbo/Light/Spritesheets/E.png" id="1_2w2wp"]
 [ext_resource type="Script" uid="uid://cp2ir355n2om0" path="res://Scripts/Addons/key.gd" id="1_ui2tm"]
+[ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="2_ui2tm"]
 
 [sub_resource type="Animation" id="Animation_jcr0r"]
 length = 0.001
@@ -49,7 +49,7 @@ collision_mask = 16
 script = ExtResource("1_ui2tm")
 
 [node name="E" type="Sprite2D" parent="."]
-texture = ExtResource("1_2w2wp")
+texture = ExtResource("2_ui2tm")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -504,7 +504,7 @@ script = ExtResource("1_wovta")
 CHASING_SPEED = 80
 SPEED = 30
 GRAVITY = 151.0
-KNOCKBACK = 62.76
+KNOCKBACK = 45.965
 max_health = 20
 
 [node name="Rotate" type="Node2D" parent="."]

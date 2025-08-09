@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmnlsx52urj1h"]
+
+[ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.80067, 0.529189, 0.344792, 1)
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 75.0
+offset_right = 180.0
+offset_bottom = 106.0
+text = "START"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 113.0
+offset_right = 103.0
+offset_bottom = 144.0
+text = "options"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 110.0
+offset_right = 265.0
+offset_bottom = 141.0
+text = "credits"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 128.0
+offset_right = 189.0
+offset_bottom = 159.0
+text = "controls"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 16.0
+offset_right = 161.0
+offset_bottom = 56.0
+text = "BIRD"
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]

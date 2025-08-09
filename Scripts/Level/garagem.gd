@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ActionE"):
 		if $Elementos2/Key.playerOnArea:
 			get_tree().change_scene_to_file("res://Scenes/nave_gato.tscn")
+	
+	
 
 func spawn_bird(pos):
 	
