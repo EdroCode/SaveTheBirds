@@ -1,7 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=35 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Background.png" id="1_3vh4f"]
-[ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scenes/Levels/garagem.gd" id="1_g5usv"]
+[ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_1ni7d"]
 [ext_resource type="Texture2D" uid="uid://efy415lbso" path="res://Artwork/Sprites/Televisão01.png" id="3_jtppm"]
 [ext_resource type="Texture2D" uid="uid://dkiagnhxchc8q" path="res://Artwork/Sprites/poster2.png" id="3_rvibm"]
@@ -25,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://fd5lknxqr32c" path="res://Artwork/Sprites/stained_glass.png" id="19_edsf3"]
 [ext_resource type="Texture2D" uid="uid://b7gwwpo4isepw" path="res://Artwork/Sprites/Post It.png" id="22_edsf3"]
 [ext_resource type="Texture2D" uid="uid://ck4j4j0duml8j" path="res://Artwork/Sprites/chao.png" id="22_x42if"]
+[ext_resource type="PackedScene" uid="uid://cloypgcx1dqve" path="res://Scenes/Addons/key.tscn" id="24_2ynwp"]
+[ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="25_diqay"]
+[ext_resource type="Texture2D" uid="uid://dspod0poumw2k" path="res://Artwork/Sprites/SimpleKeys/SimpleKeys/Jumbo/Light/Spritesheets/E.png" id="27_g5usv"]
+[ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Levels/ui_settings_panel.tscn" id="29_rp3sp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vh4f"]
 size = Vector2(352.588, 20)
@@ -51,6 +55,12 @@ script = ExtResource("1_g5usv")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider/StaticBody2D"]
 polygon = PackedVector2Array(12, 119, 12, 14, 181, 14, 181, 2, 267, 2, 267, 14, 309, 14, 309, 170, 321, 170, 321, 0, 181, -1, 178, -1, 178, 2, 0, 2, 0, 119)
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="Collider"]
+scale = Vector2(-1, 1)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider/StaticBody2D2"]
+polygon = PackedVector2Array(12, 119, 12, 14, 181, 14, 181, 2, 267, 2, 267, 14, 309, 14, 309, 170, 321, 170, 321, 0, 181, -1, 178, -1, 178, 2, 0, 2, 0, 119)
+
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(160.286, 87)
 scale = Vector2(0.910714, 0.910714)
@@ -63,6 +73,20 @@ position = Vector2(0.176453, 101.02)
 shape = SubResource("RectangleShape2D_3vh4f")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Background/StaticBody2D"]
+occluder = SubResource("OccluderPolygon2D_ay2gj")
+
+[node name="Background2" type="Sprite2D" parent="."]
+position = Vector2(-160, 87)
+scale = Vector2(-0.911, 0.911)
+texture = ExtResource("1_3vh4f")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background2/StaticBody2D"]
+position = Vector2(0.176453, 101.02)
+shape = SubResource("RectangleShape2D_3vh4f")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Background2/StaticBody2D"]
 occluder = SubResource("OccluderPolygon2D_ay2gj")
 
 [node name="Elementos" type="Node2D" parent="."]
@@ -285,8 +309,17 @@ energy = 0.4
 shadow_enabled = true
 texture = ExtResource("18_d2k3b")
 
+[node name="PointLight2D4" type="PointLight2D" parent="Elementos"]
+position = Vector2(111, 167)
+rotation = 1.57079
+scale = Vector2(0.814707, 0.814707)
+color = Color(0.779901, 0.357834, 0, 1)
+energy = 0.48
+shadow_enabled = true
+texture = ExtResource("18_d2k3b")
+
 [node name="Lampada" type="Sprite2D" parent="Elementos"]
-position = Vector2(112, 115)
+position = Vector2(111, 114)
 texture = ExtResource("11_soevq")
 
 [node name="PointLight2D" type="PointLight2D" parent="Elementos/Lampada"]
@@ -391,6 +424,10 @@ texture = ExtResource("22_edsf3")
 position = Vector2(34, 141)
 has_gun = false
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(126, -51)
+script = ExtResource("25_diqay")
+
 [node name="Foreground" type="Node2D" parent="."]
 position = Vector2(0, 3)
 
@@ -407,9 +444,22 @@ position = Vector2(66, 146)
 texture = ExtResource("5_nm4gp")
 
 [node name="Chao" type="Sprite2D" parent="Foreground"]
+light_mask = 0
 position = Vector2(160.25, 177)
 scale = Vector2(0.911, 0.911)
 texture = ExtResource("22_x42if")
+
+[node name="Chao2" type="Sprite2D" parent="Foreground"]
+light_mask = 0
+position = Vector2(-160, 177)
+scale = Vector2(-0.911, 0.911)
+texture = ExtResource("22_x42if")
+
+[node name="Elementos2" type="Node2D" parent="."]
+
+[node name="Key" parent="Elementos2" instance=ExtResource("24_2ynwp")]
+position = Vector2(225, 107)
+Sprite = ExtResource("27_g5usv")
 
 [node name="Birds" type="Node2D" parent="."]
 
@@ -441,3 +491,5 @@ position = Vector2(89, 33)
 color = Color(0.837913, 0.712325, 0.647121, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("29_rp3sp")]

@@ -445,7 +445,7 @@ wait_time = 7.0
 wait_time = 3.0
 
 [node name="OffTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 16

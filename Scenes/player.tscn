@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cwjkch5a2e311" path="res://Scenes/arma.tscn" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://c7tbhjqo1xx5a" path="res://Resources/SFX/walk-on-dirt-1-291981.mp3" id="5_fkybt"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cvnsp"]
-radius = 9.0
-height = 23.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
+size = Vector2(16, 23)
 
 [sub_resource type="Animation" id="Animation_3smsa"]
 resource_name = "Dash"
@@ -101,6 +100,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [9, 1]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0976785),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(16, 23), Vector2(15.125, 10.21)]
+}
 
 [sub_resource type="Animation" id="Animation_fkybt"]
 resource_name = "Hit"
@@ -170,6 +181,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [23.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 23)]
 }
 
 [sub_resource type="Animation" id="Animation_vgqql"]
@@ -251,6 +274,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [9]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CollisionShape2D:shape:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 23)]
+}
 
 [sub_resource type="Animation" id="Animation_cvnsp"]
 resource_name = "Run"
@@ -309,6 +344,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [23.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:shape:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(16, 23)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
 _data = {
@@ -358,8 +405,8 @@ target_position = Vector2(14, 0)
 scale = Vector2(1.1, 1.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(3, -2)
-shape = SubResource("CapsuleShape2D_cvnsp")
+position = Vector2(3, -1.5)
+shape = SubResource("RectangleShape2D_x3wgy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

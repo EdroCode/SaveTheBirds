@@ -24,6 +24,7 @@ var health : int
 var dead = false
 var can_dash = true
 
+
 signal died
 
 func _ready():

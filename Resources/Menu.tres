@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://b6d4efigns37h"]
+
+[ext_resource type="Texture2D" uid="uid://dvn8de4eqwmrh" path="res://Artwork/Sprites/ui/holder.png" id="1_pveyg"]
+[ext_resource type="Texture2D" uid="uid://b3de43hlcxlxs" path="res://Artwork/Sprites/ui/bar.png" id="1_txy6s"]
+[ext_resource type="Texture2D" uid="uid://bfctxtwq7r2ew" path="res://Artwork/Sprites/ui/holderSelected.png" id="2_dga2m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eu25"]
+texture = ExtResource("1_pveyg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jks24"]
+texture = ExtResource("2_dga2m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fc160"]
+texture = ExtResource("1_txy6s")
+
+[resource]
+HSlider/styles/grabber_area = SubResource("StyleBoxTexture_6eu25")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_jks24")
+HSlider/styles/slider = SubResource("StyleBoxTexture_fc160")

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://2br6ctsrfn46" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/4 Examples/7Dangerarea.png" id="4_p6fdq"]
 [ext_resource type="Texture2D" uid="uid://17yn2vrjv6sx" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/19 Backtiles/Back_13.png" id="5_1fdbk"]
 [ext_resource type="Texture2D" uid="uid://b0wordi15cved" path="res://Artwork/Sprites/kenney_splatpack/PNG/Default (256px)/splat04.png" id="5_8g4ev"]
-[ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scenes/Levels/camera_2d.gd" id="5_81gse"]
+[ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="5_81gse"]
 [ext_resource type="Texture2D" uid="uid://cl6en2sabf7x1" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/2 Pointers/11.png" id="5_kql5a"]
 [ext_resource type="Texture2D" uid="uid://bl85m1o4qtjhm" path="res://Artwork/light2.png" id="5_wkhj3"]
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="6_0rioc"]
