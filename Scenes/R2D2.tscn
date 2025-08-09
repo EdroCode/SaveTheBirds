@@ -9,7 +9,7 @@
 size = Vector2(124, 71)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k2gbc"]
-radius = 11.0454
+radius = 12.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k2gbc"]
 radius = 11.0
@@ -186,11 +186,11 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.166667),
+"times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"initialize_idle"
+"method": &"initialize_chase"
 }]
 }
 tracks/1/type = "value"
@@ -503,8 +503,8 @@ collision_mask = 17
 script = ExtResource("1_wovta")
 CHASING_SPEED = 80
 SPEED = 30
-GRAVITY = 151.0
-KNOCKBACK = 45.965
+GRAVITY = 397.765
+KNOCKBACK = 147.42
 max_health = 20
 
 [node name="Rotate" type="Node2D" parent="."]
@@ -532,7 +532,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rotate/HitBox"]
-position = Vector2(-4, -5)
+position = Vector2(-3, -6)
 shape = SubResource("CircleShape2D_k2gbc")
 debug_color = Color(0.853072, 0.342337, 0.376007, 0.42)
 

@@ -65,6 +65,7 @@ func _physics_process(delta):
 		STATES.DEATH:
 			state_death(delta)
 	
+	
 
 func initialize_idle():
 	$PatrolTimer.stop()
@@ -122,21 +123,19 @@ func state_chase(delta):
 	var player_pos
 	gravity(delta)
 
-	for i in $Rotate/DetectPlayer.get_overlapping_bodies():
-		if i.is_in_group("Player"):
-			player_pos = i.global_position
+	var player = get_tree().get_first_node_in_group("Player")
 
-	if player_pos:
-	
+	if player:
+		player_pos = player.global_position
+		
 		if player_pos.x > global_position.x:
 			$Rotate.scale.x = -1   
 		else:
 			$Rotate.scale.x = 1 
+		# Only modify the X axis, keep Y for gravity/jumping
+		var direction_x = sign(player_pos.x - global_position.x) # -1, 0, or 1
+		velocity.x = direction_x * CHASING_SPEED
 
-		
-		var direction = (player_pos - global_position).normalized()
-		direction.y = 0
-		velocity = direction * CHASING_SPEED
 	
 	move_and_slide()
 
@@ -150,8 +149,6 @@ func initialize_hit():
 func state_hit(delta):
 	
 	gravity(delta)
-	pass
-	
 	move_and_slide()
 
 func initialize_death():
@@ -219,15 +216,15 @@ func _on_idle_timer_timeout() -> void:
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if dead == false:
-		if body.is_in_group("Player"):
-			body.damage(5)
-			var ab = global_position - body.global_position
-			ab.y = 0
-			if ab.length() != 0:
-				position += ab.normalized() * KNOCKBACK
-			initialize_stun()
+
+	if not dead and body.is_in_group("Player"):
 	
+		body.damage(5)
+		var ab = global_position - body.global_position
+		ab.y = 0
+		if ab.length() != 0:
+			position += ab.normalized() * KNOCKBACK
+		initialize_stun()
 
 
 func _on_detect_player_body_entered(body: Node2D) -> void:

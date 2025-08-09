@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH}
+enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH, STAIRS, SHOWITEM}
 
 @export var SPEED : int
 @export var GRAVITY : float
@@ -181,6 +181,7 @@ func state_death(delta):
 	#print('IM DEAD')
 	gravity(delta)
 	move_and_slide()
+	velocity *= 0
 	
 
 func initialize_dash(dir):

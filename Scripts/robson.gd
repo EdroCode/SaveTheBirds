@@ -168,6 +168,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.damage(5)
 
 
+
 func _on_ángry_timer_timeout() -> void:
 	$AngryTimer.stop()
 	initialize_idle()
