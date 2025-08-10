@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqumn5xjt5mkx"]
+
+[sub_resource type="TileSet" id="TileSet_wr2ci"]
+
+[sub_resource type="TileSet" id="TileSet_jwtgf"]
+
+[sub_resource type="TileSet" id="TileSet_a51om"]
+
+[node name="Cidade" type="Node2D"]
+
+[node name="Background" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_wr2ci")
+
+[node name="Foreground" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_jwtgf")
+
+[node name="Walls" type="TileMapLayer" parent="." groups=["Wall"]]
+tile_set = SubResource("TileSet_a51om")
