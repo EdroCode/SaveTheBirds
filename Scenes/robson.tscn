@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://ccjmlvps2y1xm"]
 
-[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="1_3ws8l"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="1_3ws8l"]
 [ext_resource type="Script" uid="uid://cykinwwjtppk4" path="res://Scripts/robson.gd" id="1_nm5vw"]
 [ext_resource type="Texture2D" uid="uid://bfcghl0tale2s" path="res://Artwork/Sprites/Inimigo/Robô Plataforma.png" id="2_3ws8l"]
 [ext_resource type="Texture2D" uid="uid://car008sfj1gq3" path="res://Resources/Particles/Spritesheets/Holy Light Aura.png" id="2_35imc"]
-[ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Artwork/light2robot.png" id="3_35imc"]
+[ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Resources/Particles/LightSprites/light2robot.png" id="3_35imc"]
 
 [sub_resource type="Gradient" id="Gradient_35imc"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)

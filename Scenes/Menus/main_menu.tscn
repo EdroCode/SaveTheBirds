@@ -1,0 +1,316 @@
+[gd_scene load_steps=13 format=3 uid="uid://bmnlsx52urj1h"]
+
+[ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="2_pha2q"]
+[ext_resource type="Texture2D" uid="uid://x85hm5ap26ry" path="res://Artwork/Sprites/ui/LOGO.png" id="3_aur2u"]
+[ext_resource type="Texture2D" uid="uid://bkkck4jfywufg" path="res://Artwork/Sprites/ui/Terra.png" id="3_neey8"]
+[ext_resource type="Texture2D" uid="uid://b2b0lj0wgcnyj" path="res://Artwork/Sprites/ui/Referência.png" id="4_5wi6m"]
+[ext_resource type="Texture2D" uid="uid://b4l3sc4ccmea1" path="res://Artwork/Sprites/ui/Meteoro.png" id="5_4fgt5"]
+[ext_resource type="Texture2D" uid="uid://csc8muxubvivt" path="res://Artwork/Sprites/ui/Personagem.png" id="6_j4kqa"]
+[ext_resource type="Shader" uid="uid://bg6ekm1nyhcvy" path="res://Resources/water.gdshader" id="8_4fgt5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kqa"]
+shader = ExtResource("8_4fgt5")
+shader_parameter/color = Color(0, 0.105882, 0.352941, 1)
+shader_parameter/frequency = 5.0
+shader_parameter/compress = 1.0
+shader_parameter/add_light = 0.0
+shader_parameter/scale = 1.0
+shader_parameter/speed = 0.0999776
+shader_parameter/x_angle = 1.57
+shader_parameter/y_angle = 1.57
+shader_parameter/base_alpha = 0.8
+shader_parameter/refraction_ratio = 10.0
+shader_parameter/clear = 1.0
+shader_parameter/surf_sinpowder = 8.0
+shader_parameter/surf_speed = 1.0
+shader_parameter/surf_angle = 1.57
+shader_parameter/surf_magnitude = 0.0
+shader_parameter/s11 = 2.221
+shader_parameter/sinpowder = 8.0
+
+[sub_resource type="Animation" id="Animation_4fgt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meteoro:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(117, 112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meteoro:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, -8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meteoro:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meteoro:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LOGO:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Terra:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Personagem:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 203)]
+}
+
+[sub_resource type="Animation" id="Animation_anmaw"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Meteoro:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(117, 112), Vector2(117, 112)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Meteoro:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(216, -8), Vector2(210, -9), Vector2(213, -7), Vector2(210, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Meteoro:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.161785, 0.00270864, -0.161785]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Meteoro:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 3, 4.46667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05474, 1.05474), Vector2(0.989482, 0.989482), Vector2(1.05474, 1.05474)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LOGO:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.5, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.121157, 0.0581965, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Terra:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5, 4.46667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0453326, -0.0402595, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Personagem:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.52, 2.04),
+"transitions": PackedFloat32Array(1, 1, 0.060371),
+"update": 0,
+"values": [Vector2(0, 203), Vector2(0, 203), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ftsii"]
+_data = {
+&"RESET": SubResource("Animation_4fgt5"),
+&"new_animation": SubResource("Animation_anmaw")
+}
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pha2q")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_j4kqa")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Terra" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 7.0
+offset_right = 320.0
+offset_bottom = 187.0
+scale = Vector2(1.04674, 1.04674)
+pivot_offset = Vector2(109, 155)
+texture = ExtResource("3_neey8")
+
+[node name="LOGO" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 83.0
+offset_right = 302.0
+offset_bottom = 174.0
+pivot_offset = Vector2(49, 51)
+texture = ExtResource("3_aur2u")
+
+[node name="Meteoro" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = -8.0
+offset_right = 333.0
+offset_bottom = 104.0
+pivot_offset = Vector2(59, 56)
+texture = ExtResource("5_4fgt5")
+
+[node name="Personagem" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 203.0
+offset_right = 320.0
+offset_bottom = 383.0
+texture = ExtResource("6_j4kqa")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 75.0
+offset_right = 180.0
+offset_bottom = 106.0
+text = "START"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 113.0
+offset_right = 103.0
+offset_bottom = 144.0
+text = "options"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 110.0
+offset_right = 265.0
+offset_bottom = 141.0
+text = "credits"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 128.0
+offset_right = 189.0
+offset_bottom = 159.0
+text = "controls"
+
+[node name="Referência" type="Sprite2D" parent="."]
+position = Vector2(-223, 75)
+texture = ExtResource("4_5wi6m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ftsii")
+}
+autoplay = "new_animation"
+
+[connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="button_down" from="Button3" to="." method="_on_button_3_button_down"]
+[connection signal="button_down" from="Button4" to="." method="_on_button_4_button_down"]

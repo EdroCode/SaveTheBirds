@@ -1,8 +1,8 @@
 [gd_scene load_steps=34 format=4 uid="uid://vmt5jqmis17c"]
 
 [ext_resource type="Script" uid="uid://bcc88t588tq3a" path="res://Scripts/Level/caverna.gd" id="1_0yfgf"]
-[ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/TilesetCaverna.png" id="1_whnuf"]
-[ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/screen.png" id="2_3h03w"]
+[ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/Other/TilesetCaverna.png" id="1_whnuf"]
+[ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="2_3h03w"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_kvwds"]
 [ext_resource type="PackedScene" uid="uid://b3r0l76s4wyub" path="res://Scenes/Addons/bird.tscn" id="2_yxhr3"]
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="3_f8nfs"]

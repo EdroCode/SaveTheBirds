@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d3xsi1wlfs275"]
 
-[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Artwork/Sprite-002302.png" id="1_watb7"]
+[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Resources/Particles/LightSprites/Sprite-002302.png" id="1_watb7"]
 
 [node name="DashClock" type="Control"]
 layout_mode = 3

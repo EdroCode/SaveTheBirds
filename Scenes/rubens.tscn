@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://sud00audlyb4" path="res://Scripts/rubens.gd" id="1_77yo8"]
 [ext_resource type="Texture2D" uid="uid://6r2kg003oca8" path="res://Artwork/Sprites/Inimigo/Robô Inimigo 01.png" id="2_cte7u"]
-[ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Bomba.png" id="4_3uvis"]
+[ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Other/Bomba.png" id="4_3uvis"]
 
 [sub_resource type="Gradient" id="Gradient_cte7u"]
 offsets = PackedFloat32Array(0, 0.538961)

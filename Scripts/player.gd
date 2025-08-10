@@ -19,6 +19,8 @@ var anim_cur = ""
 var anim_nxt = "Idle"
 
 @export var has_gun = true
+@export var ui_active = true
+
 
 @onready var anim = $AnimationPlayer
 
@@ -29,9 +31,11 @@ var dead = false
 
 var dash_cooldown_elapsed := 0.0
 var can_dash := true
-
+var can_climb := false
+var climbing := false
 
 signal died
+signal damaged
 
 func _ready():
 	health = max_health
@@ -42,6 +46,14 @@ func _ready():
 	$DashCooldown.wait_time = dash_cooldown_duration
 	initialize_idle()
 	
+	if ui_active:
+		$CanvasLayer/HUD.visible = true
+	else:
+		$CanvasLayer/HUD.visible = false
+		
+	
+	
+	
 	if has_gun:
 		$Arma.visible = true
 	else:
@@ -49,6 +61,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	
+	#print(can_climb)
 	
 	if not can_dash:
 		dash_cooldown_elapsed += delta
@@ -89,14 +102,24 @@ func _physics_process(delta):
 				state_death(delta)
 			STATES.DASH:
 				state_dash(delta)
+			STATES.STAIRS:
+				state_stairs(delta)
 	
+	
+	if Input.is_action_just_pressed("ActionE"):
+		
+		if climbing == false:
+			if can_climb:
+				print('Subindo escada')
+				initialize_stairs()
 	
 	if Input.is_action_just_pressed("Shot"):
 		if has_gun:
 			$Arma.shot()
 
 func initialize_idle():
-	
+	climbing = false
+	can_climb = true
 	state_nxt = STATES.IDLE
 	anim_nxt = "Idle"
 	velocity *= 0
@@ -115,7 +138,8 @@ func state_idle(delta):
 	move_and_slide()
 
 func initialize_run():
-	
+	climbing = false
+	can_climb = true
 	state_nxt = STATES.RUN
 	anim_nxt = "Run"
 
@@ -241,10 +265,42 @@ func state_dash(delta):
 	
 	pass
 
+func initialize_stairs():
+	climbing = true
+	can_climb = false
+	anim_nxt = "Stairs"
+	state_nxt = STATES.STAIRS
+
+
+func state_stairs(delta):
+	
+	var dir := Input.get_axis("Subir", "Descer")
+	
+	
+	if dir != 0:
+		velocity.y = dir * SPEED
+		$AnimationPlayer.play("Stairs")
+	else:
+		velocity.y = 0
+		$AnimationPlayer.stop()
+	
+	if Input.is_action_just_pressed("ActionE"):
+		
+		print('Desacendo escada')
+		
+		
+		
+		initialize_idle()
+	
+	
+	
+	move_and_slide()
+
+
 
 func damage(dmg):
-	
 	health -= dmg
+	emit_signal("damaged")
 	if !dead:
 		if health > 0:
 			initialize_hit()
@@ -309,3 +365,8 @@ func _on_dash_cooldown_timeout() -> void:
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Acid"):
 		initialize_death()
+
+
+
+func _on_hit_box_body_exited(body: Node2D) -> void:
+	pass

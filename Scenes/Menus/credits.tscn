@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3hdxfwug0bvw"]
+
+[ext_resource type="Texture2D" uid="uid://3elg2sqpnscg" path="res://Artwork/Sprites/ui/houseOver.png" id="1_strk8"]
+[ext_resource type="Script" uid="uid://cb7c63ttowew0" path="res://Scripts/Menu/credits.gd" id="1_y52f8"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y52f8")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.347452, 0.41258, 0.598019, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 323.0
+offset_bottom = 407.0
+text = "CREDITOS
+
+PROGRAMACAO - EDRO
+ARTE E GAME DESIGN - ABACAXI
+MUSICA - OCONDE
+
+Sprites adicionais:
+https://btl-games.itch.io/trash-and-junk-asset-pack
+https://beamedeighth.itch.io/simplekeys-animated-pixel-keyboard-keys
+https://ragnapixel.itch.io/particle-fx criedot particluas"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 5.0
+offset_right = 314.0
+offset_bottom = 45.0
+icon = ExtResource("1_strk8")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

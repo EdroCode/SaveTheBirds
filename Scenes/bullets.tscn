@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://boa2eqsi68urf"]
 
 [ext_resource type="Script" uid="uid://ck4kwsapappon" path="res://Scripts/bullets.gd" id="1_h3wt2"]
-[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Artwork/Sprite-002302.png" id="1_umb5x"]
-[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="2_r4o4n"]
+[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Resources/Particles/LightSprites/Sprite-002302.png" id="1_umb5x"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="2_r4o4n"]
 [ext_resource type="AudioStream" uid="uid://daiwj067jbcjm" path="res://Resources/SFX/white-noise-358382.mp3" id="4_biy0t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3wt2"]
-radius = 1.0
-height = 6.0
+radius = 2.0
+height = 8.0
 
 [node name="Bullets" type="CharacterBody2D"]
 collision_mask = 9

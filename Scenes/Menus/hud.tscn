@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cg8u4deisrfx"]
 
+[ext_resource type="Script" uid="uid://csj4qbxmjp8ft" path="res://Scenes/Menus/hud.gd" id="1_smsyt"]
 [ext_resource type="PackedScene" uid="uid://yolkgase510e" path="res://Scenes/Menus/health_bar.tscn" id="1_v1m4g"]
-[ext_resource type="Script" uid="uid://6iiaan4sf0ph" path="res://Scenes/Menus/health_bar.gd" id="2_smsyt"]
 [ext_resource type="PackedScene" uid="uid://d3xsi1wlfs275" path="res://Scenes/Addons/dash_clock.tscn" id="4_26w2x"]
 
 [node name="HUD" type="Control"]
@@ -10,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 181.0
+script = ExtResource("1_smsyt")
 
 [node name="HealthBar" parent="." instance=ExtResource("1_v1m4g")]
 layout_mode = 0
@@ -21,7 +22,6 @@ offset_top = 146.0
 offset_right = 18.0
 offset_bottom = 162.0
 grow_vertical = 1
-script = ExtResource("2_smsyt")
 
 [node name="DashClock" parent="." instance=ExtResource("4_26w2x")]
 layout_mode = 1

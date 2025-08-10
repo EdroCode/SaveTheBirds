@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4uoydsvxi3t4"]
+
+[ext_resource type="Script" uid="uid://c8subbpjgujtb" path="res://Scripts/Menu/controles_menu.gd" id="1_q07t4"]
+[ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="1_xna48"]
+[ext_resource type="Texture2D" uid="uid://3elg2sqpnscg" path="res://Artwork/Sprites/ui/houseOver.png" id="3_i0hhq"]
+
+[node name="ControlesMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q07t4")
+
+[node name="Espaço" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_xna48")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 15.0
+offset_right = 297.0
+offset_bottom = 55.0
+icon = ExtResource("3_i0hhq")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

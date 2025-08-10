@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwjkch5a2e311"]
 
-[ext_resource type="Texture2D" uid="uid://c8gyisgk5qc0t" path="res://Artwork/Sprites/Arma.png" id="1_7bvn3"]
+[ext_resource type="Texture2D" uid="uid://c8gyisgk5qc0t" path="res://Artwork/Sprites/Other/Arma.png" id="1_7bvn3"]
 [ext_resource type="Script" uid="uid://cdgk045f0c8a8" path="res://Scripts/arma.gd" id="1_bjc62"]
-[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="3_bjc62"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="3_bjc62"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ckcjq"]
 load_path = "res://.godot/imported/light2.png-31fb0c5e09aebb92135c425536e8e066.ctex"
@@ -12,7 +12,7 @@ size = Vector2(55, 10)
 
 [node name="Arma" type="Node2D"]
 script = ExtResource("1_bjc62")
-bullets = 30
+bullets = 5000
 cooldown = 0.6
 
 [node name="Sprite" type="Sprite2D" parent="."]

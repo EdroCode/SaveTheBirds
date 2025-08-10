@@ -3,6 +3,11 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 
 
+func _ready() -> void:
+	
+	for i in $Node2D/Eyes.get_children():
+		i.frame = randi_range(0, 7)
+		i.rotation = randf_range(-20,20)
 
 func _process(delta: float) -> void:
 	

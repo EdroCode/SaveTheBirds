@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://clvdgowosynw3" path="res://Scripts/r2d2.gd" id="1_wovta"]
 [ext_resource type="Texture2D" uid="uid://0hvkdtlvlhgs" path="res://Artwork/Sprites/Inimigo/Robô Inimigo 02.png" id="2_k2gbc"]
-[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="3_ysrua"]
-[ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Artwork/light2robot.png" id="4_fubcu"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="3_ysrua"]
+[ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Resources/Particles/LightSprites/light2robot.png" id="4_fubcu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gbc"]
 size = Vector2(124, 71)

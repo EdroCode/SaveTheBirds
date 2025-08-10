@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dnar6xpqohl2l"]
 
-[ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Bomba.png" id="1_omt1a"]
+[ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Other/Bomba.png" id="1_omt1a"]
 [ext_resource type="Script" uid="uid://dynypccod0vp2" path="res://Scripts/bomb.gd" id="1_rymil"]
 [ext_resource type="PackedScene" uid="uid://knvpyl41hsyp" path="res://Scenes/Effects/fire.tscn" id="3_028vr"]
-[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Artwork/light23.png" id="4_sr3aa"]
+[ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="4_sr3aa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rymil"]
 radius = 7.0
