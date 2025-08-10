@@ -104,6 +104,8 @@ func _physics_process(delta):
 				state_dash(delta)
 			STATES.STAIRS:
 				state_stairs(delta)
+			STATES.SHOWITEM:
+				state_show(delta)
 	
 	
 	if Input.is_action_just_pressed("ActionE"):
@@ -297,6 +299,29 @@ func state_stairs(delta):
 	
 	
 	move_and_slide()
+
+
+# PECAS
+
+@onready var gear = preload("res://Artwork/Sprites/Other/PEÇA01.png")
+
+
+func initialize_show(peca):
+	if peca == "gear":
+		$"Peça01".texture = gear
+		$"Peça01".position = $ShowPosition.position
+		print("olaa")
+	
+	anim_nxt = "Show"
+	state_nxt = STATES.SHOWITEM
+	velocity *= 0
+	
+	
+
+func state_show(delta):
+	velocity *= 0
+
+
 
 
 

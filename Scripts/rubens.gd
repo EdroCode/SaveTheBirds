@@ -10,6 +10,8 @@ enum STATES {IDLE, PATROL, HOVER, ATTACK, STUN, HIT, DEATH}
 @export var SPEED : int
 @export var GRAVITY : float
 
+@export var patrol_size = 230
+
 var state_cur : int
 var state_nxt : int
 var state_prv : int
@@ -36,6 +38,9 @@ var dir = 1
 
 
 func _ready():
+	var shape = RectangleShape2D.new()
+	shape.size = Vector2(patrol_size,164.0)
+	$DetectPlayer/CollisionShape2D.set_shape(shape)
 	health = max_health
 	state_cur = -1
 	state_prv = -1

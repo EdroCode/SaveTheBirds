@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ym1cha6q3qj0"]
+[gd_scene load_steps=7 format=3 uid="uid://ym1cha6q3qj0"]
 
 [ext_resource type="Texture2D" uid="uid://cv1khn2ldxmar" path="res://Artwork/Sprites/ui/quadro.png" id="1_sgftv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_2u58p"]
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="3_a1spv"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="3_dv2c3"]
+[ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="5_b3kl8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyt7j"]
 size = Vector2(324, 20)
@@ -27,7 +28,10 @@ texture = ExtResource("1_sgftv")
 position = Vector2(45, 134)
 
 [node name="Robson" parent="." instance=ExtResource("3_a1spv")]
-position = Vector2(20, 141)
+position = Vector2(30, 276)
 
 [node name="R2D2" parent="." instance=ExtResource("3_dv2c3")]
-position = Vector2(295, 133)
+position = Vector2(305, 268)
+
+[node name="Gear" parent="." instance=ExtResource("5_b3kl8")]
+position = Vector2(243, 140)

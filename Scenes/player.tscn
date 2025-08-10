@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://of11km568ifc"]
+[gd_scene load_steps=23 format=3 uid="uid://of11km568ifc"]
 
 [ext_resource type="Script" uid="uid://dyewwteyj7l62" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://p16f8sbm3k84" path="res://Artwork/Sprites/Other/Personagem.png" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://cwjkch5a2e311" path="res://Scenes/arma.tscn" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://c7tbhjqo1xx5a" path="res://Resources/SFX/walk-on-dirt-1-291981.mp3" id="5_fkybt"]
+[ext_resource type="Texture2D" uid="uid://bpe6qfat4ddiq" path="res://Artwork/Sprites/Other/PEÇA01.png" id="6_3smsa"]
 [ext_resource type="PackedScene" uid="uid://cg8u4deisrfx" path="res://Scenes/Menus/hud.tscn" id="6_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
@@ -582,6 +583,50 @@ tracks/0/keys = {
 "values": [19, 20]
 }
 
+[sub_resource type="Animation" id="Animation_f1ek2"]
+resource_name = "Show"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotate/Personagem:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333, 0.633333, 1.93333, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [18, 14, 15, 16, 17]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.06667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"initialize_idle"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Peça01/AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"appear", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
 _data = {
 &"Dash": SubResource("Animation_3smsa"),
@@ -591,7 +636,56 @@ _data = {
 &"Jump": SubResource("Animation_vgqql"),
 &"RESET": SubResource("Animation_6t5aa"),
 &"Run": SubResource("Animation_cvnsp"),
+&"Show": SubResource("Animation_f1ek2"),
 &"Stairs": SubResource("Animation_8erm5")
+}
+
+[sub_resource type="Animation" id="Animation_tx1dd"]
+resource_name = "appear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 4.75683, 0.0796603, 0.0796603, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_gymyn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pu2lt"]
+_data = {
+&"RESET": SubResource("Animation_gymyn"),
+&"appear": SubResource("Animation_tx1dd")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -629,7 +723,7 @@ target_position = Vector2(14, 0)
 scale = Vector2(1.1, 1.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(3, 1.75)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_x3wgy")
 
 [node name="WalkAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -656,6 +750,19 @@ debug_color = Color(0.97267, 0.16603, 0, 0.42)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_6t5aa")
+}
+
+[node name="ShowPosition" type="Marker2D" parent="."]
+position = Vector2(0, -29)
+
+[node name="Peça01" type="Sprite2D" parent="."]
+position = Vector2(1, -29)
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_3smsa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Peça01"]
+libraries = {
+&"": SubResource("AnimationLibrary_pu2lt")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

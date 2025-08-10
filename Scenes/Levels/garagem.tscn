@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=47 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Other/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
@@ -28,10 +28,13 @@
 [ext_resource type="Texture2D" uid="uid://ck4j4j0duml8j" path="res://Artwork/Sprites/Other/chao.png" id="22_x42if"]
 [ext_resource type="Texture2D" uid="uid://5lf414gnylrg" path="res://Artwork/Sprites/Esgoto/Arma01.png" id="23_45q2b"]
 [ext_resource type="PackedScene" uid="uid://cloypgcx1dqve" path="res://Scenes/Addons/key.tscn" id="24_2ynwp"]
+[ext_resource type="Shader" uid="uid://b5xyqo28jpy8t" path="res://Resources/highlight.gdshader" id="24_did6r"]
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="25_diqay"]
 [ext_resource type="Texture2D" uid="uid://b5v35k8pndvr7" path="res://Artwork/Sprites/Other/PlantinhasEVasos.png" id="26_726j2"]
+[ext_resource type="Script" uid="uid://chhr1jnddkd4o" path="res://Scripts/Addons/foguete.gd" id="26_h5xoy"]
 [ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="29_nsgm8"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="29_rp3sp"]
+[ext_resource type="AudioStream" uid="uid://dx3xslea7jj7m" path="res://Resources/SFX/machineDrill.wav" id="31_gyb3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vh4f"]
 size = Vector2(352.588, 20)
@@ -53,6 +56,40 @@ polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 124, -5, 124, 8, 24, 8, 8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rvibm"]
 polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 109, -5, 109, 8, 24, 8, 8, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_did6r"]
+shader = ExtResource("24_did6r")
+shader_parameter/size_effect = 0.4
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 2.55
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/effect_enabled = true
+
+[sub_resource type="Animation" id="Animation_h5xoy"]
+resource_name = "new_animation"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"turn_effect_on"
+}, {
+"args": [],
+"method": &"turn_effect_off"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gyb3i"]
+_data = {
+&"new_animation": SubResource("Animation_h5xoy")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpd38"]
 radius = 35.0143
@@ -354,38 +391,6 @@ color = Color(0.779901, 0.357834, 0, 1)
 energy = 0.48
 texture = ExtResource("11_ay2gj")
 
-[node name="Arma01" type="Sprite2D" parent="Elementos"]
-position = Vector2(227, 73)
-texture = ExtResource("23_45q2b")
-
-[node name="PointLight2D" type="PointLight2D" parent="Elementos/Arma01"]
-position = Vector2(-20, -31)
-scale = Vector2(0.520429, 0.520429)
-color = Color(0.0705882, 0.682353, 0.254902, 1)
-energy = 0.7
-texture = ExtResource("11_ay2gj")
-
-[node name="PointLight2D2" type="PointLight2D" parent="Elementos/Arma01"]
-position = Vector2(14, -30)
-scale = Vector2(0.520429, 0.520429)
-color = Color(0.0705882, 0.682353, 0.254902, 1)
-energy = 0.7
-texture = ExtResource("11_ay2gj")
-
-[node name="PointLight2D3" type="PointLight2D" parent="Elementos/Arma01"]
-position = Vector2(11, -31)
-scale = Vector2(0.462755, 0.462755)
-color = Color(0.0705882, 0.682353, 0.254902, 1)
-energy = 0.7
-texture = ExtResource("11_ay2gj")
-
-[node name="PointLight2D4" type="PointLight2D" parent="Elementos/Arma01"]
-position = Vector2(-15, -31)
-scale = Vector2(0.462755, 0.462755)
-color = Color(0.0705882, 0.682353, 0.254902, 1)
-energy = 0.7
-texture = ExtResource("11_ay2gj")
-
 [node name="PointLight2D2" type="LightOccluder2D" parent="Elementos"]
 position = Vector2(167, 162)
 occluder = SubResource("OccluderPolygon2D_soevq")
@@ -478,6 +483,48 @@ ui_active = false
 position = Vector2(126, -51)
 script = ExtResource("25_diqay")
 
+[node name="Foguete" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_did6r")
+position = Vector2(227, 73)
+texture = ExtResource("23_45q2b")
+script = ExtResource("26_h5xoy")
+
+[node name="PointLight2D" type="PointLight2D" parent="Foguete"]
+position = Vector2(-20, -31)
+scale = Vector2(0.520429, 0.520429)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Foguete"]
+position = Vector2(14, -30)
+scale = Vector2(0.520429, 0.520429)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Foguete"]
+position = Vector2(11, -31)
+scale = Vector2(0.462755, 0.462755)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Foguete"]
+position = Vector2(-15, -31)
+scale = Vector2(0.462755, 0.462755)
+color = Color(0.0705882, 0.682353, 0.254902, 1)
+energy = 0.7
+texture = ExtResource("11_ay2gj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Foguete"]
+libraries = {
+&"": SubResource("AnimationLibrary_gyb3i")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Foguete"]
+stream = ExtResource("31_gyb3i")
+
 [node name="Foreground" type="Node2D" parent="."]
 position = Vector2(0, 3)
 
@@ -551,6 +598,15 @@ position = Vector2(298, 146)
 
 [node name="Marker2D8" type="Marker2D" parent="Birds"]
 position = Vector2(89, 33)
+
+[node name="Marker2D9" type="Marker2D" parent="Birds"]
+position = Vector2(38, 32)
+
+[node name="Marker2D10" type="Marker2D" parent="Birds"]
+position = Vector2(111, 104)
+
+[node name="Marker2D11" type="Marker2D" parent="Birds"]
+position = Vector2(49, 151)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.837913, 0.712325, 0.647121, 1)

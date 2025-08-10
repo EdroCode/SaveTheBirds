@@ -3,6 +3,7 @@ extends Node2D
 @onready var positions = [$Birds/Marker2D, $Birds/Marker2D2, $Birds/Marker2D3, $Birds/Marker2D4, $Birds/Marker2D5, $Birds/Marker2D6, $Birds/Marker2D7, $Birds/Marker2D8]
 @onready var bird = preload("res://Scenes/Addons/bird.tscn")
 
+
 func _ready() -> void:
 	
 	var value = GameManager.birds
