@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=41 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Other/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://5lf414gnylrg" path="res://Artwork/Sprites/Esgoto/Arma01.png" id="23_45q2b"]
 [ext_resource type="PackedScene" uid="uid://cloypgcx1dqve" path="res://Scenes/Addons/key.tscn" id="24_2ynwp"]
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="25_diqay"]
+[ext_resource type="Texture2D" uid="uid://b5v35k8pndvr7" path="res://Artwork/Sprites/Other/PlantinhasEVasos.png" id="26_726j2"]
 [ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="29_nsgm8"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="29_rp3sp"]
 
@@ -42,7 +43,7 @@ size = Vector2(174.098, 13.2941)
 polygon = PackedVector2Array(-176, 90.0392, 176.471, 91.1373, 176.471, 110.902, -177.098, 110.902)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45q2b"]
-size = Vector2(36, 118)
+size = Vector2(24, 118)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_78dlx"]
 polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 152, -5, 152, 8, 24, 8, 8, 8)
@@ -52,6 +53,9 @@ polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 124, -5, 124, 8, 24, 8, 8, 8)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rvibm"]
 polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 109, -5, 109, 8, 24, 8, 8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpd38"]
+radius = 35.0143
 
 [node name="Garagem" type="Node2D"]
 script = ExtResource("1_g5usv")
@@ -442,6 +446,29 @@ position = Vector2(288, 140)
 rotation = 0.282906
 texture = ExtResource("22_edsf3")
 
+[node name="Plants" type="Node2D" parent="."]
+
+[node name="PlantinhasEVasos" type="Sprite2D" parent="Plants"]
+position = Vector2(277, 43)
+texture = ExtResource("26_726j2")
+hframes = 4
+vframes = 4
+frame = 6
+
+[node name="PlantinhasEVasos2" type="Sprite2D" parent="Plants"]
+position = Vector2(277, 27)
+texture = ExtResource("26_726j2")
+hframes = 4
+vframes = 4
+frame = 2
+
+[node name="PlantinhasEVasos3" type="Sprite2D" parent="Plants"]
+position = Vector2(299, 147)
+texture = ExtResource("26_726j2")
+hframes = 4
+vframes = 4
+frame = 13
+
 [node name="Player" parent="." instance=ExtResource("2_1ni7d")]
 position = Vector2(34, 158)
 has_gun = false
@@ -478,11 +505,25 @@ position = Vector2(-160, 177)
 scale = Vector2(-0.911, 0.911)
 texture = ExtResource("22_x42if")
 
+[node name="PlantinhasEVasos3" type="Sprite2D" parent="Foreground"]
+position = Vector2(66, 130)
+texture = ExtResource("26_726j2")
+hframes = 4
+vframes = 4
+frame = 4
+
 [node name="Elementos2" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Elementos2"]
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Elementos2/StaticBody2D"]
+position = Vector2(225, 42)
+shape = SubResource("CircleShape2D_wpd38")
 
 [node name="Key" parent="Elementos2" instance=ExtResource("24_2ynwp")]
 light_mask = 2
-position = Vector2(224, 99)
+position = Vector2(177, 30)
 Sprite = ExtResource("29_nsgm8")
 
 [node name="Birds" type="Node2D" parent="."]

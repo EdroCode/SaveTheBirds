@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=86 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://b1mme0v1d6rl1" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/13 Wings/85.png" id="17_e4iux"]
 [ext_resource type="Texture2D" uid="uid://cbfnuh52en172" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/13 Wings/84.png" id="18_i0bx8"]
 [ext_resource type="Texture2D" uid="uid://dqcbyy63yleqc" path="res://Artwork/Sprites/Esgoto/cabos.png" id="23_nuybb"]
+[ext_resource type="Texture2D" uid="uid://ci4r26kbjtd32" path="res://Artwork/Sprites/Esgoto/Lixo.png" id="25_18y4d"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="27_61r6c"]
 [ext_resource type="Texture2D" uid="uid://dnevo1tqb3ot3" path="res://Artwork/Sprites/Esgoto/tubo.png" id="27_wc4d6"]
 [ext_resource type="Texture2D" uid="uid://6wyoqwxbsl1t" path="res://Artwork/Sprites/Esgoto/Luzes.png" id="28_18y4d"]
@@ -1240,6 +1241,149 @@ hframes = 8
 frame = 4
 
 [node name="Elements2" type="Node2D" parent="."]
+
+[node name="Lixo" type="Sprite2D" parent="Elements2"]
+position = Vector2(8, 137)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+
+[node name="Lixo2" type="Sprite2D" parent="Elements2"]
+position = Vector2(18, 140)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 5
+
+[node name="Lixo3" type="Sprite2D" parent="Elements2"]
+position = Vector2(435, 146)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="Lixo4" type="Sprite2D" parent="Elements2"]
+position = Vector2(516, 144)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 6
+
+[node name="Lixo5" type="Sprite2D" parent="Elements2"]
+position = Vector2(914, 163)
+rotation = 0.321635
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="Lixo6" type="Sprite2D" parent="Elements2"]
+position = Vector2(908, 166)
+rotation = -0.337408
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 9
+
+[node name="Lixo7" type="Sprite2D" parent="Elements2"]
+position = Vector2(912, 166)
+rotation = -0.337408
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo8" type="Sprite2D" parent="Elements2"]
+position = Vector2(936, -24)
+rotation = -0.337408
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo9" type="Sprite2D" parent="Elements2"]
+position = Vector2(757, -22)
+rotation = 0.261799
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo10" type="Sprite2D" parent="Elements2"]
+position = Vector2(763, -21)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="Lixo12" type="Sprite2D" parent="Elements2"]
+position = Vector2(757, -120)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo15" type="Sprite2D" parent="Elements2"]
+position = Vector2(1021, -22)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo19" type="Sprite2D" parent="Elements2"]
+position = Vector2(991, -34)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 2
+
+[node name="Lixo20" type="Sprite2D" parent="Elements2"]
+position = Vector2(1257, -24)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 2
+
+[node name="Lixo16" type="Sprite2D" parent="Elements2"]
+position = Vector2(994, -28)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 7
+
+[node name="Lixo17" type="Sprite2D" parent="Elements2"]
+position = Vector2(1017, -23)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 8
+
+[node name="Lixo18" type="Sprite2D" parent="Elements2"]
+position = Vector2(1005, -30)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+
+[node name="Lixo13" type="Sprite2D" parent="Elements2"]
+position = Vector2(998, -24)
+texture = ExtResource("25_18y4d")
+flip_h = true
+hframes = 4
+vframes = 4
+frame = 5
+
+[node name="Lixo14" type="Sprite2D" parent="Elements2"]
+position = Vector2(1010, -24)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 4
+
+[node name="Lixo11" type="Sprite2D" parent="Elements2"]
+position = Vector2(759, -120)
+texture = ExtResource("25_18y4d")
+hframes = 4
+vframes = 4
+frame = 3
 
 [node name="EstatuaGatoCostas" type="Sprite2D" parent="."]
 position = Vector2(488, 89)

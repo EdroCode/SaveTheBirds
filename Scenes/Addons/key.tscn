@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cloypgcx1dqve"]
+[gd_scene load_steps=9 format=3 uid="uid://cloypgcx1dqve"]
 
 [ext_resource type="Script" uid="uid://cp2ir355n2om0" path="res://Scripts/Addons/key.gd" id="1_ui2tm"]
 [ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="2_ui2tm"]
+[ext_resource type="Texture2D" uid="uid://cpqv5jp6102g0" path="res://Artwork/Sprites/Random/eKey.png" id="3_dp4sy"]
+[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://Resources/AbacaxiPixels.ttf" id="3_jcr0r"]
 
 [sub_resource type="Animation" id="Animation_jcr0r"]
 length = 0.001
@@ -42,15 +44,20 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ui2tm"]
-size = Vector2(70, 64)
+size = Vector2(38, 40)
 
 [node name="Key" type="Area2D"]
 collision_mask = 16
 script = ExtResource("1_ui2tm")
 
 [node name="E" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_ui2tm")
 hframes = 3
+
+[node name="E2" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+texture = ExtResource("3_dp4sy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -59,7 +66,18 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_ui2tm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -21.0
+offset_top = -11.0
+offset_right = 30.0
+offset_bottom = 5.0
+theme_override_fonts/normal_font = ExtResource("3_jcr0r")
+text = "OPEN"
+fit_content = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

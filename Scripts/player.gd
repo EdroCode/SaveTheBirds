@@ -279,9 +279,11 @@ func state_stairs(delta):
 	
 	if dir != 0:
 		velocity.y = dir * SPEED
+		velocity.x = 0
 		$AnimationPlayer.play("Stairs")
 	else:
 		velocity.y = 0
+		velocity.x = 0
 		$AnimationPlayer.stop()
 	
 	if Input.is_action_just_pressed("ActionE"):

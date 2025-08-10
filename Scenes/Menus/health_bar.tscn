@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://yolkgase510e"]
 
-[ext_resource type="Texture2D" uid="uid://ckrltnjwwjjt" path="res://Artwork/Sprites/Other/VIDA_empty.png" id="1_577fm"]
-[ext_resource type="Texture2D" uid="uid://dsvjnolkyrifv" path="res://Artwork/Sprites/Other/border.png" id="2_4d5g1"]
-[ext_resource type="Texture2D" uid="uid://rsigsfew2evx" path="res://Artwork/Sprites/Other/progress.png" id="3_7wht7"]
+[ext_resource type="Texture2D" uid="uid://b78ck61tsnfmp" path="res://Artwork/Sprites/Other/VIDA_empty-sheet.png" id="1_4d5g1"]
+[ext_resource type="Texture2D" uid="uid://cq07v5fxmf851" path="res://Artwork/Sprites/Other/border-sheet.png" id="2_7wht7"]
+[ext_resource type="Texture2D" uid="uid://bpttke7e544qn" path="res://Artwork/Sprites/Other/progress-sheet.png" id="3_blh2s"]
 [ext_resource type="Script" uid="uid://6iiaan4sf0ph" path="res://Scenes/Menus/health_bar.gd" id="4_4d5g1"]
 
 [node name="HealthBar" type="TextureProgressBar"]
@@ -12,8 +12,8 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 5.0
 offset_top = -37.0
-offset_right = 21.0
-offset_bottom = -21.0
+offset_right = 19.0
+offset_bottom = -24.0
 grow_vertical = 0
 scale = Vector2(2, 2)
 mouse_filter = 2
@@ -21,9 +21,9 @@ max_value = 30.0
 value = 30.0
 rounded = true
 fill_mode = 3
-texture_under = ExtResource("1_577fm")
-texture_over = ExtResource("2_4d5g1")
-texture_progress = ExtResource("3_7wht7")
+texture_under = ExtResource("1_4d5g1")
+texture_over = ExtResource("2_7wht7")
+texture_progress = ExtResource("3_blh2s")
 tint_progress = Color(0.835294, 0, 0, 1)
 script = ExtResource("4_4d5g1")
 
