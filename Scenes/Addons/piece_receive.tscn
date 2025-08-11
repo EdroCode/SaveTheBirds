@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3qisa40fise"]
+
+[ext_resource type="Texture2D" uid="uid://dhww3ob4vdahr" path="res://Artwork/Sprites/Other/PEÇA01-sheet.png" id="1_8576w"]
+[ext_resource type="Script" uid="uid://bro4ceamvqqm5" path="res://Scripts/Addons/piece_receive.gd" id="1_cifr3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m2bua"]
+radius = 13.0384
+
+[node name="PieceReceive" type="Area2D" groups=["ConnectPiece"]]
+script = ExtResource("1_cifr3")
+
+[node name="Peça01" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.294118)
+texture = ExtResource("1_8576w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m2bua")

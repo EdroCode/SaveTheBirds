@@ -1,44 +1,144 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgptr3kuomcqp"]
+[gd_scene load_steps=12 format=3 uid="uid://cgptr3kuomcqp"]
 
+[ext_resource type="Script" uid="uid://cpx2yori0ru4l" path="res://Scripts/Addons/control_panel.gd" id="1_1t0ig"]
 [ext_resource type="PackedScene" uid="uid://bslr26xsxc43r" path="res://Scenes/Addons/cable.tscn" id="1_o8t6x"]
 [ext_resource type="PackedScene" uid="uid://b1cwhsafuavta" path="res://Scenes/Addons/connect_cable.tscn" id="2_xo2up"]
-[ext_resource type="Texture2D" uid="uid://dhww3ob4vdahr" path="res://Artwork/Sprites/Other/PEÇA01-sheet.png" id="3_2hkht"]
+[ext_resource type="PackedScene" uid="uid://7dooq673kkcs" path="res://Scenes/Addons/piece_place.tscn" id="4_sxe3g"]
+[ext_resource type="Texture2D" uid="uid://cqf08vhc7f3vl" path="res://Artwork/Sprites/Other/Papel.png" id="5_g8mn5"]
+[ext_resource type="PackedScene" uid="uid://dq3qisa40fise" path="res://Scenes/Addons/piece_receive.tscn" id="5_kger2"]
+[ext_resource type="Texture2D" uid="uid://euf8rognpnct" path="res://Artwork/Sprites/Other/capsula.png" id="6_bf6ym"]
+
+[sub_resource type="Animation" id="Animation_1t0ig"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.61),
+"transitions": PackedFloat32Array(1, 0.241484),
+"update": 0,
+"values": [Vector2(0, 189.234), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sxe3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 189.234)]
+}
+
+[sub_resource type="Animation" id="Animation_kger2"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.241484, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 189.234)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kger2"]
+_data = {
+&"Close": SubResource("Animation_kger2"),
+&"Open": SubResource("Animation_1t0ig"),
+&"RESET": SubResource("Animation_sxe3g")
+}
 
 [node name="ControlPanel" type="Node2D"]
+position = Vector2(0, 189.234)
+script = ExtResource("1_1t0ig")
 
-[node name="Cable" parent="." instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 140)
+[node name="CableConnect" type="Node2D" parent="."]
 
-[node name="Cable2" parent="." instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 83)
-ID = 1
-
-[node name="Cable3" parent="." instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 184)
-ID = 2
-
-[node name="Cable4" parent="." instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 49)
-ID = 3
-
-[node name="ConnectCable" parent="." instance=ExtResource("2_xo2up")]
+[node name="ConnectCable" parent="CableConnect" instance=ExtResource("2_xo2up")]
 position = Vector2(148, 55)
 
-[node name="ConnectCable2" parent="." instance=ExtResource("2_xo2up")]
+[node name="ConnectCable2" parent="CableConnect" instance=ExtResource("2_xo2up")]
 position = Vector2(148, 86)
 ID = 1
 
-[node name="ConnectCable3" parent="." instance=ExtResource("2_xo2up")]
+[node name="ConnectCable3" parent="CableConnect" instance=ExtResource("2_xo2up")]
 position = Vector2(148, 124)
 ID = 2
 
-[node name="ConnectCable4" parent="." instance=ExtResource("2_xo2up")]
+[node name="ConnectCable4" parent="CableConnect" instance=ExtResource("2_xo2up")]
 position = Vector2(148, 160)
 ID = 3
 
-[node name="GearArea2D" type="Area2D" parent="."]
+[node name="Cables" type="Node2D" parent="."]
 
-[node name="Peça01" type="Sprite2D" parent="GearArea2D"]
-modulate = Color(1, 1, 1, 0.294118)
-position = Vector2(188, 68)
-texture = ExtResource("3_2hkht")
+[node name="Cable" parent="Cables" instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 140)
+
+[node name="Cable2" parent="Cables" instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 83)
+ID = 1
+
+[node name="Cable3" parent="Cables" instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 184)
+ID = 2
+
+[node name="Cable4" parent="Cables" instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 49)
+ID = 3
+
+[node name="PiecesConnect" type="Node2D" parent="."]
+
+[node name="PieceReceive" parent="PiecesConnect" instance=ExtResource("5_kger2")]
+position = Vector2(182, 31)
+
+[node name="PieceReceive2" parent="PiecesConnect" instance=ExtResource("5_kger2")]
+position = Vector2(182, 81)
+ID = 1
+image = ExtResource("5_g8mn5")
+
+[node name="PieceReceive3" parent="PiecesConnect" instance=ExtResource("5_kger2")]
+position = Vector2(182, 135)
+ID = 2
+image = ExtResource("6_bf6ym")
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="PiecePlace" parent="Pieces" instance=ExtResource("4_sxe3g")]
+position = Vector2(263, 28)
+
+[node name="PiecePlace2" parent="Pieces" instance=ExtResource("4_sxe3g")]
+position = Vector2(263, 83)
+ID = 1
+image = ExtResource("5_g8mn5")
+
+[node name="PiecePlace3" parent="Pieces" instance=ExtResource("4_sxe3g")]
+position = Vector2(263, 142)
+ID = 2
+image = ExtResource("6_bf6ym")
+
+[node name="Icon" type="Button" parent="."]
+offset_left = 262.0
+offset_top = 61.0
+offset_right = 448.0
+offset_bottom = 251.0
+scale = Vector2(0.207031, 0.207031)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kger2")
+}
+autoplay = "Open"
+
+[connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]

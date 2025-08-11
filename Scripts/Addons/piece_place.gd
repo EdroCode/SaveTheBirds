@@ -1,16 +1,21 @@
-extends Node2D
+extends Area2D
+
+@export var ID := 0
+@export var image : Texture2D
 
 
 var can_select = true
 var mouse_in_area = false
 var selected = false
-@export var ID := 0
 
 var connected = false
 
 func _ready() -> void:
 	
-	pass
+	if image:
+		$Sprite.texture = image
+	
+
 
 func _process(delta: float) -> void:
 	
@@ -28,20 +33,19 @@ func _process(delta: float) -> void:
 	pass
 
 
-
-
-func _on_area_2d_mouse_entered() -> void:
-	mouse_in_area = true
-
-
-func _on_area_2d_mouse_exited() -> void:
-	mouse_in_area = false
-
-
-func _on_connect_area_area_entered(area: Area2D) -> void:
-	if area.is_in_group("Connect"):
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("ConnectPiece"):
 		if area.ID == ID:
 			can_select = false
 			selected = false
-			connected = true
-			print("connected")
+			print("l")
+			position = area.global_position
+			area.connected = true
+
+
+func _on_mouse_entered() -> void:
+	mouse_in_area = true
+
+
+func _on_mouse_exited() -> void:
+	mouse_in_area = false

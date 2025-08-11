@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cs00uo6gf5n46" path="res://icon.svg" id="2_2v3is"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sao6r"]
+size = Vector2(4, 7)
 
 [node name="Cable" type="Node2D"]
 script = ExtResource("1_sao6r")
@@ -35,6 +36,7 @@ polygon = PackedVector2Array(0, 4, 0, -5, 65, -5, 65, -71, 140, -71, 140, -59, 7
 position = Vector2(71, -34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConnectArea"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_sao6r")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

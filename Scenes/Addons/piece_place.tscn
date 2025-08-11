@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7dooq673kkcs"]
+
+[ext_resource type="Script" uid="uid://cewi35avchroo" path="res://Scripts/Addons/piece_place.gd" id="1_awesh"]
+[ext_resource type="Texture2D" uid="uid://bpe6qfat4ddiq" path="res://Artwork/Sprites/Other/PEÇA01.png" id="2_yk1pa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk1pa"]
+radius = 11.0454
+
+[node name="PiecePlace" type="Area2D"]
+script = ExtResource("1_awesh")
+image = ExtResource("2_yk1pa")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_yk1pa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yk1pa")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
