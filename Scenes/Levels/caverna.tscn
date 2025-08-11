@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://vmt5jqmis17c"]
+[gd_scene load_steps=37 format=4 uid="uid://vmt5jqmis17c"]
 
 [ext_resource type="Script" uid="uid://bcc88t588tq3a" path="res://Scripts/Level/caverna.gd" id="1_0yfgf"]
 [ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/Other/TilesetCaverna.png" id="1_whnuf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="4_fyp8a"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="6_n4gdy"]
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="8_onxab"]
+[ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="12_m6vaa"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="12_p5vte"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="13_3styp"]
 
@@ -740,5 +741,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_1mn5h")
 }
 autoplay = "new_animation"
+
+[node name="Gear" parent="." instance=ExtResource("12_m6vaa")]
+position = Vector2(280, -215)
+item = "eyes"
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
