@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bslr26xsxc43r"]
+
+[ext_resource type="Script" uid="uid://08miehdon0dg" path="res://Scripts/Addons/cable.gd" id="1_sao6r"]
+[ext_resource type="Texture2D" uid="uid://cs00uo6gf5n46" path="res://icon.svg" id="2_2v3is"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sao6r"]
+
+[node name="Cable" type="Node2D"]
+script = ExtResource("1_sao6r")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-32.5, 30.5)
+scale = Vector2(0.585938, 0.078125)
+texture = ExtResource("2_2v3is")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(0, -2.5)
+rotation = 1.5708
+scale = Vector2(0.585938, 0.078125)
+texture = ExtResource("2_2v3is")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(33, -34.5)
+rotation = 3.14159
+scale = Vector2(0.585938, 0.078125)
+texture = ExtResource("2_2v3is")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-70, 30.5)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 4, 0, -5, 65, -5, 65, -71, 140, -71, 140, -59, 75, -59, 75, 5)
+
+[node name="ConnectArea" type="Area2D" parent="."]
+position = Vector2(71, -34)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ConnectArea"]
+shape = SubResource("RectangleShape2D_sao6r")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="ConnectArea" to="." method="_on_connect_area_area_entered"]

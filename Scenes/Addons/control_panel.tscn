@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgptr3kuomcqp"]
+
+[ext_resource type="PackedScene" uid="uid://bslr26xsxc43r" path="res://Scenes/Addons/cable.tscn" id="1_o8t6x"]
+[ext_resource type="PackedScene" uid="uid://b1cwhsafuavta" path="res://Scenes/Addons/connect_cable.tscn" id="2_xo2up"]
+[ext_resource type="Texture2D" uid="uid://dhww3ob4vdahr" path="res://Artwork/Sprites/Other/PEÇA01-sheet.png" id="3_2hkht"]
+
+[node name="ControlPanel" type="Node2D"]
+
+[node name="Cable" parent="." instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 140)
+
+[node name="Cable2" parent="." instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 83)
+ID = 1
+
+[node name="Cable3" parent="." instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 184)
+ID = 2
+
+[node name="Cable4" parent="." instance=ExtResource("1_o8t6x")]
+position = Vector2(0, 49)
+ID = 3
+
+[node name="ConnectCable" parent="." instance=ExtResource("2_xo2up")]
+position = Vector2(148, 55)
+
+[node name="ConnectCable2" parent="." instance=ExtResource("2_xo2up")]
+position = Vector2(148, 86)
+ID = 1
+
+[node name="ConnectCable3" parent="." instance=ExtResource("2_xo2up")]
+position = Vector2(148, 124)
+ID = 2
+
+[node name="ConnectCable4" parent="." instance=ExtResource("2_xo2up")]
+position = Vector2(148, 160)
+ID = 3
+
+[node name="GearArea2D" type="Area2D" parent="."]
+
+[node name="Peça01" type="Sprite2D" parent="GearArea2D"]
+modulate = Color(1, 1, 1, 0.294118)
+position = Vector2(188, 68)
+texture = ExtResource("3_2hkht")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1cwhsafuavta"]
+
+[ext_resource type="Script" uid="uid://by681dsks24t3" path="res://Scenes/Addons/connect_cable.gd" id="1_d0oxt"]
+[ext_resource type="Texture2D" uid="uid://cs00uo6gf5n46" path="res://icon.svg" id="2_hjikq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbwr5"]
+size = Vector2(16, 14)
+
+[node name="ConnectCable" type="Area2D" groups=["Connect"]]
+script = ExtResource("1_d0oxt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cbwr5")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.106913, 0.106913)
+texture = ExtResource("2_hjikq")

@@ -19,5 +19,8 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if pickable:
+		visible = false
+		$AudioStreamPlayer2D.play()
+		await $AudioStreamPlayer2D.finished
 		GameManager.birds += 1
 		queue_free()

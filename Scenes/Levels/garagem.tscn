@@ -573,6 +573,11 @@ light_mask = 2
 position = Vector2(177, 30)
 Sprite = ExtResource("29_nsgm8")
 
+[node name="EscadaKey" parent="Elementos2" instance=ExtResource("24_2ynwp")]
+light_mask = 2
+position = Vector2(142, 146)
+Sprite = ExtResource("29_nsgm8")
+
 [node name="Birds" type="Node2D" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="Birds"]

@@ -34,6 +34,7 @@ var can_dash := true
 var can_climb := false
 var climbing := false
 
+
 signal died
 signal damaged
 
@@ -71,6 +72,8 @@ func _process(delta: float) -> void:
 func _physics_process(delta):
 	
 	#print(state_cur)
+	
+	
 	
 	if state_nxt != state_cur:
 		
