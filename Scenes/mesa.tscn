@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://bmkexw7b2b5xr"]
+[gd_scene load_steps=18 format=3 uid="uid://bmkexw7b2b5xr"]
 
 [ext_resource type="Script" uid="uid://t1pr84iltgyg" path="res://Scripts/Level/mesa.gd" id="1_hc3ql"]
-[ext_resource type="Texture2D" uid="uid://38ao4ca4bys4" path="res://Artwork/Sprites/Other/WhatsApp Image 2025-08-12 at 05.09.33_955f758b.jpg" id="1_t1wyp"]
+[ext_resource type="Texture2D" uid="uid://dbsggb4xxfk7n" path="res://Artwork/Sprites/Other/Mesa/Mesa sem fotos.png" id="2_ib5p2"]
 [ext_resource type="Texture2D" uid="uid://dpoj7hu8lpngs" path="res://Artwork/Sprites/Icon/Arrows_Go_Back_Return_Previous.png" id="2_o3usn"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="4_3xvxo"]
 [ext_resource type="AudioStream" uid="uid://btyg1awd56aq1" path="res://Resources/SFX/Toggle.mp3" id="5_0tx7h"]
+[ext_resource type="Texture2D" uid="uid://lvrsgubxlqun" path="res://Artwork/Sprites/Other/Mesa/FASECAVERNA.png" id="6_w64rg"]
+[ext_resource type="Texture2D" uid="uid://b2o7xdb7rays1" path="res://Artwork/Sprites/Other/Mesa/FASEESGOTO.png" id="7_8c7rs"]
+[ext_resource type="Texture2D" uid="uid://cw60tvep04o44" path="res://Artwork/Sprites/Other/Mesa/FASEROOFTOP.png" id="8_ib5p2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0tx7h"]
 
@@ -16,6 +19,32 @@ shader_parameter/spacing = 8.22
 shader_parameter/animation_progress = 1.0
 shader_parameter/dot_size = 1.0
 shader_parameter/dot_color = Color(0.0627451, 0.0745098, 0.0784314, 1)
+
+[sub_resource type="Animation" id="Animation_8c7rs"]
+resource_name = "EndGaragem"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="Animation" id="Animation_0tx7h"]
 resource_name = "Open"
@@ -47,32 +76,6 @@ tracks/0/keys = {
 "values": [1.0]
 }
 
-[sub_resource type="Animation" id="Animation_8c7rs"]
-resource_name = "EndGaragem"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.833333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8c7rs"]
 _data = {
 &"EndGaragem": SubResource("Animation_8c7rs"),
@@ -80,15 +83,16 @@ _data = {
 &"RESET": SubResource("Animation_w64rg")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ib5p2"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w64rg"]
 
 [node name="Mesa" type="Node2D"]
 script = ExtResource("1_hc3ql")
 
 [node name="Imagem" type="Sprite2D" parent="."]
-position = Vector2(160.709, 90.5)
-scale = Vector2(0.297697, 0.297697)
-texture = ExtResource("1_t1wyp")
+position = Vector2(160, 90)
+texture = ExtResource("2_ib5p2")
 
 [node name="SairBotao" type="Button" parent="."]
 process_mode = 3
@@ -126,30 +130,45 @@ libraries = {
 autoplay = "Open"
 
 [node name="CavernaButton" type="Button" parent="."]
-offset_left = 22.0
-offset_top = 103.0
-offset_right = 65.0
-offset_bottom = 144.0
-theme_override_styles/focus = SubResource("StyleBoxEmpty_w64rg")
+offset_left = 17.0
+offset_top = 93.0
+offset_right = 86.0
+offset_bottom = 151.0
+pivot_offset = Vector2(31, 29)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ib5p2")
+icon = ExtResource("6_w64rg")
 flat = true
 
 [node name="EsgotoButton" type="Button" parent="."]
-offset_left = 156.0
-offset_top = 117.0
-offset_right = 194.0
-offset_bottom = 156.0
+offset_left = 138.0
+offset_top = 105.0
+offset_right = 207.0
+offset_bottom = 163.0
+pivot_offset = Vector2(34, 30)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w64rg")
+icon = ExtResource("7_8c7rs")
 flat = true
 
 [node name="CidadeButton" type="Button" parent="."]
-offset_left = 258.0
-offset_top = 43.0
-offset_right = 298.0
-offset_bottom = 85.0
+offset_left = 235.0
+offset_top = 36.0
+offset_right = 304.0
+offset_bottom = 94.0
+pivot_offset = Vector2(34, 27)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w64rg")
+icon = ExtResource("8_ib5p2")
 flat = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0tx7h")
 
 [connection signal="button_down" from="SairBotao" to="." method="_on_sair_botao_button_down"]
 [connection signal="button_down" from="CavernaButton" to="." method="_on_caverna_button_button_down"]
+[connection signal="mouse_entered" from="CavernaButton" to="." method="_on_caverna_button_mouse_entered"]
+[connection signal="mouse_exited" from="CavernaButton" to="." method="_on_caverna_button_mouse_exited"]
 [connection signal="button_down" from="EsgotoButton" to="." method="_on_esgoto_button_button_down"]
+[connection signal="mouse_entered" from="EsgotoButton" to="." method="_on_esgoto_button_mouse_entered"]
+[connection signal="mouse_exited" from="EsgotoButton" to="." method="_on_esgoto_button_mouse_exited"]
 [connection signal="button_down" from="CidadeButton" to="." method="_on_cidade_button_button_down"]
+[connection signal="mouse_entered" from="CidadeButton" to="." method="_on_cidade_button_mouse_entered"]
+[connection signal="mouse_exited" from="CidadeButton" to="." method="_on_cidade_button_mouse_exited"]

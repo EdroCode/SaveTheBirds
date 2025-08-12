@@ -10,6 +10,11 @@ func _ready() -> void:
 	for i in $Node2D/Eyes.get_children():
 		i.frame = randi_range(0, 7)
 		i.rotation = randf_range(-20,20)
+	
+	for bird in get_tree().get_nodes_in_group("birds"):
+		if GameManager.birds_collected.has(bird.bird_id):
+			bird.queue_free()
+
 
 func _process(delta: float) -> void:
 	

@@ -9,23 +9,39 @@ extends Node2D
 func _ready() -> void:
 	
 	
+	
 	esgoto_botao.disabled = false
 	if GameManager.esgoto_finished:
 		caverna_botao.disabled = false
+		caverna_botao.modulate = Color(1, 1, 1)
+		 
 	else:
 		caverna_botao.disabled = true
+		caverna_botao.modulate = Color(0.37, 0.37, 0.37)
+		cidade_botao.modulate = Color(0.37, 0.37, 0.37)
+		
 	
 	if GameManager.caverna_finished:
 		cidade_botao.disabled = false
+		cidade_botao.modulate = Color(1, 1, 1)
 	else:
 		cidade_botao.disabled = true
+		cidade_botao.modulate = Color(0.37, 0.37, 0.37)
+		
 
 
 
 
 
 
+func increase(goal):
+	$AudioStreamPlayer2D.play()
+	goal.scale += Vector2(0.2,0.2)
 
+
+func decrease(goal):
+	
+	goal.scale -= Vector2(0.2,0.2)
 
 
 func _on_sair_botao_button_down() -> void:
@@ -64,3 +80,27 @@ func _on_esgoto_button_button_down() -> void:
 
 func _on_cidade_button_button_down() -> void:
 	change_scene("cidade")
+
+
+func _on_caverna_button_mouse_entered() -> void:
+	increase($CavernaButton)
+
+
+func _on_esgoto_button_mouse_entered() -> void:
+	increase($EsgotoButton)
+
+
+func _on_cidade_button_mouse_entered() -> void:
+	increase($CidadeButton)
+
+
+func _on_caverna_button_mouse_exited() -> void:
+	decrease($CavernaButton)
+
+
+func _on_esgoto_button_mouse_exited() -> void:
+	decrease($EsgotoButton)
+
+
+func _on_cidade_button_mouse_exited() -> void:
+	decrease($CidadeButton)

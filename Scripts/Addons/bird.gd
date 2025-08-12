@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var anim = $AnimatedSprite2D
 @export var pickable = true
-
+@export var bird_id := 0
 
 var animations = ["Blue", "Green", "Yellow", "LightBlue"]
 
@@ -19,6 +19,8 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if pickable:
+		if not GameManager.birds_collected.has(bird_id):
+			GameManager.birds_collected.append(bird_id)
 		visible = false
 		$AudioStreamPlayer2D.play()
 		await $AudioStreamPlayer2D.finished

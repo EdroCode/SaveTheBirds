@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://c75d2ixhw78du"]
+
+[ext_resource type="Script" uid="uid://f8n27jl5ljin" path="res://Scripts/Addons/mouse.gd" id="1_2sq17"]
+[ext_resource type="Texture2D" uid="uid://b8hlnqktka76e" path="res://Artwork/Sprites/Other/Mouse02.png" id="1_fyj2s"]
+[ext_resource type="Texture2D" uid="uid://cwjwk2c0vbv32" path="res://Artwork/Sprites/Other/Mouse01.png" id="2_f22gf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f22gf"]
+size = Vector2(144, 82)
+
+[sub_resource type="Animation" id="Animation_fyj2s"]
+resource_name = "new_animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouse01:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mouse02:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_f22gf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mouse01:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mouse02:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f22gf"]
+_data = {
+&"RESET": SubResource("Animation_f22gf"),
+&"new_animation": SubResource("Animation_fyj2s")
+}
+
+[node name="Mouse" type="Area2D"]
+collision_mask = 16
+script = ExtResource("1_2sq17")
+
+[node name="Mouse02" type="Sprite2D" parent="."]
+texture = ExtResource("1_fyj2s")
+
+[node name="Mouse01" type="Sprite2D" parent="."]
+texture = ExtResource("2_f22gf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f22gf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f22gf")
+}
+autoplay = "new_animation"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

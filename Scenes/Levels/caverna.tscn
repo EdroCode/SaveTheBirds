@@ -297,9 +297,11 @@ texture = SubResource("NoiseTexture2D_rtx4w")
 
 [node name="Bird" parent="Collectables" instance=ExtResource("2_yxhr3")]
 position = Vector2(70, -56)
+bird_id = 2
 
 [node name="Bird2" parent="Collectables" instance=ExtResource("2_yxhr3")]
 position = Vector2(522, -136)
+bird_id = 3
 
 [node name="Enemies" type="Node2D" parent="."]
 

@@ -690,6 +690,35 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_71u2j"]
+resource_name = "EndComplete"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_level"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_1mn5h"]
 length = 0.001
 tracks/0/type = "value"
@@ -718,35 +747,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_71u2j"]
-resource_name = "EndComplete"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.659532),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"finish_level"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
@@ -1047,9 +1047,11 @@ script = ExtResource("4_wjfym")
 
 [node name="Bird" parent="Enemies" instance=ExtResource("12_3us2f")]
 position = Vector2(913, 41)
+bird_id = 4
 
 [node name="Bird2" parent="Enemies" instance=ExtResource("12_3us2f")]
 position = Vector2(862, 41)
+bird_id = 5
 
 [node name="Rubens" parent="Enemies" instance=ExtResource("14_un7lq")]
 position = Vector2(563, 105)

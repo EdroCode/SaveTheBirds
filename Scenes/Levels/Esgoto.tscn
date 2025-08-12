@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=91 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -39,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://dnevo1tqb3ot3" path="res://Artwork/Sprites/Esgoto/tubo.png" id="27_wc4d6"]
 [ext_resource type="Texture2D" uid="uid://6wyoqwxbsl1t" path="res://Artwork/Sprites/Esgoto/Luzes.png" id="28_18y4d"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="28_yh24b"]
+[ext_resource type="PackedScene" uid="uid://c75d2ixhw78du" path="res://Scenes/Addons/mouse.tscn" id="34_fqdko"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="36_os80h"]
 [ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="41_bkytn"]
 
@@ -705,6 +706,35 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_s7xsx"]
+resource_name = "EndGaragem"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.833),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["mesa"],
+"method": &"change_scene"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_1mn5h"]
 length = 0.001
 tracks/0/type = "value"
@@ -733,35 +763,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_s7xsx"]
-resource_name = "EndGaragem"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.659532),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.833),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["mesa"],
-"method": &"change_scene"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
@@ -1861,6 +1862,10 @@ position = Vector2(31, 129)
 position = Vector2(105, -41)
 script = ExtResource("5_81gse")
 
+[node name="Mouse" parent="." instance=ExtResource("34_fqdko")]
+visible = false
+position = Vector2(226, 102)
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Bird" parent="Enemies" instance=ExtResource("11_3r43a")]
@@ -1868,6 +1873,7 @@ position = Vector2(453, 57)
 
 [node name="Bird2" parent="Enemies" instance=ExtResource("11_3r43a")]
 position = Vector2(869, 114)
+bird_id = 1
 
 [node name="Robson" parent="Enemies" instance=ExtResource("8_wkhj3")]
 position = Vector2(250, 126)

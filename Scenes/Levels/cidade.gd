@@ -3,6 +3,14 @@ extends Node2D
 @onready var anim = $AnimationPlayer
 @onready var level_completed = false
 
+func _ready() -> void:
+	
+	for bird in get_tree().get_nodes_in_group("birds"):
+		if GameManager.birds_collected.has(bird.bird_id):
+			bird.queue_free()
+
+
+
 func _process(delta: float) -> void:
 	
 	
