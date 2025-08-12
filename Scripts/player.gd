@@ -85,6 +85,8 @@ func _physics_process(delta):
 		anim_cur = anim_nxt
 		anim.play(anim_cur)
 	
+	#print(can_climb)
+	
 	if knockback_timer > 0.0:
 		velocity = knockback
 		knockback_timer -= delta
@@ -119,7 +121,7 @@ func _physics_process(delta):
 
 func initialize_idle():
 	climbing = false
-	can_climb = true
+	can_climb = false
 	state_nxt = STATES.IDLE
 	anim_nxt = "Idle"
 	velocity *= 0
@@ -145,7 +147,7 @@ func state_idle(delta):
 
 func initialize_run():
 	climbing = false
-	can_climb = true
+	can_climb = false
 	state_nxt = STATES.RUN
 	anim_nxt = "Run"
 
@@ -315,13 +317,24 @@ func state_stairs(delta):
 # PECAS
 
 @onready var gear = preload("res://Artwork/Sprites/Other/PEÇA01.png")
-
+@onready var lights = preload("res://Artwork/Sprites/Other/PEÇA02.png")
+@onready var cabos = preload("res://Artwork/Sprites/Other/PEÇA03.png")
 
 func initialize_show(peca):
+	$Arma.queue_free()
+	has_gun = false
+	
+	
 	if peca == "gear":
 		$"Peça01".texture = gear
 		$"Peça01".position = $ShowPosition.position
-		print("olaa")
+	elif peca == "eyes":
+		$"Peça01".texture = lights
+		$"Peça01".position = $ShowPosition.position
+	elif peca == "cabos":
+		$"Peça01".texture = cabos
+		$"Peça01".position = $ShowPosition.position
+	
 	
 	anim_nxt = "Show"
 	state_nxt = STATES.SHOWITEM
@@ -331,7 +344,7 @@ func initialize_show(peca):
 
 func state_show(delta):
 	gravity(delta)
-	velocity *= 0
+	velocity.x *= 0
 	move_and_slide()
 
 
@@ -339,13 +352,14 @@ func state_show(delta):
 
 
 func damage(dmg):
-	health -= dmg
-	emit_signal("damaged")
-	if !dead:
-		if health > 0:
-			initialize_hit()
-		else:
-			initialize_death()
+	if state_cur != 10:
+		health -= dmg
+		emit_signal("damaged")
+		if !dead:
+			if health > 0:
+				initialize_hit()
+			else:
+				initialize_death()
 
 
 func gravity(delta):

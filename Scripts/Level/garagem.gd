@@ -30,3 +30,14 @@ func spawn_bird(pos):
 	b.position = pos.global_position
 	b.pickable = false
 	call_deferred("add_child", b)
+
+
+func change_scene(scene):
+	if scene == "mesa":
+		get_tree().change_scene_to_file("res://Scenes/mesa.tscn")
+
+
+
+func _on_garagem_body_entered(body: Node2D) -> void:
+	$DoorSound.play()
+	$AnimationPlayer.play("EndGaragem")

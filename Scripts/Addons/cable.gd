@@ -45,4 +45,11 @@ func _on_connect_area_area_entered(area: Area2D) -> void:
 			selected = false
 			connected = true
 			$AudioStreamPlayer2D.play()
+			if ID == 0:
+				position = Vector2(109.0, 5)
+			elif ID == 1:
+				position = Vector2(106, 119)
+			elif ID == 2:
+				position = Vector2(107.0, 173.0)
+			
 			print("connected")

@@ -1,7 +1,7 @@
 extends Node
 
 var birds := 0
-var PECAS_COLETADAS := 3
+var PECAS_COLETADAS := 0	
 
 var esgoto_finished := false
 var caverna_finished := false
