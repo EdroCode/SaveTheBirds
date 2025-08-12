@@ -1,144 +1,165 @@
-[gd_scene load_steps=12 format=3 uid="uid://cgptr3kuomcqp"]
+[gd_scene load_steps=20 format=3 uid="uid://cgptr3kuomcqp"]
 
 [ext_resource type="Script" uid="uid://cpx2yori0ru4l" path="res://Scripts/Addons/control_panel.gd" id="1_1t0ig"]
 [ext_resource type="PackedScene" uid="uid://bslr26xsxc43r" path="res://Scenes/Addons/cable.tscn" id="1_o8t6x"]
+[ext_resource type="Texture2D" uid="uid://ciluh61ummvtl" path="res://Artwork/Sprites/PainelControlo/FUNDO_.png" id="2_bf6ym"]
 [ext_resource type="PackedScene" uid="uid://b1cwhsafuavta" path="res://Scenes/Addons/connect_cable.tscn" id="2_xo2up"]
-[ext_resource type="PackedScene" uid="uid://7dooq673kkcs" path="res://Scenes/Addons/piece_place.tscn" id="4_sxe3g"]
-[ext_resource type="Texture2D" uid="uid://cqf08vhc7f3vl" path="res://Artwork/Sprites/Other/Papel.png" id="5_g8mn5"]
+[ext_resource type="Texture2D" uid="uid://dy816dahor0jm" path="res://Artwork/Sprites/PainelControlo/parafuso.png" id="3_qtfwk"]
+[ext_resource type="Texture2D" uid="uid://dmuy4yp2pmj8v" path="res://Artwork/Sprites/PainelControlo/image.png" id="4_vmgn0"]
+[ext_resource type="PackedScene" uid="uid://dbyddy02ua61g" path="res://Scenes/Addons/cableCiano.tscn" id="5_fdex4"]
 [ext_resource type="PackedScene" uid="uid://dq3qisa40fise" path="res://Scenes/Addons/piece_receive.tscn" id="5_kger2"]
-[ext_resource type="Texture2D" uid="uid://euf8rognpnct" path="res://Artwork/Sprites/Other/capsula.png" id="6_bf6ym"]
-
-[sub_resource type="Animation" id="Animation_1t0ig"]
-resource_name = "Open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.61),
-"transitions": PackedFloat32Array(1, 0.241484),
-"update": 0,
-"values": [Vector2(0, 189.234), Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_sxe3g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 189.234)]
-}
-
-[sub_resource type="Animation" id="Animation_kger2"]
-resource_name = "Close"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.241484, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 189.234)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kger2"]
-_data = {
-&"Close": SubResource("Animation_kger2"),
-&"Open": SubResource("Animation_1t0ig"),
-&"RESET": SubResource("Animation_sxe3g")
-}
+[ext_resource type="PackedScene" uid="uid://c6q3ape5owwr5" path="res://Scenes/Addons/cableVermelho.tscn" id="6_qtfwk"]
+[ext_resource type="Texture2D" uid="uid://exftok53e2jo" path="res://Artwork/Sprites/PainelControlo/SLOT_ENGRENAGEM.png" id="10_vmgn0"]
+[ext_resource type="Texture2D" uid="uid://crl1ydr7kjc3c" path="res://Artwork/Sprites/PainelControlo/SLOT_LAMPADA.png" id="11_ojwdf"]
+[ext_resource type="Texture2D" uid="uid://b1wpvxau48c4n" path="res://Artwork/Sprites/PainelControlo/SLOTFIOS.png" id="12_vbede"]
+[ext_resource type="Texture2D" uid="uid://dmfhm61ynguan" path="res://Artwork/Sprites/PainelControlo/boladesligado.png" id="13_ojwdf"]
+[ext_resource type="Texture2D" uid="uid://cu4ne3mits21o" path="res://Artwork/Sprites/PainelControlo/TomadaAindaNaoApertada.png" id="14_bwv03"]
+[ext_resource type="Texture2D" uid="uid://bp28a2jtv7nmb" path="res://Artwork/Sprites/PainelControlo/TomadaApertada.png" id="15_637f7"]
+[ext_resource type="Texture2D" uid="uid://dpoj7hu8lpngs" path="res://Artwork/Sprites/Icon/Arrows_Go_Back_Return_Previous.png" id="16_637f7"]
+[ext_resource type="AudioStream" uid="uid://dkjbqkqpfa0y3" path="res://Resources/SFX/toggle.wav" id="17_jpxl8"]
+[ext_resource type="AudioStream" uid="uid://cqvob1oen7t1f" path="res://Resources/SFX/notification-interface-success-positive-corrects-132471.mp3" id="18_111eb"]
+[ext_resource type="AudioStream" uid="uid://b1jgafxje11nh" path="res://Resources/SFX/error.wav" id="19_xgjea"]
 
 [node name="ControlPanel" type="Node2D"]
-position = Vector2(0, 189.234)
+process_mode = 3
 script = ExtResource("1_1t0ig")
 
+[node name="Fundo" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_bf6ym")
+
+[node name="Parafuso" type="Sprite2D" parent="."]
+position = Vector2(296, 159)
+texture = ExtResource("3_qtfwk")
+
+[node name="Parafuso2" type="Sprite2D" parent="."]
+position = Vector2(296, 22)
+texture = ExtResource("3_qtfwk")
+
+[node name="Parafuso3" type="Sprite2D" parent="."]
+position = Vector2(21, 22)
+texture = ExtResource("3_qtfwk")
+
+[node name="Parafuso4" type="Sprite2D" parent="."]
+position = Vector2(21, 157)
+texture = ExtResource("3_qtfwk")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(285, 90)
+texture = ExtResource("4_vmgn0")
+
+[node name="Icon" type="TextureButton" parent="."]
+process_mode = 3
+offset_left = 44.0
+offset_top = 16.0
+offset_right = 230.0
+offset_bottom = 206.0
+scale = Vector2(0.207031, 0.207031)
+toggle_mode = true
+texture_normal = ExtResource("14_bwv03")
+texture_pressed = ExtResource("15_637f7")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="SairBotao" type="Button" parent="."]
+process_mode = 3
+offset_left = 9.99999
+offset_top = 43.0
+offset_right = 155.0
+offset_bottom = 169.0
+rotation = -1.57079
+scale = Vector2(0.207031, 0.207031)
+icon = ExtResource("16_637f7")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [node name="CableConnect" type="Node2D" parent="."]
+process_mode = 3
+position = Vector2(-5, 0)
 
 [node name="ConnectCable" parent="CableConnect" instance=ExtResource("2_xo2up")]
-position = Vector2(148, 55)
+process_mode = 3
+position = Vector2(172, 35)
 
 [node name="ConnectCable2" parent="CableConnect" instance=ExtResource("2_xo2up")]
-position = Vector2(148, 86)
+process_mode = 3
+position = Vector2(172, 86)
 ID = 1
 
 [node name="ConnectCable3" parent="CableConnect" instance=ExtResource("2_xo2up")]
-position = Vector2(148, 124)
+process_mode = 3
+position = Vector2(172, 140)
 ID = 2
-
-[node name="ConnectCable4" parent="CableConnect" instance=ExtResource("2_xo2up")]
-position = Vector2(148, 160)
-ID = 3
 
 [node name="Cables" type="Node2D" parent="."]
+process_mode = 3
 
-[node name="Cable" parent="Cables" instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 140)
+[node name="CableAmarelo" parent="Cables" instance=ExtResource("1_o8t6x")]
+position = Vector2(-6, 109)
 
-[node name="Cable2" parent="Cables" instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 83)
+[node name="CableCiano" parent="Cables" instance=ExtResource("5_fdex4")]
+position = Vector2(-10, 132)
 ID = 1
 
-[node name="Cable3" parent="Cables" instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 184)
+[node name="CableVermelho" parent="Cables" instance=ExtResource("6_qtfwk")]
+position = Vector2(-10, 96)
 ID = 2
-
-[node name="Cable4" parent="Cables" instance=ExtResource("1_o8t6x")]
-position = Vector2(0, 49)
-ID = 3
 
 [node name="PiecesConnect" type="Node2D" parent="."]
+process_mode = 3
+position = Vector2(-5, 0)
 
 [node name="PieceReceive" parent="PiecesConnect" instance=ExtResource("5_kger2")]
-position = Vector2(182, 31)
+position = Vector2(215, 38)
+image = ExtResource("10_vmgn0")
 
 [node name="PieceReceive2" parent="PiecesConnect" instance=ExtResource("5_kger2")]
-position = Vector2(182, 81)
+position = Vector2(215, 88)
 ID = 1
-image = ExtResource("5_g8mn5")
+image = ExtResource("11_ojwdf")
 
 [node name="PieceReceive3" parent="PiecesConnect" instance=ExtResource("5_kger2")]
-position = Vector2(182, 135)
+position = Vector2(215, 142)
 ID = 2
-image = ExtResource("6_bf6ym")
+image = ExtResource("12_vbede")
 
 [node name="Pieces" type="Node2D" parent="."]
+process_mode = 3
 
-[node name="PiecePlace" parent="Pieces" instance=ExtResource("4_sxe3g")]
-position = Vector2(263, 28)
+[node name="Boladesligado" type="Sprite2D" parent="."]
+position = Vector2(237, 36)
+texture = ExtResource("13_ojwdf")
 
-[node name="PiecePlace2" parent="Pieces" instance=ExtResource("4_sxe3g")]
-position = Vector2(263, 83)
-ID = 1
-image = ExtResource("5_g8mn5")
+[node name="Boladesligado2" type="Sprite2D" parent="."]
+position = Vector2(237, 84)
+texture = ExtResource("13_ojwdf")
 
-[node name="PiecePlace3" parent="Pieces" instance=ExtResource("4_sxe3g")]
-position = Vector2(263, 142)
-ID = 2
-image = ExtResource("6_bf6ym")
+[node name="Boladesligado3" type="Sprite2D" parent="."]
+position = Vector2(237, 140)
+texture = ExtResource("13_ojwdf")
 
-[node name="Icon" type="Button" parent="."]
-offset_left = 262.0
-offset_top = 61.0
-offset_right = 448.0
-offset_bottom = 251.0
-scale = Vector2(0.207031, 0.207031)
+[node name="Marker2D" type="Marker2D" parent="."]
+process_mode = 3
+position = Vector2(282, 37)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_kger2")
-}
-autoplay = "Open"
+[node name="Marker2D2" type="Marker2D" parent="."]
+process_mode = 3
+position = Vector2(285, 80)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+process_mode = 3
+position = Vector2(285, 140)
+
+[node name="ToggleSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_jpxl8")
+
+[node name="BleepSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_111eb")
+max_polyphony = 4
+
+[node name="ErroSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_xgjea")
 
 [connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
+[connection signal="button_down" from="SairBotao" to="." method="_on_sair_botao_button_down"]

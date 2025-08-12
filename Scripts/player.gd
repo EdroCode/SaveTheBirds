@@ -111,12 +111,7 @@ func _physics_process(delta):
 				state_show(delta)
 	
 	
-	if Input.is_action_just_pressed("ActionE"):
-		
-		if climbing == false:
-			if can_climb:
-				print('Subindo escada')
-				initialize_stairs()
+
 	
 	if Input.is_action_just_pressed("Shot"):
 		if has_gun:
@@ -140,6 +135,12 @@ func state_idle(delta):
 		if is_on_floor():
 			initialize_jump()
 	
+	if Input.is_action_just_pressed("ActionE"):
+		
+		if climbing == false:
+			if can_climb:
+				print('Subindo escada')
+				initialize_stairs()
 	move_and_slide()
 
 func initialize_run():
@@ -176,6 +177,13 @@ func state_run(delta):
 
 		initialize_dash(dir)
 	
+	
+	if Input.is_action_just_pressed("ActionE"):
+		
+		if climbing == false:
+			if can_climb:
+				print('Subindo escada')
+				initialize_stairs()
 	move_and_slide()
 
 
@@ -295,7 +303,7 @@ func state_stairs(delta):
 		
 		print('Desacendo escada')
 		
-		
+		climbing = false
 		
 		initialize_idle()
 	
@@ -322,7 +330,9 @@ func initialize_show(peca):
 	
 
 func state_show(delta):
+	gravity(delta)
 	velocity *= 0
+	move_and_slide()
 
 
 

@@ -46,7 +46,7 @@ size = Vector2(174.098, 13.2941)
 polygon = PackedVector2Array(-176, 90.0392, 176.471, 91.1373, 176.471, 110.902, -177.098, 110.902)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45q2b"]
-size = Vector2(24, 118)
+size = Vector2(12, 118)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_78dlx"]
 polygon = PackedVector2Array(-8, 8, -8, -5, 8, -5, 152, -5, 152, 8, 24, 8, 8, 8)

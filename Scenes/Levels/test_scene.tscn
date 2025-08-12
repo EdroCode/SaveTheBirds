@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ym1cha6q3qj0"]
+[gd_scene load_steps=8 format=3 uid="uid://ym1cha6q3qj0"]
 
 [ext_resource type="Texture2D" uid="uid://cv1khn2ldxmar" path="res://Artwork/Sprites/ui/quadro.png" id="1_sgftv"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_2u58p"]
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="3_a1spv"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="3_dv2c3"]
 [ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="5_b3kl8"]
+[ext_resource type="PackedScene" uid="uid://cgptr3kuomcqp" path="res://Scenes/Addons/control_panel.tscn" id="6_tgibm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyt7j"]
 size = Vector2(324, 20)
@@ -35,3 +36,6 @@ position = Vector2(305, 268)
 
 [node name="Gear" parent="." instance=ExtResource("5_b3kl8")]
 position = Vector2(243, 140)
+
+[node name="ControlPanel" parent="." instance=ExtResource("6_tgibm")]
+position = Vector2(0, 0)

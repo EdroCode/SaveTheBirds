@@ -1,7 +1,7 @@
 extends Node
 
 var birds := 0
-var PECAS_COLETADAS := 0
+var PECAS_COLETADAS := 3
 
 var esgoto_finished := false
 var caverna_finished := false
@@ -16,3 +16,8 @@ func _ready() -> void:
 	
 	music_volume = 1.5
 	sfx_volume = 1.5
+
+func _process(delta: float) -> void:
+	
+	if PECAS_COLETADAS > 3:
+		PECAS_COLETADAS = 3

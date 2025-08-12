@@ -8,6 +8,7 @@ var selected = false
 
 var connected = false
 
+
 func _ready() -> void:
 	
 	pass
@@ -24,7 +25,6 @@ func _process(delta: float) -> void:
 	
 	if selected:
 		position = get_global_mouse_position()
-	
 	pass
 
 
@@ -44,4 +44,5 @@ func _on_connect_area_area_entered(area: Area2D) -> void:
 			can_select = false
 			selected = false
 			connected = true
+			$AudioStreamPlayer2D.play()
 			print("connected")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmnlsx52urj1h"]
+[gd_scene load_steps=17 format=3 uid="uid://bmnlsx52urj1h"]
 
 [ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="2_pha2q"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://b4l3sc4ccmea1" path="res://Artwork/Sprites/ui/Meteoro.png" id="5_4fgt5"]
 [ext_resource type="Texture2D" uid="uid://csc8muxubvivt" path="res://Artwork/Sprites/ui/Personagem.png" id="6_j4kqa"]
 [ext_resource type="Shader" uid="uid://bg6ekm1nyhcvy" path="res://Resources/water.gdshader" id="8_4fgt5"]
+[ext_resource type="Texture2D" uid="uid://2pc122gowmku" path="res://Artwork/Sprites/ui/PLAYBOTÃO.png" id="8_anmaw"]
+[ext_resource type="Texture2D" uid="uid://bp0cxrwxxcyv3" path="res://Artwork/Sprites/ui/OPTIONSBOTÃO.png" id="9_ftsii"]
+[ext_resource type="Texture2D" uid="uid://cb6vkjl7ys5xh" path="res://Artwork/Sprites/ui/CONTROLSBOTÃO.png" id="10_ftsii"]
+[ext_resource type="Texture2D" uid="uid://g0d0lmsxgqpb" path="res://Artwork/Sprites/ui/CREDITSBOTÃO.png" id="10_lg1h6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kqa"]
 shader = ExtResource("8_4fgt5")
@@ -115,6 +119,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 203)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartButton:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Button2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Button4:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Button3:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0698132]
+}
 
 [sub_resource type="Animation" id="Animation_anmaw"]
 resource_name = "new_animation"
@@ -204,6 +256,54 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 203), Vector2(0, 203), Vector2(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("StartButton:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.56667, 4.26667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.00698132, -0.0705642, 0.0838778, 0.00698132]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Button2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.53333, 4.53333, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.00698132, 0.0698132, -0.0698132, -0.00698132]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Button4:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1.86667, 4.4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-0.00698132, -0.0698132, 0.0698132, -0.00698132]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Button3:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.36667, 4.2, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.00698132, -0.0698132, 0.0698132, 0.00698132]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ftsii"]
 _data = {
@@ -271,35 +371,47 @@ texture = ExtResource("6_j4kqa")
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 124.0
-offset_top = 75.0
-offset_right = 180.0
-offset_bottom = 106.0
-text = "START"
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 99.0
+offset_bottom = 53.0
+pivot_offset = Vector2(44, 24)
+icon = ExtResource("8_anmaw")
+flat = true
+icon_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 113.0
-offset_right = 103.0
-offset_bottom = 144.0
-text = "options"
+offset_left = 101.0
+offset_top = 3.0
+offset_right = 196.0
+offset_bottom = 50.0
+pivot_offset = Vector2(47, 22)
+icon = ExtResource("9_ftsii")
+flat = true
+icon_alignment = 1
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 198.0
-offset_top = 110.0
-offset_right = 265.0
-offset_bottom = 141.0
-text = "credits"
+offset_left = 4.15026
+offset_top = 110.575
+offset_right = 81.1503
+offset_bottom = 174.575
+rotation = -0.0698132
+pivot_offset = Vector2(33.6438, 32)
+icon = ExtResource("10_lg1h6")
+flat = true
 
 [node name="Button4" type="Button" parent="."]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 128.0
-offset_right = 189.0
-offset_bottom = 159.0
-text = "controls"
+offset_left = 197.0
+offset_top = 3.0
+offset_right = 292.0
+offset_bottom = 51.0
+pivot_offset = Vector2(46, 24)
+icon = ExtResource("10_ftsii")
+flat = true
+icon_alignment = 1
 
 [node name="Referência" type="Sprite2D" parent="."]
 position = Vector2(-223, 75)

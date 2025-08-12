@@ -4,7 +4,7 @@ signal collected
 
 @export var gear :Texture2D
 @export var eyes :Texture2D
-@export var third :Texture2D
+@export var cabos :Texture2D
 @export var item : String
 
 func _ready() -> void:
@@ -13,6 +13,8 @@ func _ready() -> void:
 		$"Peça01".texture = gear
 	elif item == "eyes":
 		$"Peça01".texture = eyes
+	elif item == "cabos":
+		$"Peça01".texture = cabos
 		
 		# COMPLETAR AQUI
 		

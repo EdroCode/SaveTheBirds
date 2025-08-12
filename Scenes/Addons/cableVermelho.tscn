@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6q3ape5owwr5"]
+
+[ext_resource type="Script" uid="uid://08miehdon0dg" path="res://Scripts/Addons/cable.gd" id="1_g50hv"]
+[ext_resource type="Texture2D" uid="uid://cscmn8gcwxq7f" path="res://Artwork/Sprites/PainelControlo/FIOVERMELHO.png" id="2_g50hv"]
+[ext_resource type="AudioStream" uid="uid://du1xrtcwcsjb1" path="res://Resources/SFX/connectcable.wav" id="3_noufp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sao6r"]
+size = Vector2(6, 6)
+
+[node name="CableVermelho" type="Node2D"]
+script = ExtResource("1_g50hv")
+
+[node name="Fioamarelo" type="Sprite2D" parent="."]
+position = Vector2(60, -33)
+texture = ExtResource("2_g50hv")
+offset = Vector2(-261, 33)
+
+[node name="Area2D" type="Area2D" parent="Fioamarelo"]
+position = Vector2(-130, 63.5)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Fioamarelo/Area2D"]
+position = Vector2(-12, -61.5)
+scale = Vector2(1, -1)
+polygon = PackedVector2Array(136, -4, 136, 6, 73, 7, 72, -62, -397, -64, -395, -72, 86, -76, 86, -57, 86, -6)
+
+[node name="ConnectArea" type="Area2D" parent="Fioamarelo"]
+position = Vector2(-2, 67)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fioamarelo/ConnectArea"]
+position = Vector2(2, -66)
+shape = SubResource("RectangleShape2D_sao6r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_noufp")
+
+[connection signal="mouse_entered" from="Fioamarelo/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Fioamarelo/Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="area_entered" from="Fioamarelo/ConnectArea" to="." method="_on_connect_area_area_entered"]

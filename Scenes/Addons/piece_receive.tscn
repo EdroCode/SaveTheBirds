@@ -7,6 +7,7 @@
 radius = 13.0384
 
 [node name="PieceReceive" type="Area2D" groups=["ConnectPiece"]]
+process_mode = 3
 script = ExtResource("1_cifr3")
 
 [node name="Peça01" type="Sprite2D" parent="."]

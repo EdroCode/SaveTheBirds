@@ -10,4 +10,4 @@ func _ready() -> void:
 	
 	if image: 
 		$"Peça01".texture = image
-	$"Peça01".modulate = Color(1.0, 1.0, 1.0, 0.294)
+	#$"Peça01".modulate = Color(1.0, 1.0, 1.0, 0.294)

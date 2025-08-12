@@ -6,6 +6,7 @@ extends Node2D
 
 func _ready() -> void:
 	
+	
 	var value = GameManager.birds
 	
 	
@@ -18,7 +19,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ActionE"):
 		if $Elementos2/Key.playerOnArea:
-			get_tree().change_scene_to_file("res://Scenes/nave_gato.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Addons/control_panel.tscn")
+			
 	
 	
 
