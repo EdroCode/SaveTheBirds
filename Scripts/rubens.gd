@@ -11,6 +11,8 @@ enum STATES {IDLE, PATROL, HOVER, ATTACK, STUN, HIT, DEATH}
 @export var GRAVITY : float
 
 @export var patrol_size = 230
+@export var patrol := true
+
 
 var state_cur : int
 var state_nxt : int
@@ -83,8 +85,9 @@ func _physics_process(delta):
 	
 
 func initialize_idle():
-	$IdleTImer.start()
-	patroling = false
+	if patrol:
+		$IdleTImer.start()
+		patroling = false
 	velocity *= 0
 	
 	state_nxt = STATES.IDLE
@@ -96,6 +99,7 @@ func state_idle(delta):
 	move_and_slide()
 
 func initialize_patrol():
+	
 	$PatrolTimer.start()
 	patroling = true
 	state_nxt = STATES.PATROL
@@ -214,7 +218,7 @@ func state_stun(delta):
 func damage(dmg):
 	
 	health -= dmg
-	print(health)
+	#print(health)
 	if health > 0:
 		initialize_hit()
 	else:

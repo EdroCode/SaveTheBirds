@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgptr3kuomcqp"]
+[gd_scene load_steps=21 format=3 uid="uid://cgptr3kuomcqp"]
 
 [ext_resource type="Script" uid="uid://cpx2yori0ru4l" path="res://Scripts/Addons/control_panel.gd" id="1_1t0ig"]
 [ext_resource type="PackedScene" uid="uid://bslr26xsxc43r" path="res://Scenes/Addons/cable.tscn" id="1_o8t6x"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dkjbqkqpfa0y3" path="res://Resources/SFX/toggle.wav" id="17_jpxl8"]
 [ext_resource type="AudioStream" uid="uid://cqvob1oen7t1f" path="res://Resources/SFX/notification-interface-success-positive-corrects-132471.mp3" id="18_111eb"]
 [ext_resource type="AudioStream" uid="uid://b1jgafxje11nh" path="res://Resources/SFX/error.wav" id="19_xgjea"]
+[ext_resource type="AudioStream" uid="uid://b7vw26mup87xm" path="res://Resources/SFX/Background/radio-static-323621.mp3" id="20_dswwb"]
 
 [node name="ControlPanel" type="Node2D"]
 process_mode = 3
@@ -160,6 +161,11 @@ max_polyphony = 4
 
 [node name="ErroSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_xgjea")
+
+[node name="StaticNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_dswwb")
+volume_db = -0.04
+autoplay = true
 
 [connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
 [connection signal="button_down" from="SairBotao" to="." method="_on_sair_botao_button_down"]

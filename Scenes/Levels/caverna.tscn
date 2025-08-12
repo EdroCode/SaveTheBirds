@@ -213,6 +213,35 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_m6vaa"]
+resource_name = "EndComplete"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_level"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_1mn5h"]
 length = 0.001
 tracks/0/type = "value"
@@ -241,35 +270,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_m6vaa"]
-resource_name = "EndComplete"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.659532),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.766667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"finish_level"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
@@ -304,8 +304,9 @@ position = Vector2(522, -136)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Rubens2" parent="Enemies" instance=ExtResource("3_t3p6x")]
-position = Vector2(227, -288)
-patrol_size = 180
+position = Vector2(228, -297)
+patrol_size = 150
+patrol = false
 
 [node name="Robson" parent="Enemies" instance=ExtResource("4_fyp8a")]
 position = Vector2(404, -47)
@@ -757,7 +758,7 @@ position = Vector2(280, -215)
 item = "eyes"
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.211796, 0.208684, 0.200238, 1)
+color = Color(0.401756, 0.396851, 0.383532, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

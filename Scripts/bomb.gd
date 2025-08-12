@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	if col:
 		var collider = col.get_collider()
 		
-		print("CABOOM")
+		#print("CABOOM")
 		
 		
 		
@@ -25,12 +25,12 @@ func explode():
 	var b = bomb_explosion.instantiate()
 	b.position = global_position
 	get_tree().root.add_child(b)
-	print(bodies)
+	#print(bodies)
 	for i in bodies:
 		if i.is_in_group("Player"):
 			i.damage(10)
 		if i.is_in_group("Enemy"):
-			print("GOTCHU")
+			#print("GOTCHU")
 			i.damage(10)
 	
 	

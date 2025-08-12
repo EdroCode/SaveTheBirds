@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjmlvps2y1xm" path="res://Scenes/robson.tscn" id="3_a1spv"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="3_dv2c3"]
 [ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="5_b3kl8"]
-[ext_resource type="PackedScene" uid="uid://cgptr3kuomcqp" path="res://Scenes/Addons/control_panel.tscn" id="6_tgibm"]
+[ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="6_tgibm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyt7j"]
 size = Vector2(324, 20)
@@ -26,7 +26,7 @@ scale = Vector2(20, 2.47769)
 texture = ExtResource("1_sgftv")
 
 [node name="Player" parent="." instance=ExtResource("2_2u58p")]
-position = Vector2(89, 48)
+position = Vector2(20, 150)
 
 [node name="Robson" parent="." instance=ExtResource("3_a1spv")]
 position = Vector2(30, 276)
@@ -36,6 +36,7 @@ position = Vector2(305, 268)
 
 [node name="Gear" parent="." instance=ExtResource("5_b3kl8")]
 position = Vector2(243, 140)
+item = "cabos"
 
-[node name="ControlPanel" parent="." instance=ExtResource("6_tgibm")]
-position = Vector2(0, 0)
+[node name="Rubens" parent="." instance=ExtResource("6_tgibm")]
+position = Vector2(200, 44)
