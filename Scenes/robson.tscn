@@ -1,10 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://ccjmlvps2y1xm"]
+[gd_scene load_steps=21 format=3 uid="uid://ccjmlvps2y1xm"]
 
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="1_3ws8l"]
 [ext_resource type="Script" uid="uid://cykinwwjtppk4" path="res://Scripts/robson.gd" id="1_nm5vw"]
 [ext_resource type="Texture2D" uid="uid://bfcghl0tale2s" path="res://Artwork/Sprites/Inimigo/Robô Plataforma.png" id="2_3ws8l"]
 [ext_resource type="Texture2D" uid="uid://car008sfj1gq3" path="res://Resources/Particles/Spritesheets/Holy Light Aura.png" id="2_35imc"]
 [ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Resources/Particles/LightSprites/light2robot.png" id="3_35imc"]
+[ext_resource type="AudioStream" uid="uid://b8qa2o847ual0" path="res://Resources/SFX/Robos/canto-robot-1-81459.mp3" id="6_j8n7b"]
+[ext_resource type="AudioStream" uid="uid://c3pc3qbmuf5vq" path="res://Resources/SFX/Robos/robot-power-off-97246.mp3" id="7_sjy0y"]
+[ext_resource type="AudioStream" uid="uid://dvxlq7j587jyv" path="res://Resources/SFX/Robos/wake-up-the-robot-84894.mp3" id="8_xt5h1"]
+[ext_resource type="AudioStream" uid="uid://dcme3aooqsexl" path="res://Resources/SFX/Robos/machine-static-45995.mp3" id="9_nrctf"]
 
 [sub_resource type="Gradient" id="Gradient_35imc"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -413,12 +417,14 @@ target_position = Vector2(-10, 0)
 position = Vector2(-70, -4)
 scale = Vector2(-1, 0.489899)
 color = Color(5.29438e-07, 0.476445, 0.24617, 1)
+energy = 1.76
 texture = ExtResource("3_35imc")
 
 [node name="PointLight2D3" type="PointLight2D" parent="Rotate"]
 position = Vector2(-60, -4)
 scale = Vector2(-1, 0.489899)
 color = Color(5.29438e-07, 0.476445, 0.24617, 1)
+energy = 1.76
 texture = ExtResource("3_35imc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -458,8 +464,33 @@ debug_color = Color(0.974199, 0.161125, 9.62615e-07, 0.42)
 [node name="AngryTimer" type="Timer" parent="."]
 wait_time = 3.0
 
+[node name="Chant" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_j8n7b")
+pitch_scale = 1.42
+max_distance = 120.0
+
+[node name="PowerOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sjy0y")
+max_distance = 300.0
+
+[node name="PowerOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_xt5h1")
+max_distance = 300.0
+
+[node name="Patrol" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_nrctf")
+volume_db = -10.805
+pitch_scale = 2.61
+max_distance = 300.0
+max_polyphony = 11
+
+[node name="ChantTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="OffTimer" to="." method="_on_off_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="AngryTimer" to="." method="_on_ángry_timer_timeout"]
+[connection signal="timeout" from="ChantTimer" to="." method="_on_chant_timer_timeout"]

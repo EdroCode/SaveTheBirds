@@ -6,6 +6,14 @@ extends Node2D
 
 func _ready() -> void:
 	
+	if GameManager.in_painel:
+		$Player.position  = Vector2(163, 39)
+		GameManager.in_painel = false
+	else:
+		$Player.position = Vector2(34, 158)
+		GameManager.in_painel = false
+		
+	
 	
 	var value = GameManager.birds
 	

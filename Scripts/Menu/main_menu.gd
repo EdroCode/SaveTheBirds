@@ -2,22 +2,33 @@ extends Control
 
 
 func _on_start_button_button_down() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Levels/garagem.tscn")
+	$AnimationPlayer2.play("EndMainMenu")
 
 
 func _on_button_3_button_down() -> void:
-		get_tree().change_scene_to_file("res://Scenes/Menus/credits.tscn")
+	ClickSound.play()
+	
+	get_tree().change_scene_to_file("res://Scenes/Menus/credits.tscn")
 
 
 func _on_button_4_button_down() -> void:
-		get_tree().change_scene_to_file("res://Scenes/Menus/controles_menu.tscn")
+	ClickSound.play()
+	
+	get_tree().change_scene_to_file("res://Scenes/Menus/controles_menu.tscn")
 
 func _on_button_2_button_down() -> void:
-	pass # Replace with function body.
+	ClickSound.play()
+
+	get_tree().change_scene_to_file("res://Scenes/Menus/options_menu.tscn")
 
 
-
-
+func start():
+	ClickSound.play()
+	
+	if GameManager.cutscene_seen == true:
+		get_tree().change_scene_to_file("res://Scenes/Levels/garagem.tscn")
+	else:
+		get_tree().change_scene_to_file("res://Scenes/intro.tscn")
 
 func increase(goal):
 	$AudioStreamPlayer2D.play()

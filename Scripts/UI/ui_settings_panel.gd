@@ -10,7 +10,7 @@ func _on_h_slider_value_changed(value: float) -> void:
 
 
 func _on_music_h_slider_value_changed(value: float) -> void:
-	GameManager.music_volume = $Menu/Control/Volume/HSlider.value
+	GameManager.music_volume = $Menu/Control/Music/MusicHSlider.value
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 
@@ -39,11 +39,22 @@ func pause_and_unpause():
 
 
 func _on_house_button_button_down() -> void:
+	ClickSound.play()
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menus/main_menu.tscn")
 
 
 
 func _on_reset_button_button_down() -> void:
+	ClickSound.play()
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+
+func _on_h_slider_drag_started() -> void:
+	ClickSound.play()
+
+
+
+func _on_music_h_slider_drag_started() -> void:
+	ClickSound.play()

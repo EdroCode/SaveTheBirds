@@ -1,8 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4uoydsvxi3t4"]
+[gd_scene load_steps=17 format=3 uid="uid://c4uoydsvxi3t4"]
 
 [ext_resource type="Script" uid="uid://c8subbpjgujtb" path="res://Scripts/Menu/controles_menu.gd" id="1_q07t4"]
-[ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="1_xna48"]
-[ext_resource type="Texture2D" uid="uid://3elg2sqpnscg" path="res://Artwork/Sprites/ui/houseOver.png" id="3_i0hhq"]
+[ext_resource type="Texture2D" uid="uid://ck8o83op0qa8q" path="res://Artwork/Sprites/ui/menus.png" id="2_i0hhq"]
+[ext_resource type="Texture2D" uid="uid://n3pcyr1fqs63" path="res://Artwork/Sprites/ui/Keys/arrows.png" id="3_4i3vg"]
+[ext_resource type="Shader" uid="uid://c15o85wpvjq6i" path="res://Resources/vhs.gdshader" id="4_eaiq4"]
+[ext_resource type="Texture2D" uid="uid://bl1jti511fie0" path="res://Artwork/Sprites/ui/Keys/wasd.png" id="4_ua7eo"]
+[ext_resource type="Texture2D" uid="uid://de1fishau0ufn" path="res://Artwork/Sprites/ui/Keys/space.png" id="5_82rpv"]
+[ext_resource type="Texture2D" uid="uid://buhfqktc5vnu1" path="res://Artwork/Sprites/ui/Keys/seta.png" id="6_fx6q8"]
+[ext_resource type="Texture2D" uid="uid://cenqaoefiiotk" path="res://Artwork/Sprites/ui/Keys/F.png" id="7_siiku"]
+[ext_resource type="Texture2D" uid="uid://blxxvv2du4tb2" path="res://Artwork/Sprites/ui/Keys/E.png" id="8_7nfft"]
+[ext_resource type="Texture2D" uid="uid://bbxg5dcjsmlsd" path="res://Artwork/Sprites/ui/Keys/mouse2.png" id="8_siiku"]
+[ext_resource type="Texture2D" uid="uid://dtuyo41fqp481" path="res://Artwork/Sprites/ui/Keys/mouse.png" id="9_gmiwm"]
+[ext_resource type="Texture2D" uid="uid://dqctec8d5nyv7" path="res://Artwork/Sprites/Random/AssetsNave.png" id="10_gmiwm"]
+[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://AbacaxiPixels.ttf" id="12_gmiwm"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eaiq4"]
+frequency = 0.004
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_eaiq4"]
+noise = SubResource("FastNoiseLite_eaiq4")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0gfel"]
+shader = ExtResource("4_eaiq4")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.0
+shader_parameter/tape_crease_smear = 0.0
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.2
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_eaiq4")
 
 [node name="ControlesMenu" type="Control"]
 layout_mode = 3
@@ -17,14 +50,161 @@ script = ExtResource("1_q07t4")
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 180.0
-texture = ExtResource("1_xna48")
+texture = ExtResource("2_i0hhq")
+
+[node name="Arrows" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 51.0
+offset_right = 160.0
+offset_bottom = 91.0
+texture = ExtResource("3_4i3vg")
+stretch_mode = 3
+
+[node name="Arrows2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 51.0
+offset_right = 104.0
+offset_bottom = 91.0
+texture = ExtResource("4_ua7eo")
+stretch_mode = 3
+
+[node name="Arrows3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 25.0
+offset_right = 237.0
+offset_bottom = 65.0
+texture = ExtResource("5_82rpv")
+stretch_mode = 3
+
+[node name="Arrows4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 113.0
+offset_right = 69.0
+offset_bottom = 153.0
+texture = ExtResource("6_fx6q8")
+stretch_mode = 3
+
+[node name="Arrows5" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 113.0
+offset_right = 87.0
+offset_bottom = 153.0
+texture = ExtResource("7_siiku")
+stretch_mode = 3
+
+[node name="Arrows9" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 66.0
+offset_right = 220.0
+offset_bottom = 106.0
+texture = ExtResource("8_7nfft")
+stretch_mode = 3
+
+[node name="Arrows6" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 117.0
+offset_right = 161.0
+offset_bottom = 157.0
+texture = ExtResource("8_siiku")
+stretch_mode = 4
+
+[node name="Arrows7" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 119.0
+offset_right = 252.0
+offset_bottom = 159.0
+texture = ExtResource("9_gmiwm")
+stretch_mode = 4
+
+[node name="Arrows8" type="Sprite2D" parent="."]
+position = Vector2(292, 141)
+texture = ExtResource("10_gmiwm")
+vframes = 2
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 257.0
-offset_top = 15.0
-offset_right = 297.0
-offset_bottom = 55.0
-icon = ExtResource("3_i0hhq")
+offset_left = 286.0
+offset_top = 141.0
+offset_right = 308.0
+offset_bottom = 165.0
+flat = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 36.0
+offset_right = 158.0
+offset_bottom = 56.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Move"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 20.0
+offset_right = 285.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Jump"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 62.0
+offset_right = 285.0
+offset_bottom = 82.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Interact"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 105.0
+offset_right = 131.0
+offset_bottom = 125.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Dash"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 101.0
+offset_right = 205.0
+offset_bottom = 121.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Shot"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 103.0
+offset_right = 285.0
+offset_bottom = 123.0
+theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+text = "Lantern"
+fit_content = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0gfel")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

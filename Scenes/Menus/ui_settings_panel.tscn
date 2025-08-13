@@ -296,5 +296,7 @@ max_polyphony = 5
 
 [connection signal="button_down" from="Menu/Control/HouseButton" to="." method="_on_house_button_button_down"]
 [connection signal="button_down" from="Menu/Control/ResetButton" to="." method="_on_reset_button_button_down"]
+[connection signal="drag_started" from="Menu/Control/Volume/HSlider" to="." method="_on_h_slider_drag_started"]
 [connection signal="value_changed" from="Menu/Control/Volume/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="drag_started" from="Menu/Control/Music/MusicHSlider" to="." method="_on_music_h_slider_drag_started"]
 [connection signal="value_changed" from="Menu/Control/Music/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]

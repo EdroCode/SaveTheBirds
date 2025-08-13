@@ -223,6 +223,7 @@ func state_jump(delta):
 
 
 func initialize_hit():
+	$HurtSound.play()
 	state_nxt = STATES.HIT
 	anim_nxt = "Hit"
 
@@ -387,6 +388,9 @@ func apply_knockback(direction : Vector2, force : float, knockback_duration : fl
 @onready var dash1 = preload("res://Resources/SFX/dash1.wav")
 @onready var dash2 = preload("res://Resources/SFX/dash2.wav")
 
+@onready var step1 = preload("res://Resources/SFX/step.wav")
+@onready var step2 = preload("res://Resources/SFX/step2.wav")
+
 @onready var dashSound = $DashSound
 
 
@@ -408,6 +412,22 @@ func play_walk_sound():
 		
 
 
+
+func play_step_sound():
+	var a = randi_range(0,1)
+	var pitch = randf_range(0.912, 1.145)
+	
+	
+	if a == 1:
+		$StepSound.stream = step1
+		$StepSound.pitch_scale = pitch
+		$StepSound.play()
+	else:
+		$StepSound.stream = step2
+		$StepSound.pitch_scale = pitch
+		$StepSound.play()
+		
+
 func _on_dash_cooldown_timeout() -> void:
 	can_dash = true
 	dash_cooldown_elapsed = 0.0  
@@ -418,6 +438,7 @@ func _on_dash_cooldown_timeout() -> void:
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Acid"):
+		$Splash.play()
 		initialize_death()
 
 

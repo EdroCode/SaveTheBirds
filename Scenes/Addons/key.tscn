@@ -1,9 +1,36 @@
-[gd_scene load_steps=9 format=3 uid="uid://cloypgcx1dqve"]
+[gd_scene load_steps=12 format=3 uid="uid://cloypgcx1dqve"]
 
 [ext_resource type="Script" uid="uid://cp2ir355n2om0" path="res://Scripts/Addons/key.gd" id="1_ui2tm"]
 [ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="2_ui2tm"]
-[ext_resource type="Texture2D" uid="uid://cpqv5jp6102g0" path="res://Artwork/Sprites/Random/eKey.png" id="3_dp4sy"]
-[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://Resources/AbacaxiPixels.ttf" id="3_jcr0r"]
+[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://AbacaxiPixels.ttf" id="3_jcr0r"]
+[ext_resource type="Texture2D" uid="uid://d3ih0vu2v4tnu" path="res://Artwork/Sprites/Random/TeclaE.png" id="3_qy38t"]
+[ext_resource type="Texture2D" uid="uid://dp712of3cgbbo" path="res://Artwork/Sprites/Random/TeclaEPressionada.png" id="4_b30e7"]
+[ext_resource type="Texture2D" uid="uid://qx10ki1kh35l" path="res://Artwork/Sprites/Random/Seta.png" id="4_mcuxv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mcuxv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mcuxv")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"DownSeta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qy38t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b30e7")
+}],
+"loop": true,
+"name": &"TeclaE",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_jcr0r"]
 length = 0.001
@@ -56,8 +83,14 @@ texture = ExtResource("2_ui2tm")
 hframes = 3
 
 [node name="E2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(0, -3)
-texture = ExtResource("3_dp4sy")
+texture = ExtResource("3_qy38t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mcuxv")
+animation = &"DownSeta"
+frame_progress = 0.410829
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

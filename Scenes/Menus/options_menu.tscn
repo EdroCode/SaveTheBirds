@@ -1,0 +1,159 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmxli7tdm18fs"]
+
+[ext_resource type="Texture2D" uid="uid://ck8o83op0qa8q" path="res://Artwork/Sprites/ui/menus.png" id="1_886lm"]
+[ext_resource type="Script" uid="uid://b7vvhvb34m0mr" path="res://Scenes/Menus/options_menu.gd" id="1_pcs5k"]
+[ext_resource type="Shader" uid="uid://c15o85wpvjq6i" path="res://Resources/vhs.gdshader" id="2_2fase"]
+[ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="3_0qeyk"]
+[ext_resource type="Texture2D" uid="uid://d2vbydhagxdke" path="res://Artwork/Sprites/ui/audio.png" id="4_lu2q1"]
+[ext_resource type="Texture2D" uid="uid://dvn8de4eqwmrh" path="res://Artwork/Sprites/ui/holder.png" id="5_pcs5k"]
+[ext_resource type="Texture2D" uid="uid://bfctxtwq7r2ew" path="res://Artwork/Sprites/ui/holderSelected.png" id="6_r642v"]
+[ext_resource type="Texture2D" uid="uid://b3de43hlcxlxs" path="res://Artwork/Sprites/ui/bar.png" id="7_62r4j"]
+[ext_resource type="Texture2D" uid="uid://cmuhht2jpuri7" path="res://Artwork/Sprites/ui/Media_Musical_Note_Beam-sheet.png" id="8_3g5iq"]
+[ext_resource type="Texture2D" uid="uid://dqctec8d5nyv7" path="res://Artwork/Sprites/Random/AssetsNave.png" id="8_lu2q1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vklxx"]
+texture = ExtResource("7_62r4j")
+texture_margin_left = 1.0
+texture_margin_right = 1.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4hrbf"]
+frequency = 0.004
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4i3vg"]
+noise = SubResource("FastNoiseLite_4hrbf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pltgr"]
+shader = ExtResource("2_2fase")
+shader_parameter/vhs_resolution = Vector2(320, 240)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.0
+shader_parameter/tape_crease_smear = 0.0
+shader_parameter/tape_crease_intensity = 0.2
+shader_parameter/tape_crease_jitter = 0.1
+shader_parameter/tape_crease_speed = 0.2
+shader_parameter/tape_crease_discoloration = 1.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_4i3vg")
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcs5k")
+
+[node name="Menus" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("1_886lm")
+
+[node name="UI-SettingsPanel" parent="." instance=ExtResource("3_0qeyk")]
+layout_mode = 1
+
+[node name="Volume" type="Control" parent="."]
+light_mask = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 46.0
+offset_right = 74.0
+offset_bottom = 86.0
+
+[node name="Settings" type="TextureButton" parent="Volume"]
+light_mask = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 19.0
+offset_right = 43.0
+offset_bottom = 57.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("4_lu2q1")
+stretch_mode = 4
+
+[node name="HSlider" type="HSlider" parent="Volume"]
+light_mask = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = 20.0
+offset_right = 236.0
+offset_bottom = 36.0
+theme_override_icons/grabber = ExtResource("5_pcs5k")
+theme_override_icons/grabber_highlight = ExtResource("6_r642v")
+theme_override_styles/slider = SubResource("StyleBoxTexture_vklxx")
+min_value = 0.001
+max_value = 1.5
+step = 0.001
+value = 1.5
+
+[node name="Music" type="Control" parent="."]
+light_mask = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 34.0
+offset_top = 77.0
+offset_right = 74.0
+offset_bottom = 117.0
+
+[node name="Settings" type="TextureButton" parent="Music"]
+light_mask = 2
+layout_mode = 0
+offset_left = 5.0
+offset_top = 21.0
+offset_right = 45.0
+offset_bottom = 61.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("8_3g5iq")
+stretch_mode = 4
+
+[node name="MusicHSlider" type="HSlider" parent="Music"]
+light_mask = 2
+layout_mode = 0
+offset_left = 26.0
+offset_top = 22.0
+offset_right = 237.0
+offset_bottom = 38.0
+theme_override_icons/grabber = ExtResource("5_pcs5k")
+theme_override_icons/grabber_highlight = ExtResource("6_r642v")
+theme_override_styles/slider = SubResource("StyleBoxTexture_vklxx")
+min_value = 0.001
+max_value = 1.5
+step = 0.001
+value = 1.5
+
+[node name="Arrows8" type="Sprite2D" parent="."]
+position = Vector2(292, 141)
+texture = ExtResource("8_lu2q1")
+vframes = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 286.0
+offset_top = 141.0
+offset_right = 308.0
+offset_bottom = 165.0
+flat = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pltgr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="drag_started" from="Volume/HSlider" to="." method="_on_h_slider_drag_started"]
+[connection signal="value_changed" from="Volume/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="drag_started" from="Music/MusicHSlider" to="." method="_on_music_h_slider_drag_started"]
+[connection signal="value_changed" from="Music/MusicHSlider" to="." method="_on_music_h_slider_value_changed"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

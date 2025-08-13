@@ -27,6 +27,7 @@ var health : int
 var dir = 1
 
 func _ready():
+	
 	health = max_health
 	state_cur = -1
 	state_prv = -1
@@ -60,6 +61,8 @@ func _physics_process(delta):
 	
 
 func initialize_idle():
+	$Patrol.stop()
+	
 	$IdleTimer.start()
 	$PatrolTimer.stop()
 	velocity *= 0
@@ -72,8 +75,11 @@ func state_idle(delta):
 	move_and_slide()
 
 func initialize_patrol():
+	$Patrol.play()
 	$IdleTimer.stop()
 	$PatrolTimer.start()
+	$Rotate/PointLight2D2.visible = true
+	$Rotate/PointLight2D3.visible = true
 	state_nxt = STATES.PATROL
 	anim_nxt = "Patrol"
 
@@ -104,6 +110,9 @@ func state_patrol(delta):
 	move_and_slide()
 
 func initialize_off():
+	$PowerOff.play()
+	$Patrol.stop()
+	
 	if state_cur != 3:
 		$AngryTimer.stop()
 		$OffTimer.start()
@@ -120,6 +129,8 @@ func state_off(delta):
 
 
 func initialize_attack():
+	$Patrol.stop()
+	
 	$IdleTimer.stop()
 	$AngryTimer.start()
 	$PatrolTimer.stop()
@@ -131,6 +142,7 @@ func state_attack(delta):
 	
 	gravity(delta)
 	move_and_slide()
+
 
 
 
@@ -153,6 +165,7 @@ func _on_idle_timer_timeout() -> void:
 
 func _on_off_timer_timeout() -> void:
 	$OffTimer.stop()
+	$PowerOn.play()
 	initialize_idle()
 
 
@@ -176,3 +189,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_ángry_timer_timeout() -> void:
 	$AngryTimer.stop()
 	initialize_idle()
+
+
+func _on_chant_timer_timeout() -> void:
+	$ChantTimer.stop()
+	$Chant.play()
+	var ti = randi_range(13,19)
+	$ChantTimer.wait_time = ti
+	$ChantTimer.start()
+	

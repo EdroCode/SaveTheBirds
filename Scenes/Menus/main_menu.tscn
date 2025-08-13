@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmnlsx52urj1h"]
+[gd_scene load_steps=29 format=3 uid="uid://bmnlsx52urj1h"]
 
 [ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="2_pha2q"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://cb6vkjl7ys5xh" path="res://Artwork/Sprites/ui/CONTROLSBOTÃO.png" id="10_ftsii"]
 [ext_resource type="Texture2D" uid="uid://g0d0lmsxgqpb" path="res://Artwork/Sprites/ui/CREDITSBOTÃO.png" id="10_lg1h6"]
 [ext_resource type="AudioStream" uid="uid://btyg1awd56aq1" path="res://Resources/SFX/Toggle.mp3" id="13_80s4p"]
+[ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="14_6t1rs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kqa"]
 shader = ExtResource("8_4fgt5")
@@ -33,6 +34,10 @@ shader_parameter/surf_angle = 1.57
 shader_parameter/surf_magnitude = 0.0
 shader_parameter/s11 = 2.221
 shader_parameter/sinpowder = 8.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t1rs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xbgx"]
 
 [sub_resource type="Animation" id="Animation_4fgt5"]
 length = 0.001
@@ -312,6 +317,193 @@ _data = {
 &"new_animation": SubResource("Animation_anmaw")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0xbgx"]
+shader = ExtResource("14_6t1rs")
+shader_parameter/spacing = 8.22
+shader_parameter/animation_progress = 0.0
+shader_parameter/dot_size = 1.0
+shader_parameter/dot_color = Color(0.0627451, 0.0745098, 0.0784314, 1)
+
+[sub_resource type="Animation" id="Animation_0m8ik"]
+resource_name = "End"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reload_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_bkytn"]
+resource_name = "EndComplete"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.766667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finish_level"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_s7xsx"]
+resource_name = "EndGaragem"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.833),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["mesa"],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1mn5h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/animation_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jlysq"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/animation_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6t1rs"]
+resource_name = "EndMainMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
+_data = {
+&"End": SubResource("Animation_0m8ik"),
+&"EndComplete": SubResource("Animation_bkytn"),
+&"EndGaragem": SubResource("Animation_s7xsx"),
+&"EndMainMenu": SubResource("Animation_6t1rs"),
+&"RESET": SubResource("Animation_1mn5h"),
+&"new_animation": SubResource("Animation_jlysq")
+}
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -388,6 +580,7 @@ offset_top = 3.0
 offset_right = 196.0
 offset_bottom = 50.0
 pivot_offset = Vector2(47, 22)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6t1rs")
 icon = ExtResource("9_ftsii")
 flat = true
 icon_alignment = 1
@@ -400,6 +593,7 @@ offset_right = 81.1503
 offset_bottom = 174.575
 rotation = -0.0698132
 pivot_offset = Vector2(33.6438, 32)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0xbgx")
 icon = ExtResource("10_lg1h6")
 flat = true
 
@@ -427,6 +621,23 @@ autoplay = "new_animation"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_80s4p")
 max_polyphony = 36
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+light_mask = 2
+texture_filter = 1
+material = SubResource("ShaderMaterial_0xbgx")
+offset_right = 320.0
+offset_bottom = 181.0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1mn5h")
+}
+autoplay = "new_animation"
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]

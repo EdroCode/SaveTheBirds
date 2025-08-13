@@ -12,6 +12,9 @@ var birds_collected = []
 var music_volume : float
 var sfx_volume : float
 
+var in_painel = false
+
+var cutscene_seen = false
 
 func _ready() -> void:
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://of11km568ifc"]
+[gd_scene load_steps=26 format=3 uid="uid://of11km568ifc"]
 
 [ext_resource type="Script" uid="uid://dyewwteyj7l62" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://p16f8sbm3k84" path="res://Artwork/Sprites/Other/Personagem.png" id="1_v0iea"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cwjkch5a2e311" path="res://Scenes/arma.tscn" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://c7tbhjqo1xx5a" path="res://Resources/SFX/walk-on-dirt-1-291981.mp3" id="5_fkybt"]
 [ext_resource type="Texture2D" uid="uid://bpe6qfat4ddiq" path="res://Artwork/Sprites/Other/PEÇA01.png" id="6_3smsa"]
+[ext_resource type="AudioStream" uid="uid://ceywfnbsr7b3r" path="res://Resources/SFX/level-win-6416.mp3" id="6_8erm5"]
 [ext_resource type="PackedScene" uid="uid://cg8u4deisrfx" path="res://Scenes/Menus/hud.tscn" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://clb2y2c4dj8po" path="res://Resources/SFX/thud-291047.mp3" id="7_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://bjsl1swqje0t8" path="res://Resources/SFX/Esgoto/water-splash-02-352021.mp3" id="9_f1ek2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
 size = Vector2(16, 18.5)
@@ -609,6 +612,20 @@ tracks/2/keys = {
 "method": &"play"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LevelWin")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_8erm5"]
 resource_name = "Stairs"
@@ -637,6 +654,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(6.97, 18.5)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_step_sound"
+}, {
+"args": [],
+"method": &"play_step_sound"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
@@ -749,6 +783,20 @@ max_polyphony = 16
 
 [node name="DashSound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.952
+max_polyphony = 2
+
+[node name="LevelWin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_8erm5")
+volume_db = -4.952
+max_polyphony = 2
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_tx1dd")
+volume_db = 0.991
+max_polyphony = 22
+
 [node name="DashCooldown" type="Timer" parent="."]
 wait_time = 3.0
 
@@ -780,6 +828,10 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("6_x3wgy")]
+
+[node name="Splash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_f1ek2")
+volume_db = -12.155
 
 [connection signal="damaged" from="." to="CanvasLayer/HUD" method="_on_player_damaged"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

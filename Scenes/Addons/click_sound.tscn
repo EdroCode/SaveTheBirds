@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4ty1nain5i15"]
+
+[ext_resource type="AudioStream" uid="uid://c7caek0ct83wc" path="res://Resources/SFX/click-345983.mp3" id="1_syiro"]
+
+[node name="ClickSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_syiro")
+max_polyphony = 46

@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://hkca1ghlgt03"]
+
+[ext_resource type="Script" uid="uid://wk2maun8pj06" path="res://Scenes/Addons/introsplash.gd" id="1_blbdt"]
+[ext_resource type="Texture2D" uid="uid://ct12wmm051rpf" path="res://Artwork/Sprites/EDRO_FADE.png" id="1_y6u3w"]
+[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://AbacaxiPixels.ttf" id="2_o2w3i"]
+[ext_resource type="Texture2D" uid="uid://cwjwk2c0vbv32" path="res://Artwork/Sprites/Other/Mouse01.png" id="4_pvx7s"]
+
+[sub_resource type="Animation" id="Animation_duh1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EdroFade:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_b226h"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EdroFade:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.533333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_game"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_duh1u"]
+_data = {
+&"RESET": SubResource("Animation_duh1u"),
+&"new_animation": SubResource("Animation_b226h")
+}
+
+[node name="IntroSplash" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_blbdt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0941176, 0.0784314, 0.145098, 1)
+
+[node name="EdroFade" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("1_y6u3w")
+hframes = 12
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_duh1u")
+}
+autoplay = "new_animation"
+speed_scale = 0.2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 121.0
+offset_top = 64.0
+offset_right = 438.0
+offset_bottom = 150.0
+scale = Vector2(0.386556, 0.386556)
+theme_override_fonts/normal_font = ExtResource("2_o2w3i")
+theme_override_font_sizes/normal_font_size = 32
+text = "Created by"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 83.0
+offset_top = 122.0
+offset_right = 593.0
+offset_bottom = 208.0
+scale = Vector2(0.386556, 0.386556)
+theme_override_fonts/normal_font = ExtResource("2_o2w3i")
+theme_override_font_sizes/normal_font_size = 32
+text = "Designed by ABACAXI"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+offset_left = 239.0
+offset_top = 166.0
+offset_right = 749.0
+offset_bottom = 252.0
+scale = Vector2(0.223739, 0.223739)
+theme_override_fonts/normal_font = ExtResource("2_o2w3i")
+theme_override_font_sizes/normal_font_size = 32
+text = "Click to skip"
+
+[node name="SoftwareHardwareMouseClickInput" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(305, 167)
+scale = Vector2(-0.5, 0.5)
+texture = ExtResource("4_pvx7s")

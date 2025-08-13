@@ -47,3 +47,9 @@ func _on_gear_collected() -> void:
 
 func _on_end_level_timer_timeout() -> void:
 	$AnimationPlayer.play("EndComplete")
+
+
+func _on_angel_chant_area_body_entered(body: Node2D) -> void:
+	$AngelsChant.play()
+	
+	$AngelChantArea.queue_free()

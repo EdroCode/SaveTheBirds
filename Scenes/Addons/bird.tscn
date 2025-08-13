@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3r0l76s4wyub"]
+[gd_scene load_steps=20 format=3 uid="uid://b3r0l76s4wyub"]
 
 [ext_resource type="Texture2D" uid="uid://bfh4kql5rc5uu" path="res://Artwork/Sprites/ezgif-split/tile000.png" id="1_3q7h0"]
 [ext_resource type="Script" uid="uid://dy81amdl36icc" path="res://Scripts/Addons/bird.gd" id="1_jx5c1"]
@@ -6,10 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://pj0241v1hhhh" path="res://Artwork/Sprites/ezgif-split/tile003.png" id="3_5nfcq"]
 [ext_resource type="Texture2D" uid="uid://dtjvtaug84g3p" path="res://Artwork/Sprites/ezgif-split/tile002.png" id="3_gaqjk"]
 [ext_resource type="Texture2D" uid="uid://d1px4kx2mkj5h" path="res://Artwork/Sprites/ezgif-split/tile006.png" id="4_ajsba"]
+[ext_resource type="Texture2D" uid="uid://bjc3fo5oxt6aa" path="res://Artwork/Sprites/Random/Bird01.png" id="4_efn6w"]
 [ext_resource type="Texture2D" uid="uid://d2qgjwclgjj4i" path="res://Artwork/Sprites/ezgif-split/tile007.png" id="4_w3xih"]
 [ext_resource type="Texture2D" uid="uid://cw0pdok6mcrk3" path="res://Artwork/Sprites/ezgif-split/tile001.png" id="5_djhb5"]
 [ext_resource type="Texture2D" uid="uid://njyq7cpph1t6" path="res://Artwork/Sprites/ezgif-split/tile005.png" id="6_jx5c1"]
+[ext_resource type="Texture2D" uid="uid://bwjsgm410jqtc" path="res://Artwork/Sprites/Random/Bird02.png" id="7_dgkv4"]
+[ext_resource type="Texture2D" uid="uid://cutyffuoaxqki" path="res://Artwork/Sprites/Random/Bird04.png" id="10_00lg5"]
+[ext_resource type="Texture2D" uid="uid://bbrcpsgofi3g2" path="res://Artwork/Sprites/Random/lgihtbluesleeping.png" id="10_dgkv4"]
 [ext_resource type="AudioStream" uid="uid://bl3gd3i2p3m8k" path="res://Resources/SFX/get-coin-351945.mp3" id="10_mxlrn"]
+[ext_resource type="Texture2D" uid="uid://dtyob5f3sx8vs" path="res://Artwork/Sprites/Random/birdaa.png" id="11_0rrhp"]
+[ext_resource type="Texture2D" uid="uid://e872ri4s2t68" path="res://Artwork/Sprites/Random/birdassa.png" id="12_ts6j2"]
+[ext_resource type="Texture2D" uid="uid://bawk5t4qb2tea" path="res://Artwork/Sprites/Random/Bird03.png" id="13_0rrhp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbqrl"]
 animations = [{
@@ -26,6 +33,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_efn6w")
+}],
+"loop": true,
+"name": &"BlueSleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_5nfcq")
 }, {
 "duration": 1.0,
@@ -33,6 +48,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_dgkv4")
+}],
+"loop": true,
+"name": &"GreenSleeping",
 "speed": 5.0
 }, {
 "frames": [{
@@ -48,6 +71,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_dgkv4")
+}],
+"loop": true,
+"name": &"LightBlueSleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_0rrhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ts6j2")
+}],
+"loop": true,
+"name": &"Red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_00lg5")
+}],
+"loop": true,
+"name": &"RedSleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_gaqjk")
 }, {
 "duration": 1.0,
@@ -55,6 +105,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Yellow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_0rrhp")
+}],
+"loop": true,
+"name": &"YellowSleeping",
 "speed": 5.0
 }]
 
@@ -66,7 +124,7 @@ script = ExtResource("1_jx5c1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xbqrl")
-animation = &"Blue"
+animation = &"YellowSleeping"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 16

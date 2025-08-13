@@ -19,6 +19,7 @@ func _process(delta: float) -> void:
 		if can_select:
 			if mouse_in_area:
 				if !selected:
+					ClickSound.play()
 					selected = true
 				else:
 					selected = false

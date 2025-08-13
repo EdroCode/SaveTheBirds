@@ -2,6 +2,9 @@ extends Node2D
 
 @export var Sprite : Texture2D
 @export var AreaToggle : bool = true
+@export var SetaBaixo := false
+@export var TeclaE := true
+
 var playerOnArea = false
 
 
@@ -16,7 +19,11 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	pass
+	if SetaBaixo:
+		$AnimatedSprite2D.play("DownSeta")
+	elif TeclaE:
+		$AnimatedSprite2D.play("TeclaE")
+		
 
 
 

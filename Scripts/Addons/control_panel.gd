@@ -55,6 +55,7 @@ func _on_icon_button_down() -> void:
 
 func _ready() -> void:
 	open()
+	GameManager.in_painel = true
 	add_pieces()
 
 func open():
@@ -116,6 +117,7 @@ func check_cables():
 
 
 func _on_sair_botao_button_down() -> void:
+	ClickSound.play()
 	#get_tree().paused = false
 	close()
 	get_tree().change_scene_to_file("res://Scenes/Levels/garagem.tscn")
