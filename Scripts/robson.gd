@@ -194,7 +194,7 @@ func _on_ángry_timer_timeout() -> void:
 func _on_chant_timer_timeout() -> void:
 	$ChantTimer.stop()
 	$Chant.play()
-	var ti = randi_range(13,19)
+	var ti = randi_range(21,45)
 	$ChantTimer.wait_time = ti
 	$ChantTimer.start()
 	

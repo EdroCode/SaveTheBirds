@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2p2jkxotdclv"]
+[gd_scene load_steps=19 format=3 uid="uid://c2p2jkxotdclv"]
 
 [ext_resource type="Script" uid="uid://sud00audlyb4" path="res://Scripts/rubens.gd" id="1_77yo8"]
 [ext_resource type="Texture2D" uid="uid://6r2kg003oca8" path="res://Artwork/Sprites/Inimigo/Robô Inimigo 01.png" id="2_cte7u"]
 [ext_resource type="Texture2D" uid="uid://bso3gmwqhknhl" path="res://Artwork/Sprites/Other/Bomba.png" id="4_3uvis"]
+[ext_resource type="AudioStream" uid="uid://dymxmmqh5xk10" path="res://Resources/SFX/Robos/beep-warning-6387.mp3" id="4_77yo8"]
+[ext_resource type="AudioStream" uid="uid://b4itpgiwq2y1b" path="res://Resources/SFX/Robos/drone-flying-67483.mp3" id="5_3uvis"]
+[ext_resource type="AudioStream" uid="uid://ca86sfi516kct" path="res://Resources/SFX/Robos/randombeep5.wav" id="5_iisj6"]
 
 [sub_resource type="Gradient" id="Gradient_cte7u"]
 offsets = PackedFloat32Array(0, 0.538961)
@@ -442,10 +445,30 @@ wait_time = 3.5
 wait_time = 5.0
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 2.0
 
 [node name="ParticlePos" type="Marker2D" parent="."]
 position = Vector2(25, -32)
+
+[node name="Warining" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_77yo8")
+volume_db = -8.824
+pitch_scale = 2.61
+max_distance = 300.0
+max_polyphony = 11
+
+[node name="Beeps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_iisj6")
+volume_db = -0.9
+pitch_scale = 0.67
+max_distance = 300.0
+max_polyphony = 11
+
+[node name="Flying" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_3uvis")
+volume_db = 3.062
+pitch_scale = 2.61
+max_distance = 219.0
+max_polyphony = 11
 
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="IdleTImer" to="." method="_on_idle_t_imer_timeout"]

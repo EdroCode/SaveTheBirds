@@ -1,9 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://coklsbd8bhuor"]
+[gd_scene load_steps=19 format=3 uid="uid://coklsbd8bhuor"]
 
 [ext_resource type="Script" uid="uid://clvdgowosynw3" path="res://Scripts/r2d2.gd" id="1_wovta"]
 [ext_resource type="Texture2D" uid="uid://0hvkdtlvlhgs" path="res://Artwork/Sprites/Inimigo/Robô Inimigo 02.png" id="2_k2gbc"]
 [ext_resource type="Texture2D" uid="uid://dcc044bpqxskh" path="res://Resources/Particles/LightSprites/light23.png" id="3_ysrua"]
 [ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Resources/Particles/LightSprites/light2robot.png" id="4_fubcu"]
+[ext_resource type="AudioStream" uid="uid://bbwjn2jnuehpb" path="res://Resources/SFX/Robos/alarm-no3-14864.mp3" id="5_r3uot"]
+[ext_resource type="AudioStream" uid="uid://138vesd2qowg" path="res://Resources/SFX/Robos/randombeep3.wav" id="6_r3uot"]
+[ext_resource type="AudioStream" uid="uid://ckinsymksx3li" path="res://Resources/SFX/Robos/machine-buzzing-60544.mp3" id="7_md5to"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2gbc"]
 size = Vector2(124, 71)
@@ -565,6 +568,27 @@ libraries = {
 wait_time = 3.5
 
 [node name="IdleTimer" type="Timer" parent="."]
+
+[node name="Warining" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_r3uot")
+volume_db = -8.824
+pitch_scale = 2.61
+max_distance = 300.0
+max_polyphony = 11
+
+[node name="Beeps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_r3uot")
+volume_db = -0.9
+pitch_scale = 0.67
+max_distance = 300.0
+max_polyphony = 11
+
+[node name="Patroling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_md5to")
+volume_db = -1.752
+pitch_scale = 0.75
+max_distance = 300.0
+max_polyphony = 11
 
 [connection signal="body_entered" from="Rotate/DetectPlayer" to="." method="_on_detect_player_body_entered"]
 [connection signal="body_exited" from="Rotate/DetectPlayer" to="." method="_on_detect_player_body_exited"]

@@ -81,9 +81,10 @@ func _physics_process(delta):
 
 	
 func initialize_idle():
+	$Beeps.play()
 	$PatrolTimer.stop()
 	$IdleTimer.start()
-	
+	$Patroling.stop()
 	velocity *= 0
 	state_nxt = STATES.IDLE
 	anim_nxt = "Idle"
@@ -97,6 +98,7 @@ func state_idle(delta):
 	move_and_slide()
 
 func initialize_patrol():
+	$Patroling.play()
 	$PatrolTimer.start()
 	$IdleTimer.stop()
 	state_nxt = STATES.PATROL
@@ -166,7 +168,9 @@ func state_hit(delta):
 
 func initialize_death():
 	if dead == false:
-		
+		$Warining.stop()
+		$Beeps.stop()
+		$Patroling.stop()
 		velocity *= 0
 		add_particle()
 		$PatrolTimer.stop()

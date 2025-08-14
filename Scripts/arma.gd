@@ -20,12 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("LeftClick"):
 		light_toggle()
-	
-	if on:
-		$LuzLanterna.energy = 1.95
-		for i in $LightArea.get_overlapping_bodies():
-			if i.is_in_group("Off"):
-				i.initialize_off()
+
 	look_at(get_global_mouse_position())
 	
 	check_rotation()

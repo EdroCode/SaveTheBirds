@@ -14,6 +14,15 @@ func _ready() -> void:
 		GameManager.in_painel = false
 		
 	
+	if !GameManager.journal_read:
+		var t = Timer.new()
+		t.wait_time = 3
+		add_child(t)
+		t.start()
+		await t.timeout
+		t.stop()
+		
+		$CanvasLayer/Newspaper/AnimationPlayer.play("start")
 	
 	var value = GameManager.birds
 	

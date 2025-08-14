@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3 uid="uid://cna5hvjx8ab3h"]
+
+[ext_resource type="Script" uid="uid://dxxei8h16kqi4" path="res://Scripts/newspaper.gd" id="1_ck6u8"]
+[ext_resource type="Texture2D" uid="uid://vwocshyphfo" path="res://Artwork/Sprites/Jornal Legível.png" id="2_hew51"]
+[ext_resource type="AudioStream" uid="uid://bha8oskvx1lnu" path="res://Resources/SFX/page-flip-sound-effect-384077.mp3" id="2_y2tjy"]
+[ext_resource type="AudioStream" uid="uid://coxhmtdg3uwn3" path="res://Resources/SFX/page-flip-47177.mp3" id="3_ck6u8"]
+[ext_resource type="PackedScene" uid="uid://c75d2ixhw78du" path="res://Scenes/Addons/mouse.tscn" id="5_hew51"]
+
+[sub_resource type="Animation" id="Animation_u70qf"]
+resource_name = "start"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Open")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Journal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 180), Vector2(0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"pause"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xp8hg"]
+resource_name = "end"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Journal:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 180)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.633333, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"unpause"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_y2tjy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Journal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 180)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y2tjy"]
+_data = {
+&"RESET": SubResource("Animation_y2tjy"),
+&"end": SubResource("Animation_xp8hg"),
+&"start": SubResource("Animation_u70qf")
+}
+
+[node name="Newspaper" type="Control"]
+process_mode = 3
+light_mask = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ck6u8")
+
+[node name="Journal" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 180.0
+offset_right = 40.0
+offset_bottom = 220.0
+
+[node name="ColorRect" type="ColorRect" parent="Journal"]
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0.137255, 0.137255, 0.137255, 0.690196)
+
+[node name="JornalLegível" type="TextureRect" parent="Journal"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("2_hew51")
+
+[node name="Button" type="Button" parent="Journal"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 143.0
+offset_right = 320.0
+offset_bottom = 180.0
+flat = true
+
+[node name="Mouse" parent="Journal" instance=ExtResource("5_hew51")]
+position = Vector2(304, 162)
+monitoring = false
+monitorable = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y2tjy")
+}
+
+[node name="Open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_y2tjy")
+
+[node name="End" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ck6u8")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="button_down" from="Journal/Button" to="." method="_on_button_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

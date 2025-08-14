@@ -272,7 +272,7 @@ func initialize_dash(dir):
 			dashSound.play()
 			
 			
-		velocity.x += dir * DASH_SPEED
+		velocity.x += $Rotate.scale.x * DASH_SPEED
 		
 		state_nxt = STATES.DASH
 	

@@ -85,6 +85,8 @@ func _physics_process(delta):
 	
 
 func initialize_idle():
+	$Beeps.play()
+	
 	if patrol:
 		$IdleTImer.start()
 		patroling = false
@@ -123,6 +125,8 @@ func state_patrol(delta):
 	move_and_slide()
 
 func initialize_hover():
+	$Flying.play()
+	$Warining.play()
 	patroling = false
 	$PatrolTimer.stop()
 	$IdleTImer.stop()
@@ -191,6 +195,9 @@ func state_hit(delta):
 
 func initialize_death():
 	if dead == false:
+		$Warining.stop()
+		$Beeps.stop()
+		$Flying.stop()
 		add_particle()
 		velocity *= 0
 		dead = true

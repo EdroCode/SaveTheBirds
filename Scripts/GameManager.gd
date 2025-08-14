@@ -15,6 +15,8 @@ var sfx_volume : float
 var in_painel = false
 
 var cutscene_seen = false
+var journal_read = false
+
 
 func _ready() -> void:
 	

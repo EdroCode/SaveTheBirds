@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=68 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Other/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
@@ -42,6 +42,7 @@
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="35_s7xsx"]
 [ext_resource type="AudioStream" uid="uid://cyeareqsccndo" path="res://Resources/SFX/door-close-79921.mp3" id="37_jr3k6"]
 [ext_resource type="AudioStream" uid="uid://5vlrqhaflb2v" path="res://Resources/SFX/Music/moment-14023.mp3" id="40_oxyit"]
+[ext_resource type="PackedScene" uid="uid://cna5hvjx8ab3h" path="res://Scenes/Menus/newspaper.tscn" id="43_tjt0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr3k6"]
 size = Vector2(14, 71)
@@ -239,6 +240,35 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_6t1rs"]
+resource_name = "EndMainMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_1mn5h"]
 length = 0.001
 tracks/0/type = "value"
@@ -291,35 +321,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_6t1rs"]
-resource_name = "EndMainMenu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.659532),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
@@ -918,6 +919,8 @@ mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("29_rp3sp")]
+
+[node name="Newspaper" parent="CanvasLayer" instance=ExtResource("43_tjt0n")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

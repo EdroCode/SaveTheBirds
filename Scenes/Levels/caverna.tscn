@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://vmt5jqmis17c"]
+[gd_scene load_steps=40 format=4 uid="uid://vmt5jqmis17c"]
 
 [ext_resource type="Script" uid="uid://bcc88t588tq3a" path="res://Scripts/Level/caverna.gd" id="1_0yfgf"]
 [ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/Other/TilesetCaverna.png" id="1_whnuf"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="12_m6vaa"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="12_p5vte"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="13_3styp"]
+[ext_resource type="AudioStream" uid="uid://bw1em47nj3ua" path="res://Resources/SFX/Background/denizens-360864.mp3" id="13_n4gdy"]
+[ext_resource type="AudioStream" uid="uid://bom0nho5r40ip" path="res://Resources/SFX/Background/cave-background-sound-49440.mp3" id="14_n4gdy"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_t3p6x"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -781,6 +783,17 @@ autoplay = "new_animation"
 
 [node name="EndLevelTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_n4gdy")
+volume_db = -21.55
+autoplay = true
+bus = &"Music"
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_n4gdy")
+volume_db = -21.55
+autoplay = true
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="collected" from="Eyes" to="." method="_on_eyes_collected"]

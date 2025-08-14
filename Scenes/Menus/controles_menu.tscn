@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bbxg5dcjsmlsd" path="res://Artwork/Sprites/ui/Keys/mouse2.png" id="8_siiku"]
 [ext_resource type="Texture2D" uid="uid://dtuyo41fqp481" path="res://Artwork/Sprites/ui/Keys/mouse.png" id="9_gmiwm"]
 [ext_resource type="Texture2D" uid="uid://dqctec8d5nyv7" path="res://Artwork/Sprites/Random/AssetsNave.png" id="10_gmiwm"]
-[ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://AbacaxiPixels.ttf" id="12_gmiwm"]
+[ext_resource type="FontFile" uid="uid://cfgia102u0cdr" path="res://Resources/8_bit_hud/8-bit-hud.ttf" id="12_7nfft"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_eaiq4"]
 frequency = 0.004
@@ -55,72 +55,72 @@ texture = ExtResource("2_i0hhq")
 [node name="Arrows" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 110.0
-offset_top = 51.0
+offset_top = 30.0
 offset_right = 160.0
-offset_bottom = 91.0
+offset_bottom = 70.0
 texture = ExtResource("3_4i3vg")
 stretch_mode = 3
 
 [node name="Arrows2" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 54.0
-offset_top = 51.0
+offset_top = 30.0
 offset_right = 104.0
-offset_bottom = 91.0
+offset_bottom = 70.0
 texture = ExtResource("4_ua7eo")
 stretch_mode = 3
 
 [node name="Arrows3" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 187.0
-offset_top = 25.0
-offset_right = 237.0
-offset_bottom = 65.0
+offset_left = 186.0
+offset_top = 22.0
+offset_right = 236.0
+offset_bottom = 62.0
 texture = ExtResource("5_82rpv")
 stretch_mode = 3
 
 [node name="Arrows4" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 113.0
-offset_right = 69.0
-offset_bottom = 153.0
+offset_left = 10.0
+offset_top = 84.0
+offset_right = 60.0
+offset_bottom = 124.0
 texture = ExtResource("6_fx6q8")
 stretch_mode = 3
 
 [node name="Arrows5" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 113.0
-offset_right = 87.0
-offset_bottom = 153.0
+offset_left = 28.0
+offset_top = 84.0
+offset_right = 78.0
+offset_bottom = 124.0
 texture = ExtResource("7_siiku")
 stretch_mode = 3
 
 [node name="Arrows9" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 170.0
-offset_top = 66.0
+offset_top = 59.0
 offset_right = 220.0
-offset_bottom = 106.0
+offset_bottom = 99.0
 texture = ExtResource("8_7nfft")
 stretch_mode = 3
 
 [node name="Arrows6" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 111.0
-offset_top = 117.0
+offset_top = 93.0
 offset_right = 161.0
-offset_bottom = 157.0
+offset_bottom = 133.0
 texture = ExtResource("8_siiku")
 stretch_mode = 4
 
 [node name="Arrows7" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 202.0
-offset_top = 119.0
-offset_right = 252.0
-offset_bottom = 159.0
+offset_left = 206.0
+offset_top = 105.0
+offset_right = 256.0
+offset_bottom = 145.0
 texture = ExtResource("9_gmiwm")
 stretch_mode = 4
 
@@ -140,60 +140,72 @@ flat = true
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 59.0
-offset_top = 36.0
+offset_top = 15.0
 offset_right = 158.0
-offset_bottom = 56.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_bottom = 35.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Move"
 fit_content = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 186.0
-offset_top = 20.0
+offset_top = 15.0
 offset_right = 285.0
-offset_bottom = 40.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_bottom = 35.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Jump"
 fit_content = true
 
 [node name="RichTextLabel6" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 186.0
-offset_top = 62.0
+offset_top = 53.0
 offset_right = 285.0
-offset_bottom = 82.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_bottom = 73.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Interact"
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 32.0
-offset_top = 105.0
-offset_right = 131.0
-offset_bottom = 125.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_left = 23.0
+offset_top = 75.0
+offset_right = 122.0
+offset_bottom = 95.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Dash"
 fit_content = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 101.0
-offset_right = 205.0
-offset_bottom = 121.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_left = 109.0
+offset_top = 75.0
+offset_right = 208.0
+offset_bottom = 95.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Shot"
 fit_content = true
 
 [node name="RichTextLabel5" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 186.0
-offset_top = 103.0
+offset_top = 88.0
 offset_right = 285.0
-offset_bottom = 123.0
-theme_override_fonts/normal_font = ExtResource("12_gmiwm")
+offset_bottom = 108.0
+theme_override_colors/default_color = Color(0.0156863, 0.282353, 0.054902, 1)
+theme_override_fonts/normal_font = ExtResource("12_7nfft")
+theme_override_font_sizes/normal_font_size = 10
 text = "Lantern"
 fit_content = true
 

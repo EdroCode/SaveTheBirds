@@ -1,11 +1,15 @@
 extends Node2D
 
 var can_light = false
-
+var can_jump = false
 
 func can_play():
 	
 	can_light = true
+
+func can_jumps():
+	
+	can_jump = true
 
 
 func _process(delta: float) -> void:
@@ -13,6 +17,10 @@ func _process(delta: float) -> void:
 	if can_light:
 		if Input.is_action_just_pressed("LeftClick"):
 			$AnimationPlayer.play("2phase")
+	
+	if can_jump:
+		if Input.is_action_just_pressed("Jump"):
+			$AnimationPlayer.play("3phase")
 	
 	if Input.is_action_just_pressed("ActionE"):
 		$AnimationPlayer.stop()

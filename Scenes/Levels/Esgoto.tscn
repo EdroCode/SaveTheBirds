@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=103 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -33,7 +33,15 @@
 [ext_resource type="Texture2D" uid="uid://c02qj4vlobsy2" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/14 Nimbus/89.png" id="16_fhyhn"]
 [ext_resource type="Texture2D" uid="uid://b1mme0v1d6rl1" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/13 Wings/85.png" id="17_e4iux"]
 [ext_resource type="Texture2D" uid="uid://cbfnuh52en172" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/13 Wings/84.png" id="18_i0bx8"]
+[ext_resource type="Texture2D" uid="uid://cak5hpx30r0xi" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/1 Font/2.png" id="20_hqp4b"]
+[ext_resource type="Texture2D" uid="uid://bvoyoibjx1db3" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/19 Backtiles/Back_04.png" id="20_wf17a"]
+[ext_resource type="Texture2D" uid="uid://ddpsgu1eds5et" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/1 Font/5.png" id="21_5mbaj"]
+[ext_resource type="Texture2D" uid="uid://bt8yaag2cradh" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/19 Backtiles/Back_02.png" id="21_571ff"]
+[ext_resource type="Texture2D" uid="uid://bv8ygyctvt6py" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/7 Waves/42.png" id="22_3hl6k"]
+[ext_resource type="Texture2D" uid="uid://cjsusbx0421je" path="res://Artwork/Sprites/Other/test.png" id="22_e7iay"]
+[ext_resource type="Texture2D" uid="uid://duxinsu5k85uo" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/3 Rays/15.png" id="23_hqp4b"]
 [ext_resource type="Texture2D" uid="uid://dqcbyy63yleqc" path="res://Artwork/Sprites/Esgoto/cabos.png" id="23_nuybb"]
+[ext_resource type="Texture2D" uid="uid://pg14848jytsx" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/2 Decoratoins/0 All/112.png" id="24_5mbaj"]
 [ext_resource type="Texture2D" uid="uid://ci4r26kbjtd32" path="res://Artwork/Sprites/Esgoto/Lixo.png" id="25_18y4d"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="27_61r6c"]
 [ext_resource type="Texture2D" uid="uid://dnevo1tqb3ot3" path="res://Artwork/Sprites/Esgoto/tubo.png" id="27_wc4d6"]
@@ -44,6 +52,7 @@
 [ext_resource type="AudioStream" uid="uid://cagewyrdwdgsf" path="res://Resources/SFX/Esgoto/sewer-drain-23073.mp3" id="42_fqdko"]
 [ext_resource type="AudioStream" uid="uid://i80falwvsv7d" path="res://Resources/SFX/Esgoto/creature-in-the-sewer-17657.mp3" id="43_jhyv3"]
 [ext_resource type="AudioStream" uid="uid://5yo31nktx8ni" path="res://Resources/SFX/angels01-87809.mp3" id="44_4sc3s"]
+[ext_resource type="AudioStream" uid="uid://1sag2pxvmihp" path="res://Resources/SFX/Esgoto/depressing-dark-ambient-music-354469.mp3" id="51_5mbaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iixi8"]
 texture = ExtResource("1_3owoa")
@@ -935,6 +944,180 @@ scale = Vector2(0.724865, 0.724865)
 texture = ExtResource("11_3rh8q")
 vframes = 2
 frame = 1
+
+[node name="8Loot29" type="Sprite2D" parent="Node2D"]
+modulate = Color(1, 0.47214, 0.418778, 1)
+position = Vector2(862, -47)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot39" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(830, -56)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot40" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(897, -57)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot44" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(1057, -128)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot45" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(1087, -130)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot46" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.567048, 0.712982, 0.398183, 1)
+position = Vector2(1070, -137)
+rotation = -3.17391
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+frame = 1
+
+[node name="8Loot47" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.567048, 0.712982, 0.398183, 1)
+position = Vector2(1073, -103)
+rotation = -3.17391
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+
+[node name="8Loot48" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.567048, 0.712982, 0.398183, 1)
+position = Vector2(1057, -108)
+rotation = -3.17391
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+
+[node name="8Loot49" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.567048, 0.712982, 0.398183, 1)
+position = Vector2(1090, -111)
+rotation = -3.17391
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("11_3rh8q")
+vframes = 2
+
+[node name="8Loot41" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(994.643, -41.0334)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("20_hqp4b")
+
+[node name="8Loot42" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(1001.64, -42.0334)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("21_5mbaj")
+
+[node name="8Loot43" type="Sprite2D" parent="Node2D"]
+modulate = Color(0, 0.778865, 0.486443, 1)
+position = Vector2(1073, -119)
+rotation = -0.0832828
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("22_e7iay")
+
+[node name="8Loot30" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.589545, 0.71895, 1.15514e-06, 1)
+position = Vector2(833, -24)
+rotation = -0.0832828
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("17_e4iux")
+vframes = 2
+frame = 1
+
+[node name="8Loot31" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.589545, 0.71895, 1.15514e-06, 1)
+position = Vector2(892, -24)
+rotation = 0.251011
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("17_e4iux")
+flip_h = true
+vframes = 2
+frame = 1
+
+[node name="8Loot32" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.269711, 0.470647, 0.999969, 1)
+position = Vector2(877, -64)
+rotation = 0.251011
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("20_wf17a")
+flip_h = true
+
+[node name="8Loot33" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.269711, 0.470647, 0.999969, 1)
+position = Vector2(886, -66)
+rotation = 0.251011
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("21_571ff")
+flip_h = true
+
+[node name="8Loot34" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.269711, 0.470647, 0.999969, 1)
+position = Vector2(924, -39)
+rotation = 0.251011
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("22_3hl6k")
+flip_h = true
+
+[node name="8Loot35" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.269711, 0.470647, 0.999969, 1)
+position = Vector2(917, -28)
+rotation = 0.68261
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("22_3hl6k")
+flip_h = true
+
+[node name="8Loot36" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.921856, 0.176603, 0.290891, 1)
+position = Vector2(913, -66.9999)
+rotation = 0.68261
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("23_hqp4b")
+flip_h = true
+
+[node name="8Loot37" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.921856, 0.176603, 0.290891, 1)
+position = Vector2(886, -68.9999)
+rotation = 0.68261
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("23_hqp4b")
+flip_h = true
+
+[node name="8Loot38" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.921856, 0.176603, 0.290891, 1)
+position = Vector2(851, -59)
+rotation = 0.68261
+scale = Vector2(0.724865, 0.724865)
+texture = ExtResource("24_5mbaj")
+flip_h = true
 
 [node name="8Loot6" type="Sprite2D" parent="Node2D"]
 modulate = Color(0, 0.785274, 0.391214, 1)
@@ -1885,6 +2068,7 @@ position = Vector2(512, 44)
 
 [node name="Rubens2" parent="Enemies" instance=ExtResource("13_5ro7w")]
 position = Vector2(818, 80)
+patrol_size = 110
 
 [node name="R2D2" parent="Enemies" instance=ExtResource("36_os80h")]
 position = Vector2(1215, -110)
@@ -1979,6 +2163,11 @@ wait_time = 5.0
 
 [node name="SwerDrainLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("42_fqdko")
+volume_db = -17.0
+autoplay = true
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("51_5mbaj")
 volume_db = -17.0
 autoplay = true
 

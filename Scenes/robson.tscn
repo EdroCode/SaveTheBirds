@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://car008sfj1gq3" path="res://Resources/Particles/Spritesheets/Holy Light Aura.png" id="2_35imc"]
 [ext_resource type="Texture2D" uid="uid://dmu4lkjlb4gf4" path="res://Resources/Particles/LightSprites/light2robot.png" id="3_35imc"]
 [ext_resource type="AudioStream" uid="uid://b8qa2o847ual0" path="res://Resources/SFX/Robos/canto-robot-1-81459.mp3" id="6_j8n7b"]
-[ext_resource type="AudioStream" uid="uid://c3pc3qbmuf5vq" path="res://Resources/SFX/Robos/robot-power-off-97246.mp3" id="7_sjy0y"]
-[ext_resource type="AudioStream" uid="uid://dvxlq7j587jyv" path="res://Resources/SFX/Robos/wake-up-the-robot-84894.mp3" id="8_xt5h1"]
+[ext_resource type="AudioStream" uid="uid://cvvyasulimwad" path="res://Resources/SFX/Robos/robot-power-off-97246.wav" id="7_nrctf"]
+[ext_resource type="AudioStream" uid="uid://b2wf5jyhlftfw" path="res://Resources/SFX/Robos/wakeup.wav" id="8_nrctf"]
 [ext_resource type="AudioStream" uid="uid://dcme3aooqsexl" path="res://Resources/SFX/Robos/machine-static-45995.mp3" id="9_nrctf"]
 
 [sub_resource type="Gradient" id="Gradient_35imc"]
@@ -470,11 +470,11 @@ pitch_scale = 1.42
 max_distance = 120.0
 
 [node name="PowerOff" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_sjy0y")
+stream = ExtResource("7_nrctf")
 max_distance = 300.0
 
 [node name="PowerOn" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_xt5h1")
+stream = ExtResource("8_nrctf")
 max_distance = 300.0
 
 [node name="Patrol" type="AudioStreamPlayer2D" parent="."]
