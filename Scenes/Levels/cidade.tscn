@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://cqumn5xjt5mkx"]
+[gd_scene load_steps=91 format=4 uid="uid://cqumn5xjt5mkx"]
 
 [ext_resource type="Script" uid="uid://cqm4mqgbm6t54" path="res://Scenes/Levels/cidade.gd" id="1_71u2j"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="1_xpe70"]
@@ -24,6 +24,7 @@
 [ext_resource type="Shader" uid="uid://dts0xo1ix470" path="res://Resources/rain.gdshader" id="20_a5bfa"]
 [ext_resource type="AudioStream" uid="uid://dil1dawl2u0yp" path="res://Resources/SFX/city-night-crickets-24013.mp3" id="21_tn4n1"]
 [ext_resource type="AudioStream" uid="uid://dtms7lw77pqo5" path="res://Resources/SFX/Background/rainstorm-with-wind-351117.mp3" id="24_vnpy0"]
+[ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="25_cpk1p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tq6t"]
 texture = ExtResource("2_wjfym")
@@ -1265,8 +1266,12 @@ stream = ExtResource("24_vnpy0")
 volume_db = -21.5
 autoplay = true
 
+[node name="Shake" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("25_cpk1p")]
+cam = NodePath("../Player/Camera2D")
+
 [connection signal="body_entered" from="StairsClimb" to="StairsClimb" method="_on_body_entered"]
 [connection signal="body_exited" from="StairsClimb" to="StairsClimb" method="_on_body_exited"]
 [connection signal="collected" from="Cables" to="." method="_on_cables_collected"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
+[connection signal="shot" from="Player" to="Shake" method="_on_player_shot"]
 [connection signal="timeout" from="EndLevelTimer" to="." method="_on_end_level_timer_timeout"]

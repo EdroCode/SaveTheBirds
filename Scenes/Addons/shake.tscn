@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwslnm8a8s1qi"]
+
+[ext_resource type="Script" uid="uid://c07cuxowcmlxt" path="res://Scenes/Levels/shake.gd" id="1_msyov"]
+
+[node name="Shake" type="Node2D" node_paths=PackedStringArray("cam")]
+script = ExtResource("1_msyov")
+cam = NodePath("")

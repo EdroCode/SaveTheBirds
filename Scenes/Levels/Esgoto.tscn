@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=4 uid="uid://dh56huxwjuxcr"]
+[gd_scene load_steps=107 format=4 uid="uid://dh56huxwjuxcr"]
 
 [ext_resource type="Texture2D" uid="uid://dgcj3x4hvy85w" path="res://Artwork/Sprites/Esgoto/TilesetEsgoto.png" id="1_3owoa"]
 [ext_resource type="Script" uid="uid://bvq3uktnoe30n" path="res://Scripts/Level/esgoto.gd" id="1_g0l7y"]
@@ -54,6 +54,7 @@
 [ext_resource type="AudioStream" uid="uid://i80falwvsv7d" path="res://Resources/SFX/Esgoto/creature-in-the-sewer-17657.mp3" id="43_jhyv3"]
 [ext_resource type="AudioStream" uid="uid://5yo31nktx8ni" path="res://Resources/SFX/angels01-87809.mp3" id="44_4sc3s"]
 [ext_resource type="AudioStream" uid="uid://1sag2pxvmihp" path="res://Resources/SFX/Esgoto/depressing-dark-ambient-music-354469.mp3" id="51_5mbaj"]
+[ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="55_a4ter"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iixi8"]
 texture = ExtResource("1_3owoa")
@@ -2201,6 +2202,8 @@ position = Vector2(478, 0)
 stream = ExtResource("44_4sc3s")
 volume_db = -6.933
 max_distance = 1395.0
+
+[node name="Shake" parent="." instance=ExtResource("55_a4ter")]
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="collected" from="Gear" to="." method="_on_gear_collected"]

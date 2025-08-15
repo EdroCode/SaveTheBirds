@@ -27,6 +27,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://Scripts/GameManager.gd"
 ClickSound="*res://Scenes/Addons/click_sound.tscn"
+BulletMetal="*res://Scenes/Addons/bullet_metal.tscn"
 
 [display]
 
