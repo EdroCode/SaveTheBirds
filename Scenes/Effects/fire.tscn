@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://knvpyl41hsyp"]
 
-[ext_resource type="Texture2D" uid="uid://dwoj1owvphium" path="res://Resources/Spritesheets/Fire+Sparks-Sheet.png" id="1_d75s0"]
+[ext_resource type="Texture2D" uid="uid://dwoj1owvphium" path="res://Resources/Particles/Spritesheets/Fire+Sparks-Sheet.png" id="1_d75s0"]
 
 [sub_resource type="Animation" id="Animation_d75s0"]
 length = 0.001

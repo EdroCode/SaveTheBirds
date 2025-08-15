@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnsuhnkq8228d"]
+[gd_scene load_steps=8 format=3 uid="uid://dnsuhnkq8228d"]
 
 [ext_resource type="Script" uid="uid://bkhq1ewn8nr38" path="res://Scenes/Levels/boss_fight.gd" id="1_1bn4p"]
 [ext_resource type="PackedScene" uid="uid://dgvbcmyrls7o6" path="res://Scenes/Enemies/boss.tscn" id="1_sp5ug"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_uqilp"]
+[ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="4_nftbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8i8va"]
 size = Vector2(450, 20)
@@ -22,11 +23,17 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_8i8va")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
 [node name="Boss" parent="." instance=ExtResource("1_sp5ug")]
-position = Vector2(256, 160)
+position = Vector2(296, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_uqilp")]
 position = Vector2(32, 144)
+SPEED = 80
+JUMP_POWER = 160.0
+max_health = 60
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -53,3 +60,8 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_1bn4p")
 value = 74.0
 rounded = true
 show_percentage = false
+
+[node name="Shake" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("4_nftbk")]
+cam = NodePath("../Camera2D")
+
+[connection signal="shot" from="Player" to="Shake" method="_on_player_shot"]

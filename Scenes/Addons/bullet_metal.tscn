@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://rkkrcewmo8l4"]
+
+[ext_resource type="AudioStream" uid="uid://bi5o18blbtxxq" path="res://Resources/SFX/Robos/080997_bullet-39735.mp3" id="1_fwudy"]
+
+[node name="BulletMetal" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_fwudy")
+max_polyphony = 13

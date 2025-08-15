@@ -10,6 +10,8 @@ var can_shot = true
 
 var on = false
 
+signal gun_shot
+
 func _ready() -> void:
 	$CooldownTimer.wait_time = cooldown
 	$LuzLanterna.energy = 0
@@ -29,6 +31,7 @@ func _physics_process(delta: float) -> void:
 func shot():
 	if can_shot:
 		if bullets > 0:
+			emit_signal("gun_shot")
 			$AudioStreamPlayer2D.stream = lazer_blast
 			var pitch = randf_range(0.812, 1.145)
 			$AudioStreamPlayer2D.pitch_scale = pitch

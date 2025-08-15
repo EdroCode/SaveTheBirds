@@ -12,7 +12,7 @@ size = Vector2(55, 10)
 
 [node name="Arma" type="Node2D"]
 script = ExtResource("1_bjc62")
-bullets = 5000
+bullets = 25115
 cooldown = 0.6
 
 [node name="Sprite" type="Sprite2D" parent="."]

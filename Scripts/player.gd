@@ -37,6 +37,7 @@ var climbing := false
 
 signal died
 signal damaged
+signal shot
 
 func _ready():
 	health = max_health
@@ -112,7 +113,8 @@ func _physics_process(delta):
 			STATES.SHOWITEM:
 				state_show(delta)
 	
-	
+	if state_cur != 4 or state_cur != 7 or state_cur != 9:
+		gravity(delta)
 
 	
 	if Input.is_action_just_pressed("Shot"):
@@ -127,8 +129,6 @@ func initialize_idle():
 	velocity *= 0
 
 func state_idle(delta):
-	
-	gravity(delta)
 	
 	if Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
 		initialize_run()
@@ -153,7 +153,6 @@ func initialize_run():
 
 func state_run(delta):
 	
-	gravity(delta)
 	
 	var dir := Input.get_axis("Left", "Right")
 	
@@ -200,7 +199,6 @@ func initialize_jump():
 
 func state_jump(delta):
 	
-	gravity(delta)
 	var dir := Input.get_axis("Left", "Right")
 	
 	if is_on_floor():
@@ -245,7 +243,6 @@ func initialize_death():
 
 func state_death(delta):
 	#print('IM DEAD')
-	gravity(delta)
 	move_and_slide()
 	velocity *= 0
 	
@@ -344,7 +341,7 @@ func initialize_show(peca):
 	
 
 func state_show(delta):
-	gravity(delta)
+	
 	velocity.x *= 0
 	move_and_slide()
 
@@ -449,3 +446,7 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 
 func _on_hit_box_body_exited(body: Node2D) -> void:
 	pass
+
+
+func _on_arma_gun_shot() -> void:
+	emit_signal("shot")
