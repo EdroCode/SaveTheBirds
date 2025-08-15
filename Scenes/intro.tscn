@@ -2086,9 +2086,9 @@ theme_override_font_sizes/normal_font_size = 10
 text = "Use RMB to stun the robot"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer"]
-offset_left = 133.0
+offset_left = 68.0
 offset_top = -75.0
-offset_right = 359.0
+offset_right = 294.0
 offset_bottom = -44.0
 theme_override_fonts/normal_font = ExtResource("16_2n2py")
 theme_override_font_sizes/normal_font_size = 10

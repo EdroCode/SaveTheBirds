@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cna5hvjx8ab3h"]
+[gd_scene load_steps=11 format=3 uid="uid://cna5hvjx8ab3h"]
 
 [ext_resource type="Script" uid="uid://dxxei8h16kqi4" path="res://Scripts/newspaper.gd" id="1_ck6u8"]
 [ext_resource type="Texture2D" uid="uid://vwocshyphfo" path="res://Artwork/Sprites/Jornal Legível.png" id="2_hew51"]
 [ext_resource type="AudioStream" uid="uid://bha8oskvx1lnu" path="res://Resources/SFX/page-flip-sound-effect-384077.mp3" id="2_y2tjy"]
 [ext_resource type="AudioStream" uid="uid://coxhmtdg3uwn3" path="res://Resources/SFX/page-flip-47177.mp3" id="3_ck6u8"]
-[ext_resource type="PackedScene" uid="uid://c75d2ixhw78du" path="res://Scenes/Addons/mouse.tscn" id="5_hew51"]
+[ext_resource type="Texture2D" uid="uid://b8hlnqktka76e" path="res://Artwork/Sprites/Other/Mouse02.png" id="4_b18g5"]
+[ext_resource type="Texture2D" uid="uid://cwjwk2c0vbv32" path="res://Artwork/Sprites/Other/Mouse01.png" id="5_hew51"]
 
 [sub_resource type="Animation" id="Animation_y2tjy"]
 length = 0.001
@@ -19,6 +20,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Journal/Mouse01:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_hew51")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Journal/Mouse01:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_xp8hg"]
@@ -69,6 +94,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_u70qf"]
 resource_name = "start"
+length = 15.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -109,6 +135,30 @@ tracks/2/keys = {
 "method": &"pause"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Journal/Mouse01:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5, 5.1, 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 5.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5"), ExtResource("5_hew51"), ExtResource("4_b18g5")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Journal/Mouse01:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.29665),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y2tjy"]
 _data = {
@@ -147,24 +197,26 @@ offset_bottom = 180.0
 texture = ExtResource("2_hew51")
 
 [node name="Button" type="Button" parent="Journal"]
-layout_mode = 0
-offset_left = 288.0
-offset_top = 143.0
-offset_right = 320.0
-offset_bottom = 180.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 280.0
+offset_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
 flat = true
 
-[node name="Mouse" parent="Journal" instance=ExtResource("5_hew51")]
-process_mode = 3
-position = Vector2(304, 162)
-monitoring = false
-monitorable = false
+[node name="Mouse01" type="Sprite2D" parent="Journal"]
+visible = false
+position = Vector2(301, 160)
+texture = ExtResource("5_hew51")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_y2tjy")
 }
-autoplay = "RESET"
+autoplay = "start"
 
 [node name="Open" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_y2tjy")
