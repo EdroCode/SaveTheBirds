@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH, STAIRS, SHOWITEM}
+enum STATES {IDLE, RUN, ATTACK, JUMP, DASH, FALL, GROUND, HIT, DEATH, STAIRS, SHOWITEM, WATCH}
 
 @export var SPEED : int
 @export var GRAVITY : float
@@ -349,7 +349,11 @@ func state_show(delta):
 	move_and_slide()
 
 
-
+func initialize_watch():
+	
+	anim_nxt = "Watch"
+	state_nxt = STATES.WATCH
+	velocity *= 0
 
 
 func damage(dmg):

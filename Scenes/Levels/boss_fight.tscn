@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnsuhnkq8228d"]
+
+[ext_resource type="Script" uid="uid://bkhq1ewn8nr38" path="res://Scenes/Levels/boss_fight.gd" id="1_1bn4p"]
+[ext_resource type="PackedScene" uid="uid://dgvbcmyrls7o6" path="res://Scenes/Enemies/boss.tscn" id="1_sp5ug"]
+[ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_uqilp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8i8va"]
+size = Vector2(450, 20)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uqilp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bn4p"]
+bg_color = Color(0.819905, 0, 0.0972215, 1)
+
+[node name="BossFight" type="Node2D"]
+script = ExtResource("1_1bn4p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(138, 173)
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8i8va")
+
+[node name="Boss" parent="." instance=ExtResource("1_sp5ug")]
+position = Vector2(256, 160)
+
+[node name="Player" parent="." instance=ExtResource("2_uqilp")]
+position = Vector2(32, 144)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BossHealthBar" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/BossHealthBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 11.0
+offset_right = 100.0
+offset_bottom = 19.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_uqilp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_1bn4p")
+value = 74.0
+rounded = true
+show_percentage = false

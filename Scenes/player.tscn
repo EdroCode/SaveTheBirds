@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://of11km568ifc"]
+[gd_scene load_steps=27 format=3 uid="uid://of11km568ifc"]
 
 [ext_resource type="Script" uid="uid://dyewwteyj7l62" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://p16f8sbm3k84" path="res://Artwork/Sprites/Other/Personagem.png" id="1_v0iea"]
@@ -685,6 +685,21 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_pu2lt"]
+resource_name = "Watch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rotate/Personagem:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [18]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6t5aa"]
 _data = {
 &"Dash": SubResource("Animation_3smsa"),
@@ -695,7 +710,8 @@ _data = {
 &"RESET": SubResource("Animation_6t5aa"),
 &"Run": SubResource("Animation_cvnsp"),
 &"Show": SubResource("Animation_f1ek2"),
-&"Stairs": SubResource("Animation_8erm5")
+&"Stairs": SubResource("Animation_8erm5"),
+&"Watch": SubResource("Animation_pu2lt")
 }
 
 [sub_resource type="Animation" id="Animation_gymyn"]
@@ -802,7 +818,7 @@ max_polyphony = 2
 
 [node name="LevelWin" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_8erm5")
-volume_db = -4.952
+volume_db = 0.991
 max_polyphony = 2
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="."]

@@ -1,9 +1,17 @@
-[gd_scene load_steps=14 format=4 uid="uid://dd7qxxk1bude6"]
+[gd_scene load_steps=30 format=4 uid="uid://dd7qxxk1bude6"]
 
 [ext_resource type="Texture2D" uid="uid://te8ory7fxpu1" path="res://Artwork/NAVE/AssetsNave.png" id="1_5ny2v"]
 [ext_resource type="Script" uid="uid://cx6ynif3bynax" path="res://Scripts/Level/nave_gato.gd" id="1_wyha3"]
 [ext_resource type="PackedScene" uid="uid://of11km568ifc" path="res://Scenes/player.tscn" id="2_c1ttj"]
 [ext_resource type="Texture2D" uid="uid://cm8nh2pfwaxmt" path="res://Artwork/NAVE/FUNDO.png" id="2_wyha3"]
+[ext_resource type="PackedScene" uid="uid://cloypgcx1dqve" path="res://Scenes/Addons/key.tscn" id="5_x836q"]
+[ext_resource type="FontFile" uid="uid://cfgia102u0cdr" path="res://Resources/8_bit_hud/8-bit-hud.ttf" id="6_1evwb"]
+[ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="6_k5gl5"]
+[ext_resource type="AudioStream" uid="uid://dnvjf1q00nc5y" path="res://Resources/SFX/LastScene/earth-rumble-128880.mp3" id="9_ivle5"]
+[ext_resource type="AudioStream" uid="uid://dnjdknfg6bqmd" path="res://Resources/SFX/LastScene/launch-sequence-81945.mp3" id="10_aig5l"]
+[ext_resource type="AudioStream" uid="uid://1bqpvrcawix7" path="res://Resources/SFX/LastScene/robotic-countdown-10-to-0-96511.mp3" id="11_2tnab"]
+[ext_resource type="AudioStream" uid="uid://cjank4alo1vi" path="res://Resources/SFX/LastScene/rocket-launch-sfx-253937.mp3" id="12_27q1m"]
+[ext_resource type="AudioStream" uid="uid://t3jtjl2u06tr" path="res://Resources/SFX/keyboard-click-327728.mp3" id="13_laccm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wyha3"]
 texture = ExtResource("1_5ny2v")
@@ -163,6 +171,294 @@ colors = PackedColorArray(0, 0.768627, 1, 1, 0, 0.0677862, 0.0259488, 1, 0, 0, 0
 gradient = SubResource("Gradient_wyha3")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ivle5"]
+shader = ExtResource("6_k5gl5")
+shader_parameter/spacing = 8.22
+shader_parameter/animation_progress = 1.0
+shader_parameter/dot_size = 1.0
+shader_parameter/dot_color = Color(0.0627451, 0.0745098, 0.0784314, 1)
+
+[sub_resource type="Animation" id="Animation_ivle5"]
+resource_name = "End"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(8.36667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Launch:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 8.35808),
+"transitions": PackedFloat32Array(1, 32),
+"update": 0,
+"values": [0.0, -34.479]
+}
+
+[sub_resource type="Animation" id="Animation_1evwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Launch:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_k5gl5"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivle5"]
+_data = {
+&"End": SubResource("Animation_ivle5"),
+&"RESET": SubResource("Animation_1evwb"),
+&"start": SubResource("Animation_k5gl5")
+}
+
+[sub_resource type="Animation" id="Animation_aig5l"]
+resource_name = "EndCutscene"
+length = 15.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EartRmble")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Initiaing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Countdown")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.988185, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 11.1091),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "10", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ""]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Player:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(156, 148)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Launch")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11.1667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.2, 11.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [2.0, 15.0],
+"method": &"start_shake"
+}, {
+"args": [5.0, 15.0],
+"method": &"start_shake"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(11.0667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"End", -1, 1.0, false],
+"method": &"play"
+}]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Player")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"initialize_watch"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Click")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Key")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_laccm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(62, 148)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tnab"]
+_data = {
+&"EndCutscene": SubResource("Animation_aig5l"),
+&"RESET": SubResource("Animation_laccm")
+}
 
 [node name="NaveGato" type="Node2D"]
 script = ExtResource("1_wyha3")
@@ -338,5 +634,57 @@ position = Vector2(233, 102)
 tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAAAAAEAAAADAAAAAAABAAAAAAABAAwAAAACAAAAAAACAAwAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAADAAwAAAASAAAAAAABAAwAAAATAAAAAAADAAAAAAAAAAoAAAADAAAAAAABAAoAAAADAA4AAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAKAAoAAAAAAAAAAAALAAoAAAAAAAAAAAAMAAoAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAQAAoAAAAAAAAAAAARAAoAAAAAAAAAAAASAAoAAAADAA0AAAATAAoAAAADAAAAAAAAAAsAAAABAAAAAAABAAsAAAABAAAAAAACAAsAAAABAAAAAAADAAsAAAABAAAAAAAEAAsAAAABAAAAAAAFAAsAAAABAAAAAAAGAAsAAAABAAAAAAAHAAsAAAABAAAAAAAIAAsAAAABAAAAAAAJAAsAAAABAAAAAAAKAAsAAAABAAAAAAALAAsAAAABAAAAAAAMAAsAAAABAAAAAAANAAsAAAABAAAAAAAOAAsAAAABAAAAAAAPAAsAAAABAAAAAAAQAAsAAAABAAAAAAARAAsAAAABAAAAAAASAAsAAAABAAAAAAATAAsAAAABAAAAAAAAAAIAAAADAAAAAAAAAAMAAAAAAA4AAAAAAAQAAAAAAA8AAAAAAAUAAAAAAA8AAAAAAAYAAAAAABAAAAAAAAcAAAADAAAAAAAAAAgAAAADAAAAAAAAAAkAAAADAAAAAAATAAEAAAADAAAAAAATAAIAAAADAAAAAAATAAMAAAAAAA4AAAATAAQAAAAAAA8AAAATAAUAAAAAAA8AAAATAAYAAAAAABAAAAATAAcAAAADAAAAAAATAAgAAAADAAAAAAATAAkAAAADAAAAAAABAAEAAAAAAA0AAAASAAEAAAABAA0AAAASAAkAAAACAA0AAAABAAkAAAACAA4AAAABAAIAAAADAAoAAAACAAEAAAADAAoAAAARAAEAAAADAAkAAAASAAIAAAADAAkAAAASAAcAAAABAAYAAAASAAgAAAACAA0AAAABAAcAAAABAAUAAAABAAgAAAACAA4AAAA=")
 tile_set = SubResource("TileSet_x836q")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.497474, 0.497474, 0.497474, 1)
+[node name="Key" parent="." instance=ExtResource("5_x836q")]
+position = Vector2(158, 138)
+AreaToggle = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 142.0
+offset_top = 53.0
+offset_right = 182.0
+offset_bottom = 93.0
+theme_override_fonts/normal_font = ExtResource("6_1evwb")
+theme_override_font_sizes/normal_font_size = 15
+horizontal_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+light_mask = 2
+texture_filter = 1
+material = SubResource("ShaderMaterial_ivle5")
+offset_right = 320.0
+offset_bottom = 181.0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ivle5")
+}
+autoplay = "start"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2tnab")
+}
+
+[node name="EartRmble" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ivle5")
+
+[node name="Initiaing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_aig5l")
+
+[node name="Countdown" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_2tnab")
+
+[node name="Launch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_27q1m")
+
+[node name="Click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_laccm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Camera2D"]
+color = Color(0.385493, 0.385492, 0.385493, 1)

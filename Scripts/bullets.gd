@@ -16,6 +16,8 @@ func _process(delta):
 		
 		if collider.is_in_group("Enemy"):
 			collider.damage(3)
+		if collider.is_in_group("Boss"):
+			collider.damage(3)
 		
 		queue_free()
 	

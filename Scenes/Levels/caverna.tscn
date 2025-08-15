@@ -772,6 +772,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_rm2ij")
 offset_right = 320.0
 offset_bottom = 181.0
+metadata/_edit_use_anchors_ = true
 
 [node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("13_3styp")]
 
