@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dck22frduf600"]
+[gd_scene load_steps=44 format=3 uid="uid://dck22frduf600"]
 
 [ext_resource type="Texture2D" uid="uid://d6n2lb7hkaec" path="res://Artwork/Sprites/CUTSCENE FINAL/Cutscene/Espaço.png" id="1_dja4y"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="1_sribx"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://blrbodbjd8mrb" path="res://Resources/Particles/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/4.png" id="7_4i1t7"]
 [ext_resource type="Texture2D" uid="uid://c2ygpty0o3f8q" path="res://Resources/Particles/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/5.png" id="8_1nui4"]
 [ext_resource type="Texture2D" uid="uid://dpphy8ffdj3s3" path="res://Artwork/Sprites/CUTSCENE FINAL/Cutscene/GatinhoNave.png" id="8_y4wui"]
-[ext_resource type="Texture2D" uid="uid://dha2cfcetja1l" path="res://Artwork/Sprites/CUTSCENE FINAL/Cena Final/REFERENCIA.png" id="9_5vt45"]
 [ext_resource type="Texture2D" uid="uid://d06p72gifuo3t" path="res://Resources/Particles/Fantasy world explosion pack 4/Fantasy world explosion pack 4/type3/6.png" id="9_jfev3"]
 [ext_resource type="Texture2D" uid="uid://drh43lo80bb1y" path="res://Artwork/Sprites/CUTSCENE FINAL/Cena Final/Lua.png" id="10_pqypp"]
 [ext_resource type="Texture2D" uid="uid://dw6e6jxi3hcvc" path="res://Artwork/Sprites/CUTSCENE FINAL/Cena Final/Gatinho.png" id="11_uj2f4"]
@@ -937,10 +936,6 @@ autoplay = "Cutscene"
 position = Vector2(267, 249)
 scale = Vector2(0.799111, 0.799111)
 texture = ExtResource("8_y4wui")
-
-[node name="Referencia" type="Sprite2D" parent="."]
-position = Vector2(495, 110)
-texture = ExtResource("9_5vt45")
 
 [node name="Lua" type="Sprite2D" parent="."]
 visible = false

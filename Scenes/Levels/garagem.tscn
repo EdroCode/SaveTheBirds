@@ -552,6 +552,7 @@ texture = ExtResource("5_nm4gp")
 
 [node name="Caixa08" type="Sprite2D" parent="Elementos"]
 modulate = Color(0.27451, 0.137255, 0.129412, 1)
+light_mask = 2
 position = Vector2(119, 29)
 texture = ExtResource("23_kdj0m")
 
@@ -942,7 +943,7 @@ position = Vector2(276, 147)
 stream = ExtResource("35_qp1ol")
 volume_db = -8.914
 autoplay = true
-max_distance = 410.0
+max_distance = 235.0
 
 [connection signal="body_entered" from="StairsClimb" to="StairsClimb" method="_on_body_entered"]
 [connection signal="body_exited" from="StairsClimb" to="StairsClimb" method="_on_body_exited"]
