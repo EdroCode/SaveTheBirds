@@ -31,4 +31,4 @@ func _on_body_entered(body: Node2D) -> void:
 		emit_signal("collected")
 
 func _on_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	$"../AnimationPlayer".play("win")

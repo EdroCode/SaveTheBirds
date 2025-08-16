@@ -851,6 +851,7 @@ Sprite = ExtResource("29_nsgm8")
 AreaToggle = false
 SetaBaixo = true
 TeclaE = false
+change_with_area = false
 
 [node name="Key3" parent="Elementos2" instance=ExtResource("24_2ynwp")]
 light_mask = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://cqumn5xjt5mkx"]
+[gd_scene load_steps=93 format=4 uid="uid://cqumn5xjt5mkx"]
 
 [ext_resource type="Script" uid="uid://cqm4mqgbm6t54" path="res://Scenes/Levels/cidade.gd" id="1_71u2j"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="1_xpe70"]
@@ -16,9 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bml7xs36lgwjy" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/4 Examples/1Band.png" id="10_f510p"]
 [ext_resource type="Texture2D" uid="uid://dwjlhxy2y476" path="res://Artwork/Sprites/Free-Graffiti-Constructor-Pixel-Art/4 Examples/6Benice.png" id="11_71u2j"]
 [ext_resource type="PackedScene" uid="uid://b3r0l76s4wyub" path="res://Scenes/Addons/bird.tscn" id="12_3us2f"]
+[ext_resource type="Texture2D" uid="uid://djyput6yr2eso" path="res://Artwork/Sprites/Other/PEÇA03.png" id="13_l8mpf"]
 [ext_resource type="PackedScene" uid="uid://c2p2jkxotdclv" path="res://Scenes/rubens.tscn" id="14_un7lq"]
+[ext_resource type="Texture2D" uid="uid://3t0snm0n36ir" path="res://Resources/Particles/LightSprites/Sprite-002302.png" id="14_v8ofr"]
 [ext_resource type="PackedScene" uid="uid://coklsbd8bhuor" path="res://Scenes/R2D2.tscn" id="15_fxwfc"]
-[ext_resource type="PackedScene" uid="uid://2hoqcteb1bbi" path="res://Scenes/Peças/gear.tscn" id="16_h870r"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="18_at1lf"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="19_tn4n1"]
 [ext_resource type="Shader" uid="uid://dts0xo1ix470" path="res://Resources/rain.gdshader" id="20_a5bfa"]
@@ -26,7 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://dtms7lw77pqo5" path="res://Resources/SFX/Background/rainstorm-with-wind-351117.mp3" id="24_vnpy0"]
 [ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="25_cpk1p"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3tq6t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_460rn"]
 texture = ExtResource("2_wjfym")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.719435, -8, -0.539576)
@@ -158,7 +159,7 @@ texture = ExtResource("2_wjfym")
 
 [sub_resource type="TileSet" id="TileSet_wr2ci"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_3tq6t")
+sources/0 = SubResource("TileSetAtlasSource_460rn")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vnpy0"]
 
@@ -167,7 +168,7 @@ width = 10007
 height = 197
 noise = SubResource("FastNoiseLite_vnpy0")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xpe70"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8mpf"]
 texture = ExtResource("2_wjfym")
 0:0/0 = 0
 1:0/0 = 0
@@ -316,7 +317,7 @@ texture = ExtResource("2_wjfym")
 
 [sub_resource type="TileSet" id="TileSet_jwtgf"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_xpe70")
+sources/0 = SubResource("TileSetAtlasSource_l8mpf")
 
 [sub_resource type="Gradient" id="Gradient_3wwu8"]
 offsets = PackedFloat32Array(0, 0.746753)
@@ -471,7 +472,7 @@ polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_agyjs"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y6dgc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8ofr"]
 texture = ExtResource("2_wjfym")
 0:0/0 = 0
 0:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_3tq6t")
@@ -660,7 +661,10 @@ texture = ExtResource("2_wjfym")
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 17
-sources/0 = SubResource("TileSetAtlasSource_y6dgc")
+sources/0 = SubResource("TileSetAtlasSource_v8ofr")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8mpf"]
+radius = 26.0192
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vnpy0"]
 shader = ExtResource("20_a5bfa")
@@ -1176,12 +1180,24 @@ rotation = -0.281004
 scale = Vector2(0.64004, 0.64004)
 texture = ExtResource("11_71u2j")
 
-[node name="Cables" parent="." instance=ExtResource("16_h870r")]
-position = Vector2(1849, 52)
-item = "cabos"
+[node name="Cabos" type="Area2D" parent="."]
+position = Vector2(1846, 56)
+collision_mask = 16
+
+[node name="Peça03" type="Sprite2D" parent="Cabos"]
+texture = ExtResource("13_l8mpf")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Cabos/Peça03"]
+texture_filter = 1
+scale = Vector2(1.50572, 1.50572)
+energy = 1.09
+texture = ExtResource("14_v8ofr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabos"]
+shape = SubResource("CircleShape2D_l8mpf")
 
 [node name="Player" parent="." instance=ExtResource("3_ridkb")]
-position = Vector2(77, 113)
+position = Vector2(65, 113)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 script = ExtResource("4_wjfym")
@@ -1244,6 +1260,7 @@ texture_filter = 1
 material = SubResource("ShaderMaterial_16fg1")
 offset_right = 320.0
 offset_bottom = 181.0
+metadata/_edit_use_anchors_ = true
 
 [node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("19_tn4n1")]
 
@@ -1271,7 +1288,7 @@ cam = NodePath("../Player/Camera2D")
 
 [connection signal="body_entered" from="StairsClimb" to="StairsClimb" method="_on_body_entered"]
 [connection signal="body_exited" from="StairsClimb" to="StairsClimb" method="_on_body_exited"]
-[connection signal="collected" from="Cables" to="." method="_on_cables_collected"]
+[connection signal="body_entered" from="Cabos" to="." method="_on_cabos_body_entered"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="shot" from="Player" to="Shake" method="_on_player_shot"]
 [connection signal="timeout" from="EndLevelTimer" to="." method="_on_end_level_timer_timeout"]

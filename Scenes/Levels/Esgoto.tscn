@@ -2203,7 +2203,8 @@ stream = ExtResource("44_4sc3s")
 volume_db = -6.933
 max_distance = 1395.0
 
-[node name="Shake" parent="." instance=ExtResource("55_a4ter")]
+[node name="Shake" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("55_a4ter")]
+cam = NodePath("../Player/Camera2D")
 
 [connection signal="died" from="Player" to="." method="_on_player_died"]
 [connection signal="collected" from="Gear" to="." method="_on_gear_collected"]

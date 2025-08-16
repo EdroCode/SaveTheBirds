@@ -35,8 +35,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ActionE"):
-		if $Elementos2/Key.playerOnArea:
-			get_tree().change_scene_to_file("res://Scenes/Addons/control_panel.tscn")
+		
+		var bodies = $Elementos2/Key2.get_overlapping_bodies()
+		
+		for i in bodies:
+			if i.is_in_group("Player"):
+				get_tree().change_scene_to_file("res://Scenes/Addons/control_panel.tscn")
 			
 	
 	

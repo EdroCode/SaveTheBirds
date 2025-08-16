@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlvgdssmsmmlf"]
+
+[ext_resource type="AudioStream" uid="uid://b08qppggoop7y" path="res://Resources/SFX/Background/[Non Copyrighted Music] @MiguelJohnson - Good Day To Die [Epic].mp3" id="1_l2qtc"]
+
+[node name="BossTheme" type="AudioStreamPlayer"]
+stream = ExtResource("1_l2qtc")
+volume_db = -8.535

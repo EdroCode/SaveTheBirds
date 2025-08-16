@@ -2,7 +2,7 @@ extends Control
 
 
 func _ready() -> void:
-	$Journal/Mouse.visible = false
+	
 	
 	if GameManager.journal_read == true:
 		queue_free()
