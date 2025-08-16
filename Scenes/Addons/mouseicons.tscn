@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dox35snx8rpm1"]
+
+[ext_resource type="Texture2D" uid="uid://ba7ujp4msigvv" path="res://Artwork/Sprites/Icon/Software_Mouse_Cursor_Pointer_Big.png" id="1_jfcyu"]
+[ext_resource type="Script" uid="uid://d0iwv301vqsku" path="res://Scenes/Addons/mouseicons.gd" id="1_jgjov"]
+
+[node name="Mouse" type="Node2D"]
+script = ExtResource("1_jgjov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jfcyu")

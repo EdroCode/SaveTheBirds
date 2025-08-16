@@ -1,6 +1,8 @@
 extends Node2D
 
 
+var lower_music = false
+
 func _ready() -> void:
 	
 	$CanvasLayer/BossHealthBar/ProgressBar.value = $Boss.max_health
@@ -9,6 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	$CanvasLayer/BossHealthBar/ProgressBar.value = $Boss.health
+	
+	if lower_music:
+		BossTheme.volume_db -= delta
 
 
 func _on_player_died() -> void:
@@ -37,3 +42,8 @@ func _on_gear_collected() -> void:
 
 func _on_end_level_timer_timeout() -> void:
 	$AnimationPlayer2.play("EndComplete")
+
+
+func lower_db():
+	lower_music = true
+	pass

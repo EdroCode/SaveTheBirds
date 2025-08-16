@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cgptr3kuomcqp"]
+[gd_scene load_steps=26 format=3 uid="uid://cgptr3kuomcqp"]
 
 [ext_resource type="Script" uid="uid://cpx2yori0ru4l" path="res://Scripts/Addons/control_panel.gd" id="1_1t0ig"]
 [ext_resource type="PackedScene" uid="uid://bslr26xsxc43r" path="res://Scenes/Addons/cable.tscn" id="1_o8t6x"]
@@ -20,6 +20,61 @@
 [ext_resource type="AudioStream" uid="uid://cqvob1oen7t1f" path="res://Resources/SFX/notification-interface-success-positive-corrects-132471.mp3" id="18_111eb"]
 [ext_resource type="AudioStream" uid="uid://b1jgafxje11nh" path="res://Resources/SFX/error.wav" id="19_xgjea"]
 [ext_resource type="AudioStream" uid="uid://b7vw26mup87xm" path="res://Resources/SFX/Background/radio-static-323621.mp3" id="20_dswwb"]
+[ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="21_lly1h"]
+[ext_resource type="Texture2D" uid="uid://db2py8qrr0sqw" path="res://Artwork/Sprites/Icon/Emoji_Hand_Fist_Cursor_Pan_Grab_Closed.png" id="22_80wjh"]
+[ext_resource type="Texture2D" uid="uid://b18bexxdrf5qu" path="res://Artwork/Sprites/Icon/Emoji_Hand_Wave_Cursor_Pan_Open.png" id="22_srtmk"]
+
+[sub_resource type="Shader" id="Shader_80wjh"]
+code = "shader_type canvas_item;
+
+uniform sampler2D vertical_gradient;
+uniform sampler2D color_gradient;
+
+uniform float size_effect: hint_range(-5.0, 5.0, 0.05) = 0.1;
+uniform float speed = 1.0;
+uniform float highlight_strength: hint_range(-4.0, 4.0, 0.05) = 0.5;
+uniform bool color_mode_toggle = false;
+uniform bool is_horizontal = false;
+
+// Toggle pelo código
+uniform bool effect_enabled = true;
+
+void fragment() {
+    vec4 old_color = COLOR;
+
+    if (!effect_enabled) {
+        COLOR = old_color; // Apenas mantém a cor original
+    } else {
+        float time = TIME * speed;
+        float current_time = fract(-time);
+        current_time = mix(0.0 - size_effect, 1.0 + size_effect, current_time);
+
+        float effect_lower_bound = current_time - size_effect;
+        float effect_upper_bound = current_time + size_effect;
+        float position_value = (is_horizontal) ? UV.x : UV.y;
+
+        float effect_distance = smoothstep(effect_lower_bound, current_time, position_value) -
+                                smoothstep(current_time, effect_upper_bound, position_value);
+
+        float inner_effect_position = smoothstep(effect_lower_bound, effect_upper_bound, position_value);
+        vec2 color_position = (color_mode_toggle) ? vec2(UV.x, inner_effect_position) : vec2(current_time);
+
+        vec4 new_color = texture(color_gradient, color_position);
+        new_color = mix(old_color, new_color, texture(vertical_gradient, vec2(current_time)));
+
+        COLOR.rgb = mix(old_color.rgb, new_color.rgb, effect_distance * highlight_strength);
+    }
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_64wcy"]
+shader = SubResource("Shader_80wjh")
+shader_parameter/size_effect = 0.35
+shader_parameter/speed = 1.0
+shader_parameter/highlight_strength = 0.75
+shader_parameter/color_mode_toggle = false
+shader_parameter/is_horizontal = false
+shader_parameter/effect_enabled = true
 
 [node name="ControlPanel" type="Node2D"]
 process_mode = 3
@@ -51,6 +106,7 @@ texture = ExtResource("4_vmgn0")
 
 [node name="Icon" type="TextureButton" parent="."]
 process_mode = 3
+material = SubResource("ShaderMaterial_64wcy")
 offset_left = 44.0
 offset_top = 16.0
 offset_right = 230.0
@@ -166,6 +222,10 @@ stream = ExtResource("19_xgjea")
 stream = ExtResource("20_dswwb")
 volume_db = -0.04
 autoplay = true
+
+[node name="Mouse" parent="." instance=ExtResource("21_lly1h")]
+sprite = ExtResource("22_srtmk")
+click_sprite = ExtResource("22_80wjh")
 
 [connection signal="button_down" from="Icon" to="." method="_on_icon_button_down"]
 [connection signal="button_down" from="SairBotao" to="." method="_on_sair_botao_button_down"]

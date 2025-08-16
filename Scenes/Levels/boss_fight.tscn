@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://dnsuhnkq8228d"]
+[gd_scene load_steps=71 format=4 uid="uid://dnsuhnkq8228d"]
 
 [ext_resource type="Script" uid="uid://bkhq1ewn8nr38" path="res://Scenes/Levels/boss_fight.gd" id="1_1bn4p"]
 [ext_resource type="PackedScene" uid="uid://dgvbcmyrls7o6" path="res://Scenes/Enemies/boss.tscn" id="1_sp5ug"]
@@ -14,6 +14,8 @@
 [ext_resource type="Shader" uid="uid://dts0xo1ix470" path="res://Resources/rain.gdshader" id="8_yn8rh"]
 [ext_resource type="Texture2D" uid="uid://bshksyusjo4ou" path="res://Artwork/BOSS/head.png" id="9_o4fwq"]
 [ext_resource type="FontFile" uid="uid://cfgia102u0cdr" path="res://Resources/8_bit_hud/8-bit-hud.ttf" id="9_qi75r"]
+[ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="15_2w64u"]
+[ext_resource type="Texture2D" uid="uid://bhdwnixkl44jo" path="res://Artwork/Sprites/Icon/Warfare_Crosshair_Marked_Sniper_Headshot_Accuracy_1.png" id="16_7ytjj"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b7223"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -761,6 +763,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(),
 "values": []
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"lower_db"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yn8rh"]
 _data = {
@@ -927,6 +943,9 @@ libraries = {
 
 [node name="EndLevelTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Mouse" parent="." instance=ExtResource("15_2w64u")]
+sprite = ExtResource("16_7ytjj")
 
 [connection signal="death" from="Boss" to="." method="_on_boss_death"]
 [connection signal="died" from="Player" to="." method="_on_player_died"]

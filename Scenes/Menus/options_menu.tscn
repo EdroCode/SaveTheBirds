@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmxli7tdm18fs"]
+[gd_scene load_steps=18 format=3 uid="uid://dmxli7tdm18fs"]
 
 [ext_resource type="Texture2D" uid="uid://ck8o83op0qa8q" path="res://Artwork/Sprites/ui/menus.png" id="1_886lm"]
 [ext_resource type="Script" uid="uid://b7vvhvb34m0mr" path="res://Scenes/Menus/options_menu.gd" id="1_pcs5k"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b3de43hlcxlxs" path="res://Artwork/Sprites/ui/bar.png" id="7_62r4j"]
 [ext_resource type="Texture2D" uid="uid://cmuhht2jpuri7" path="res://Artwork/Sprites/ui/Media_Musical_Note_Beam-sheet.png" id="8_3g5iq"]
 [ext_resource type="Texture2D" uid="uid://dqctec8d5nyv7" path="res://Artwork/Sprites/Random/AssetsNave.png" id="8_lu2q1"]
+[ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="11_3g5iq"]
+[ext_resource type="Texture2D" uid="uid://b18bexxdrf5qu" path="res://Artwork/Sprites/Icon/Emoji_Hand_Wave_Cursor_Pan_Open.png" id="12_vklxx"]
+[ext_resource type="Texture2D" uid="uid://db2py8qrr0sqw" path="res://Artwork/Sprites/Icon/Emoji_Hand_Fist_Cursor_Pan_Grab_Closed.png" id="13_2qjtq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vklxx"]
 texture = ExtResource("7_62r4j")
@@ -151,6 +154,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Mouse2" parent="." instance=ExtResource("11_3g5iq")]
+sprite = ExtResource("12_vklxx")
+click_sprite = ExtResource("13_2qjtq")
 
 [connection signal="drag_started" from="Volume/HSlider" to="." method="_on_h_slider_drag_started"]
 [connection signal="value_changed" from="Volume/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bmnlsx52urj1h"]
+[gd_scene load_steps=30 format=3 uid="uid://bmnlsx52urj1h"]
 
 [ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="2_pha2q"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://g0d0lmsxgqpb" path="res://Artwork/Sprites/ui/CREDITSBOTÃO.png" id="10_lg1h6"]
 [ext_resource type="AudioStream" uid="uid://btyg1awd56aq1" path="res://Resources/SFX/Toggle.mp3" id="13_80s4p"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="14_6t1rs"]
+[ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="15_0xbgx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kqa"]
 shader = ExtResource("8_4fgt5")
@@ -411,6 +412,35 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_6t1rs"]
+resource_name = "EndMainMenu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.659532),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_1mn5h"]
 length = 0.001
 tracks/0/type = "value"
@@ -463,35 +493,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.0, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_6t1rs"]
-resource_name = "EndMainMenu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/TextureRect:material:shader_parameter/animation_progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.659532),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"start"
-}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1mn5h"]
@@ -638,6 +639,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_1mn5h")
 }
 autoplay = "new_animation"
+
+[node name="Mouse" parent="." instance=ExtResource("15_0xbgx")]
+position = Vector2(73, 114)
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=69 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Other/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
@@ -34,6 +34,7 @@
 [ext_resource type="Script" uid="uid://c6wdgadjhlv2w" path="res://Scripts/camera_2d.gd" id="25_diqay"]
 [ext_resource type="Texture2D" uid="uid://b5v35k8pndvr7" path="res://Artwork/Sprites/Other/PlantinhasEVasos.png" id="26_726j2"]
 [ext_resource type="Script" uid="uid://chhr1jnddkd4o" path="res://Scripts/Addons/foguete.gd" id="26_h5xoy"]
+[ext_resource type="Texture2D" uid="uid://dylwoxy3uqvi3" path="res://Artwork/Sprites/ui/64x64_px_godot_pixel_plushie.png" id="27_1aov8"]
 [ext_resource type="Texture2D" uid="uid://ctsfl8app5fya" path="res://Artwork/Sprites/Random/Radio.png" id="27_1debl"]
 [ext_resource type="Texture2D" uid="uid://bismgksgp3fn2" path="res://Artwork/Sprites/Random/E-sheet.png" id="29_nsgm8"]
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="29_rp3sp"]
@@ -736,6 +737,11 @@ texture = ExtResource("26_726j2")
 hframes = 4
 vframes = 4
 frame = 13
+
+[node name="Plush" type="Sprite2D" parent="Plants"]
+position = Vector2(276, 47)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("27_1aov8")
 
 [node name="Player" parent="." instance=ExtResource("2_1ni7d")]
 position = Vector2(163, 39)

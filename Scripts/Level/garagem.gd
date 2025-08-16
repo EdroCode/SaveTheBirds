@@ -5,6 +5,17 @@ extends Node2D
 
 
 func _ready() -> void:
+	BossTheme.volume_db = 0
+	
+	var chance = 0.1
+	
+	
+	if randf() < chance:
+		$Plants/Plush.visible = true
+	else:
+		$Plants/Plush.visible = false
+		
+	
 	
 	if GameManager.in_painel:
 		$Player.position  = Vector2(163, 39)
