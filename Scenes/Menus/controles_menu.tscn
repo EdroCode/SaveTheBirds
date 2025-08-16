@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4uoydsvxi3t4"]
+[gd_scene load_steps=19 format=3 uid="uid://c4uoydsvxi3t4"]
 
 [ext_resource type="Script" uid="uid://c8subbpjgujtb" path="res://Scripts/Menu/controles_menu.gd" id="1_q07t4"]
 [ext_resource type="Texture2D" uid="uid://ck8o83op0qa8q" path="res://Artwork/Sprites/ui/menus.png" id="2_i0hhq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dqctec8d5nyv7" path="res://Artwork/Sprites/Random/AssetsNave.png" id="10_gmiwm"]
 [ext_resource type="FontFile" uid="uid://cfgia102u0cdr" path="res://Resources/8_bit_hud/8-bit-hud.ttf" id="12_7nfft"]
 [ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="14_lrmt0"]
+[ext_resource type="Texture2D" uid="uid://ba7ujp4msigvv" path="res://Artwork/Sprites/Icon/Software_Mouse_Cursor_Pointer_Big.png" id="15_qntam"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_eaiq4"]
 frequency = 0.004
@@ -221,5 +222,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Mouse" parent="." instance=ExtResource("14_lrmt0")]
+sprite = ExtResource("15_qntam")
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

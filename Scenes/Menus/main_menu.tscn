@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bmnlsx52urj1h"]
+[gd_scene load_steps=32 format=3 uid="uid://bmnlsx52urj1h"]
 
 [ext_resource type="Script" uid="uid://bjj2vl2iwrcd1" path="res://Scripts/Menu/main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://3xhw36fp8vls" path="res://Artwork/Sprites/ui/Espaço.png" id="2_pha2q"]
@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://btyg1awd56aq1" path="res://Resources/SFX/Toggle.mp3" id="13_80s4p"]
 [ext_resource type="Shader" uid="uid://db1dwwkrpbiug" path="res://Resources/Repeat.gdshader" id="14_6t1rs"]
 [ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="15_0xbgx"]
+[ext_resource type="AudioStream" uid="uid://bui1yv83ta232" path="res://Resources/SFX/Background/crafterx27s-mallets-286976.mp3" id="16_8dws6"]
+[ext_resource type="Texture2D" uid="uid://ba7ujp4msigvv" path="res://Artwork/Sprites/Icon/Software_Mouse_Cursor_Pointer_Big.png" id="16_s0gno"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j4kqa"]
 shader = ExtResource("8_4fgt5")
@@ -642,6 +644,12 @@ autoplay = "new_animation"
 
 [node name="Mouse" parent="." instance=ExtResource("15_0xbgx")]
 position = Vector2(73, 114)
+sprite = ExtResource("16_s0gno")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_8dws6")
+volume_db = -2.811
+autoplay = true
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]

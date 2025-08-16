@@ -8,7 +8,7 @@ func _on_start_button_button_down() -> void:
 func _on_button_3_button_down() -> void:
 	ClickSound.play()
 	
-	get_tree().change_scene_to_file("res://Scenes/Menus/credits.tscn")
+	get_tree().change_scene_to_file("res://Artwork/Sprites/Icon/credits.tscn")
 
 
 func _on_button_4_button_down() -> void:

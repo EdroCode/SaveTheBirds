@@ -842,15 +842,6 @@ max_health = 60
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
-light_mask = 2
-z_index = 1
-texture_filter = 1
-material = SubResource("ShaderMaterial_fswh6")
-offset_right = 320.0
-offset_bottom = 181.0
-metadata/_edit_use_anchors_ = true
-
 [node name="BossHealthBar" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
@@ -901,6 +892,15 @@ fit_content = true
 scroll_active = false
 
 [node name="UI-SettingsPanel" parent="CanvasLayer" instance=ExtResource("5_lhg4b")]
+
+[node name="TextureRect" type="ColorRect" parent="CanvasLayer"]
+light_mask = 2
+z_index = 1
+texture_filter = 1
+material = SubResource("ShaderMaterial_fswh6")
+offset_right = 320.0
+offset_bottom = 181.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Shake" parent="." node_paths=PackedStringArray("cam") instance=ExtResource("4_nftbk")]
 cam = NodePath("../Camera2D")

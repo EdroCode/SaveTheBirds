@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2xdv7djorium"
+path="res://.godot/imported/Vintage Sci-Fi Music _ 1930s 1960s Horror & Science Fiction Movies Music For Videos.mp3-78571dc2917779463acc13d1112e6365.mp3str"
+
+[deps]
+
+source_file="res://Resources/SFX/Background/Vintage Sci-Fi Music _ 1930s 1960s Horror & Science Fiction Movies Music For Videos.mp3"
+dest_files=["res://.godot/imported/Vintage Sci-Fi Music _ 1930s 1960s Horror & Science Fiction Movies Music For Videos.mp3-78571dc2917779463acc13d1112e6365.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

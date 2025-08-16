@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://d0iwv301vqsku" path="res://Scenes/Addons/mouseicons.gd" id="1_jgjov"]
 
 [node name="Mouse" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_jgjov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
