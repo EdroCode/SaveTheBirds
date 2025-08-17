@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	$Mist.offset.x += 0.09
 	
 	if Input.is_action_just_pressed("Reset"):
-		reload_scene()
+		$AnimationPlayer.play("End")
 
 
 func reload_scene():

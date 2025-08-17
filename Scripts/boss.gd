@@ -171,12 +171,12 @@ func check_player():
 
 func try_for_stun():
 	
-	var chance = 0.4
-	if has_taken_damage:
-		if randf() < chance:
-			initialize_stun()
-		else:
-			initialize_idle()
+	var chance = 0.35
+	
+	if randf() < chance:
+		initialize_stun()
+	else:
+		initialize_idle()
 
 func initialize_hit_flash():
 	var mat = $Node2D/BossCorpo.material

@@ -16,10 +16,12 @@ func _process(delta: float) -> void:
 	
 	if can_light:
 		if Input.is_action_just_pressed("LeftClick"):
+			can_light = false
 			$AnimationPlayer.play("2phase")
 	
 	if can_jump:
 		if Input.is_action_just_pressed("Jump"):
+			can_jump = false
 			$AnimationPlayer.play("3phase")
 	
 	if Input.is_action_just_pressed("ActionE"):

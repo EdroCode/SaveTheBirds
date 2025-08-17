@@ -71,14 +71,14 @@ text = "			CREDITS
 
 Programming – EDRO
 Art & Game Design ABACAXI
-MAIN MENU MUSIC – OCONDE
 
 Additional Content:
 
 Particles – ragnapixel
 Kenney Splat Pack
 Graffiti Constructor – Craftpix
-Garage Music – Sergequadrado"
+Garage Music – Sergequadrado
+1 Bit Pixel Icons - Nikoichu"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

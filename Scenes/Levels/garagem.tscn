@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://j3mettcdlums"]
+[gd_scene load_steps=72 format=3 uid="uid://j3mettcdlums"]
 
 [ext_resource type="Texture2D" uid="uid://c6u6kpdf3yain" path="res://Artwork/Sprites/Other/Background.png" id="1_3vh4f"]
 [ext_resource type="Script" uid="uid://bqg7y1pxwfrah" path="res://Scripts/Level/garagem.gd" id="1_g5usv"]
@@ -46,6 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://cna5hvjx8ab3h" path="res://Scenes/Menus/newspaper.tscn" id="43_tjt0n"]
 [ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="45_hsscx"]
 [ext_resource type="Texture2D" uid="uid://db2py8qrr0sqw" path="res://Artwork/Sprites/Icon/Emoji_Hand_Fist_Cursor_Pan_Grab_Closed.png" id="46_hsscx"]
+[ext_resource type="PackedScene" uid="uid://cq1hu5yrjudl8" path="res://Scenes/Addons/exploration_areas.tscn" id="47_j6gut"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jr3k6"]
 size = Vector2(14, 71)
@@ -913,6 +914,14 @@ Sprite = ExtResource("29_nsgm8")
 light_mask = 2
 position = Vector2(142, 146)
 Sprite = ExtResource("29_nsgm8")
+
+[node name="ExplorationAreas" parent="." instance=ExtResource("47_j6gut")]
+position = Vector2(113, 146)
+phrases = PackedStringArray("These are tools and some photos you took")
+
+[node name="ExplorationAreas2" parent="." instance=ExtResource("47_j6gut")]
+position = Vector2(257, 125)
+phrases = PackedStringArray("News about the meteor keeps going. Your name seems to be mentioned!")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.837913, 0.712325, 0.647121, 1)

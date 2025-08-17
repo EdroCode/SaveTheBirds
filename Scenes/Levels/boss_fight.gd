@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 	
 	if lower_music:
 		BossTheme.volume_db -= delta
+	
+	if Input.is_action_just_pressed("Reset"):
+		$AnimationPlayer2.play("End")
 
 
 func _on_player_died() -> void:

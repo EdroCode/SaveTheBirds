@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://vmt5jqmis17c"]
+[gd_scene load_steps=45 format=4 uid="uid://vmt5jqmis17c"]
 
 [ext_resource type="Script" uid="uid://bcc88t588tq3a" path="res://Scripts/Level/caverna.gd" id="1_0yfgf"]
 [ext_resource type="Texture2D" uid="uid://d2uu7ida6ou3y" path="res://Artwork/Sprites/Other/TilesetCaverna.png" id="1_whnuf"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bom0nho5r40ip" path="res://Resources/SFX/Background/cave-background-sound-49440.mp3" id="14_n4gdy"]
 [ext_resource type="Texture2D" uid="uid://dawxtxx2qopta" path="res://Artwork/Sprites/Icon/Warfare_Explosion_Bomb.png" id="15_kosvf"]
 [ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="15_p5vte"]
+[ext_resource type="PackedScene" uid="uid://cq1hu5yrjudl8" path="res://Scenes/Addons/exploration_areas.tscn" id="16_1avqr"]
 [ext_resource type="PackedScene" uid="uid://dox35snx8rpm1" path="res://Scenes/Addons/mouseicons.tscn" id="16_qco13"]
 [ext_resource type="Texture2D" uid="uid://bhdwnixkl44jo" path="res://Artwork/Sprites/Icon/Warfare_Crosshair_Marked_Sniper_Headshot_Accuracy_1.png" id="17_kosvf"]
 
@@ -790,6 +791,18 @@ libraries = {
 &"": SubResource("AnimationLibrary_1mn5h")
 }
 autoplay = "new_animation"
+
+[node name="ExplorationAreas2" parent="." instance=ExtResource("16_1avqr")]
+position = Vector2(154, 107)
+phrases = PackedStringArray("They seem to whisper pleas and prayers in a calm tone. You decide to keep going...")
+
+[node name="ExplorationAreas3" parent="." instance=ExtResource("16_1avqr")]
+position = Vector2(154, 107)
+phrases = PackedStringArray("They seem to whisper pleas and prayers in a calm tone. You decide to keep going...", "The walls are carved with dates and names, a record of those who fled here when the skies began to fall", "You can almost hear the voices of those who waited here, clinging to hope as the world above burned")
+
+[node name="ExplorationAreas4" parent="." instance=ExtResource("16_1avqr")]
+position = Vector2(414, 109)
+phrases = PackedStringArray("Scratched on the rock: ‘If the light reaches the stars, we might yet survive", "Old candles melted into the stone. Someone believed this cave could protect them")
 
 [node name="EndLevelTimer" type="Timer" parent="."]
 wait_time = 5.0

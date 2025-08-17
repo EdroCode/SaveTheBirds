@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://cqumn5xjt5mkx"]
+[gd_scene load_steps=99 format=4 uid="uid://cqumn5xjt5mkx"]
 
 [ext_resource type="Script" uid="uid://cqm4mqgbm6t54" path="res://Scenes/Levels/cidade.gd" id="1_71u2j"]
 [ext_resource type="Texture2D" uid="uid://cbv3qp7sfdmyj" path="res://Artwork/Sprites/Other/screen.png" id="1_xpe70"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c5wwheh4b1qfj" path="res://Scenes/Menus/ui_settings_panel.tscn" id="19_tn4n1"]
 [ext_resource type="Shader" uid="uid://dts0xo1ix470" path="res://Resources/rain.gdshader" id="20_a5bfa"]
 [ext_resource type="AudioStream" uid="uid://dil1dawl2u0yp" path="res://Resources/SFX/city-night-crickets-24013.mp3" id="21_tn4n1"]
+[ext_resource type="PackedScene" uid="uid://cq1hu5yrjudl8" path="res://Scenes/Addons/exploration_areas.tscn" id="22_sranf"]
 [ext_resource type="AudioStream" uid="uid://dtms7lw77pqo5" path="res://Resources/SFX/Background/rainstorm-with-wind-351117.mp3" id="24_vnpy0"]
 [ext_resource type="PackedScene" uid="uid://bwslnm8a8s1qi" path="res://Scenes/Addons/shake.tscn" id="25_cpk1p"]
 [ext_resource type="Texture2D" uid="uid://dawxtxx2qopta" path="res://Artwork/Sprites/Icon/Warfare_Explosion_Bomb.png" id="26_ur8bl"]
@@ -1256,6 +1257,14 @@ color = Color(0.184259, 0.278068, 0.381179, 1)
 material = SubResource("ShaderMaterial_vnpy0")
 offset_right = 1942.0
 offset_bottom = 198.0
+
+[node name="ExplorationAreas2" parent="." instance=ExtResource("22_sranf")]
+position = Vector2(890, 92)
+phrases = PackedStringArray("These are writings from other cats. Among them, you can read: my birthday is next week, I hope that by then everything will be resolved...", "If anyone finds this, meet me by the old fountain. I don’t want to be alone when it happens", "We left food hidden near the market. Share it, don’t fight over it", "Tomorrow was supposed to be my graduation. Instead, I’m hiding here.", "She said she’d come back with medicine. I’m still waiting.")
+
+[node name="ExplorationAreas3" parent="." instance=ExtResource("22_sranf")]
+position = Vector2(244, 107)
+phrases = PackedStringArray("They’ve been placing balloons here with small wishes for the future")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

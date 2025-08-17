@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://hkca1ghlgt03"]
+[gd_scene load_steps=9 format=3 uid="uid://hkca1ghlgt03"]
 
 [ext_resource type="Script" uid="uid://wk2maun8pj06" path="res://Scenes/Addons/introsplash.gd" id="1_blbdt"]
 [ext_resource type="Texture2D" uid="uid://ct12wmm051rpf" path="res://Artwork/Sprites/EDRO_FADE.png" id="1_y6u3w"]
 [ext_resource type="FontFile" uid="uid://dnh0381pke5vm" path="res://AbacaxiPixels.ttf" id="2_o2w3i"]
 [ext_resource type="Texture2D" uid="uid://cwjwk2c0vbv32" path="res://Artwork/Sprites/Other/Mouse01.png" id="4_pvx7s"]
+[ext_resource type="Texture2D" uid="uid://c2rgp4fp21tqr" path="res://Artwork/Sprites/indicritical-dark.png" id="5_gevv4"]
 
 [sub_resource type="Animation" id="Animation_duh1u"]
 length = 0.001
@@ -125,3 +126,13 @@ text = "Click to skip"
 position = Vector2(305, 167)
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("4_pvx7s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 4.0
+offset_right = 988.0
+offset_bottom = 467.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_gevv4")
+stretch_mode = 3

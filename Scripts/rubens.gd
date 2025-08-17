@@ -125,6 +125,7 @@ func state_patrol(delta):
 	move_and_slide()
 
 func initialize_hover():
+	$ChaseTimer.start()
 	$Flying.play()
 	$Warining.play()
 	patroling = false
@@ -289,3 +290,11 @@ func _on_attack_timer_timeout() -> void:
 	attacking = false
 	can_attack = true
 	$AttackTimer.stop()
+
+
+func _on_chase_timer_timeout() -> void:
+	$ChaseTimer.stop()
+	if state_cur == 2:
+		initialize_attack()
+	else:
+		pass

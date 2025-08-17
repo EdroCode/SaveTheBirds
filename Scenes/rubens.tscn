@@ -470,6 +470,10 @@ pitch_scale = 2.61
 max_distance = 219.0
 max_polyphony = 11
 
+[node name="ChaseTimer" type="Timer" parent="."]
+wait_time = 4.2
+
 [connection signal="timeout" from="PatrolTimer" to="." method="_on_patrol_timer_timeout"]
 [connection signal="timeout" from="IdleTImer" to="." method="_on_idle_t_imer_timeout"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
