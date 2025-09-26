@@ -160,7 +160,7 @@ func state_run(delta):
 		velocity.x = dir * SPEED
 		$Rotate.scale.x = dir
 	else:
-		velocity.x = 0
+		#davelocity.x = 0
 		#$Rotate.scale.x = 1
 		initialize_idle()
 	
@@ -206,15 +206,17 @@ func state_jump(delta):
 			initialize_run()
 		else:
 			initialize_idle()
-	else:
-		if dir != 0:
-			velocity.x = dir * SPEED
-			#gravity(delta)
-			
-			$Rotate.scale.x = dir
+	
+	
+	if dir != 0:
+		velocity.x = dir * SPEED
 		
-		if Input.is_action_just_pressed("Dash"):
-			initialize_dash(dir)
+		#gravity(delta)
+		
+		$Rotate.scale.x = dir
+	
+	if Input.is_action_just_pressed("Dash"):
+		initialize_dash(dir)
 	
 	move_and_slide()
 
@@ -227,8 +229,7 @@ func initialize_hit():
 
 func state_hit(delta):
 	move_and_slide()
-	pass
-	pass
+
 
 func initialize_death():
 	health = 0
@@ -242,7 +243,6 @@ func initialize_death():
 
 
 func state_death(delta):
-	#print('IM DEAD')
 	move_and_slide()
 	velocity *= 0
 	
@@ -255,7 +255,6 @@ func initialize_dash(dir):
 		$CanvasLayer/HUD/DashClock/ProgressBar.visible = true
 		anim_nxt = "Dash"
 		
-		print("Dash")
 		var a = randi_range(0,1)
 		var pitch = randf_range(0.912, 1.145)
 		
@@ -270,7 +269,7 @@ func initialize_dash(dir):
 			
 			
 		velocity.x += $Rotate.scale.x * DASH_SPEED
-		
+		#apply_knockback(Vector2($Rotate.scale.x,0).normalized(), 2500 ,0.01)
 		state_nxt = STATES.DASH
 	
 
@@ -301,13 +300,8 @@ func state_stairs(delta):
 	
 	if Input.is_action_just_pressed("ActionE"):
 		
-		print('Desacendo escada')
-		
 		climbing = false
-		
 		initialize_idle()
-	
-	
 	
 	move_and_slide()
 

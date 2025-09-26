@@ -38,11 +38,11 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
+"times": PackedFloat32Array(0.53333336),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"initialize_idle"
+"method": &"initialize_run"
 }]
 }
 tracks/2/type = "value"
