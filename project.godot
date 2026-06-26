@@ -11,6 +11,7 @@ config_version=5
 [animation]
 
 warnings/check_invalid_track_paths=false
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
@@ -19,7 +20,7 @@ config/name_localized={
 "en": "SaveTheWorld"
 }
 run/main_scene="uid://hkca1ghlgt03"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 

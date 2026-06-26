@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hkca1ghlgt03"]
+[gd_scene format=3 uid="uid://hkca1ghlgt03"]
 
 [ext_resource type="Script" uid="uid://wk2maun8pj06" path="res://Scenes/Addons/introsplash.gd" id="1_blbdt"]
 [ext_resource type="Texture2D" uid="uid://ct12wmm051rpf" path="res://Artwork/Sprites/EDRO_FADE.png" id="1_y6u3w"]
@@ -56,7 +56,7 @@ _data = {
 &"new_animation": SubResource("Animation_b226h")
 }
 
-[node name="IntroSplash" type="Control"]
+[node name="IntroSplash" type="Control" unique_id=505125518]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_blbdt")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=901826265]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,22 +74,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0941176, 0.0784314, 0.145098, 1)
 
-[node name="EdroFade" type="Sprite2D" parent="."]
+[node name="EdroFade" type="Sprite2D" parent="." unique_id=1464224310]
 position = Vector2(160, 90)
 texture = ExtResource("1_y6u3w")
 hframes = 12
 metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_duh1u")
-}
-autoplay = "new_animation"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1807916241]
+libraries/ = SubResource("AnimationLibrary_duh1u")
+autoplay = &"new_animation"
 speed_scale = 0.2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1916493451]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1999151254]
 visible = false
 offset_left = 121.0
 offset_top = 64.0
@@ -100,7 +98,7 @@ theme_override_fonts/normal_font = ExtResource("2_o2w3i")
 theme_override_font_sizes/normal_font_size = 32
 text = "Created by"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer" unique_id=2008078176]
 visible = false
 offset_left = 83.0
 offset_top = 122.0
@@ -111,7 +109,7 @@ theme_override_fonts/normal_font = ExtResource("2_o2w3i")
 theme_override_font_sizes/normal_font_size = 32
 text = "Designed by ABACAXI"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="CanvasLayer" unique_id=681943655]
 visible = false
 offset_left = 239.0
 offset_top = 166.0
@@ -122,12 +120,12 @@ theme_override_fonts/normal_font = ExtResource("2_o2w3i")
 theme_override_font_sizes/normal_font_size = 32
 text = "Click to skip"
 
-[node name="SoftwareHardwareMouseClickInput" type="Sprite2D" parent="CanvasLayer"]
+[node name="SoftwareHardwareMouseClickInput" type="Sprite2D" parent="CanvasLayer" unique_id=568643029]
 position = Vector2(305, 167)
 scale = Vector2(-0.5, 0.5)
 texture = ExtResource("4_pvx7s")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1791783581]
 layout_mode = 0
 offset_left = 254.0
 offset_top = 4.0

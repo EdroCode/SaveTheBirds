@@ -198,28 +198,25 @@ func initialize_jump():
 	velocity.y -= JUMP_POWER
 
 func state_jump(delta):
-	
 	var dir := Input.get_axis("Left", "Right")
-	
+
 	if is_on_floor():
 		if dir:
 			initialize_run()
 		else:
 			initialize_idle()
-	
-	
+		return
+
 	if dir != 0:
 		velocity.x = dir * SPEED
-		
-		#gravity(delta)
-		
 		$Rotate.scale.x = dir
-	
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED * delta * 8)
+
 	if Input.is_action_just_pressed("Dash"):
 		initialize_dash(dir)
-	
-	move_and_slide()
 
+	move_and_slide()
 
 
 func initialize_hit():
